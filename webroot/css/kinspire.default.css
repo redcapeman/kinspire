@@ -1,0 +1,600 @@
+.pagetitle { 
+	/*letter-spacing:0.2em;*/
+	color: #555555;
+	font-variant: small-caps;
+}
+
+#content_wrapper {
+	/* border:1 px solid black; */
+	float:left;
+	width: 745px;
+}
+
+/** LAYOUT 951 CENTERED **/
+
+#wrapper {
+	width: 951px;
+	margin: 0px auto;	
+}
+
+/* ----- TYPOGRAPHY AND COLORS ----- */  
+
+body {
+	background-color: #FFFFFF;
+        margin: 10px 0px 10px 0px;
+        padding: 0;
+        font-family: "Trebuchet Ms", Helvetica;
+        font-size: 12px;
+        color: #333333;
+}
+
+/* default links */
+
+
+a {
+	text-decoration : none;
+	color: #91A946;
+}
+
+a:hover {
+	text-decoration : underline;
+	color: #A6C150;
+}
+
+/* remove default margins from paragraphs and headings, just leave 5px at the bottom */
+
+h1, h2, h3, h4, h5 {
+	margin: 0px 0px 0px 0px;
+}
+
+p {
+	margin: 0px 0px 0px 0px;
+}
+
+/* ----- HELPER CLASSES ----- */  
+
+/* FLOAT LEFT */
+
+.left {
+	float: left;
+}	
+
+/* FLOAT RIGHT */
+
+.right {
+	float: right;
+}	
+
+/* CLASS="RESET" : to be used after floats, to reset */
+
+.reset {
+	clear: both;
+	height: 1px;
+	overflow: hidden;
+}
+
+/* removes annoying borders from all linked images */
+
+img {
+	border: 0px;
+}
+
+div.hidden
+{
+  margin: 0px 0px 0px 0px;
+  display: none;
+}
+
+/* ---------- TOOLBAR ---------- */
+
+.toolbar {
+	width: 936px;
+}
+
+#toolbar ul {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	list-style: none;
+}
+
+#toolbar ul li {
+	float: left;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+}
+
+
+/* ------ TOOLBAR LINKS ------- */
+
+#toolbar a {
+	display: block;
+	width: 107px;
+	height: 20px;
+	background-position: 0px 0px;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+	color: #FFF;
+}
+
+#toolbar a.tb-selected:hover {
+	background-position: 0px -20px !important;
+}
+
+#toolbar a.tb-disabled {
+	background-position: 0px -80px !important;
+}
+
+#toolbar a.tb-normal {
+	background-position: 0px -40px !important;
+}
+
+#toolbar a.tb-normal:hover {
+	background-position: 0px -60px !important;
+}
+
+
+/* ------ TOOLBAR BUTTONS ------- */
+
+#toolbar a#tb-button {
+	background: url(images/toolbar/tb-button.gif);
+}
+
+/* ------- MAIN ----------- */
+
+#main {
+	float:left;
+}
+
+.boxsmallwrapper {
+	width: 200px;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+.boxmediumleftwrapper {
+	width: 266px;
+	margin-top: 5px;
+	margin-right: 5px;
+	float: left;
+}
+
+.boxmediumrightwrapper {
+	width: 266px;
+	margin-top: 5px;
+	float: left;
+}
+
+.boxsmallcontent {
+}
+
+.boxsmallrightwrapper {
+	width: 200px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+.boxsmallcontent {
+}
+
+.boxwrapper {
+	margin-top: 5px;
+}
+
+.boxfillcontent {
+}
+
+/* ------- FOOTER ----------- */
+
+#footer {
+	margin-top: 5px;
+}
+
+/* ------ GLOBAL CLASSES -------- */
+
+/*           DIVIDER              */
+
+.divider {
+	background: url(images/divider.gif) repeat-x;
+	width:950px;
+	height: 10px;
+	overflow: hidden; /* IE HACK */
+}
+
+.nullbox {	
+	width: 537px;
+	overflow: hidden; /* IE HACK */
+}
+
+/*           CREAM BOX            */
+
+.cbox {
+	background: url(images/boxcreambody.gif) repeat-y top left;	
+	overflow: hidden; /* IE HACK */
+}
+
+.cboxinner {
+	background: url(images/boxcreambody.gif) repeat-y top right;
+	margin: 0px 0px 0px 4px;
+	overflow: auto; /* IE HACK */
+
+}
+
+.cboxtop {
+	background: url(images/boxcreamtop.gif) no-repeat top left;
+	height: 4px;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden; /* IE HACK */
+}
+
+.cboxtopinner {
+	background: url(images/boxcreamtop.gif) no-repeat top right;
+	height: 4px;
+	margin: 0px 0px 0px 4px;
+	padding: 0px;
+	overflow: hidden; /* IE6 HACK */
+}
+
+.cboxbottom {
+	background: url(images/boxcreambottom.gif) no-repeat bottom left;
+	height: 5px;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden; /* IE HACK */
+}
+
+.cboxbottominner {
+	background: url(images/boxcreambottom.gif) no-repeat top right;
+	height: 5px;
+	margin: 0px 0px 0px 4px;
+	overflow: hidden; /* IE6 HACK */
+}
+
+/*           YELLOW BOX            */
+
+.ybox {
+	background: url(images/boxyellowbody.gif) repeat-y top left;	
+	overflow: hidden; /* IE HACK */
+}
+
+.yboxinner {
+	background: url(images/boxyellowbody.gif) repeat-y top right;
+	margin: 0px 0px 0px 6px;
+	overflow: hidden; /* IE HACK */
+
+}
+
+.yboxtop {
+	background: url(images/boxyellowtop.gif) no-repeat top left;
+	height: 4px;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden; /* IE HACK */
+}
+
+.yboxtopinner {
+	background: url(images/boxyellowtop.gif) no-repeat top right;
+	height: 4px;
+	margin: 0px 0px 0px 4px;
+	padding: 0px;
+	overflow: hidden; /* IE6 HACK */
+}
+
+.yboxbottom {
+	background: url(images/boxyellowbottom.gif) no-repeat bottom left;
+	height: 5px;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden; /* IE HACK */
+}
+
+.yboxbottominner {
+	background: url(images/boxyellowbottom.gif) no-repeat top right;
+	height: 5px;
+	margin: 0px 0px 0px 4px;
+	overflow: hidden; /* IE6 HACK */
+}
+
+/* Tables */
+table {
+	background: #fff;
+	border:1px solid #ccc;
+	border-right:0;
+	clear: both;
+	color: #333;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left:auto;
+	margin-right:auto;
+	width: 95%;
+}
+
+th {
+	background: #f2f2f2;
+	border:1px solid #bbb;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	text-align: center;
+}
+th a {
+	background:#f2f2f2;
+	display: block;
+	padding: 2px 4px;
+	text-decoration: none;
+}
+th a:hover {
+	background: #ccc;
+	color: #333;
+	text-decoration: none;
+}
+table tr td {
+	background: #fff;
+	border-right: 1px solid #ccc;
+	padding: 4px;
+	text-align: center;
+	vertical-align: top;
+}
+table tr.altrow td {
+	background: #f4f4f4;
+}
+td.actions {
+	text-align: center;
+	white-space: nowrap;
+}
+td.actions a {
+	margin: 0px 6px;
+}
+.cake-sql-log table {
+	background: #f4f4f4;
+}
+.cake-sql-log td {
+	padding: 4px 8px;
+	text-align: left;
+}
+
+/* Paging */
+div.paging {
+	/*margin-bottom: 2em;*/
+}
+div.paging div.disabled {
+	color: #bbb;
+	display: inline;
+}
+
+
+/* Notices and Errors */
+div.message {
+	clear: both;
+	color: #900;
+	font-size: 140%;
+	font-weight: bold;
+	margin: 1em 0;
+}
+div.error-message {
+	clear: both;
+	color: #900;
+	font-weight: bold;
+}
+p.error {
+	background-color: #e32;
+	color: #fff;
+	font-family: Courier, monospace;
+	font-size: 120%;
+	line-height: 140%;
+	padding: 0.8em;
+	margin: 1em 0;
+}
+p.error em {
+	color: #000;
+	font-weight: normal;
+	line-height: 140%;
+}
+.notice {
+	background: #ffcc00;
+	color: #000;
+	display: block;
+	font-family: Courier, monospace;
+	font-size: 120%;
+	line-height: 140%;
+	padding: 0.8em;
+	margin: 1em 0;
+}
+.success {
+	background: green;
+	color: #fff;
+}
+
+div.leftnav ul {
+    font-size: 14px;
+	margin: 5px 5px;
+	list-style: none;
+	padding: 0;
+}
+div.hidden ul {
+	font-weight: normal;
+	font-variant: normal;
+}
+
+/*  Actions  */
+div.actions ul {
+	margin: 0px 0;
+	padding: 0;
+}
+div.actions li {
+	display: inline;
+	list-style-type: none;
+	line-height: 2em;
+	margin: 0 2em 0 0;
+	white-space: nowrap;
+}
+div.actions ul li a {
+	color: #91A946;
+	text-decoration: none;
+}
+div.actions ul li a:hover {
+	color: #A6C150;
+	text-decoration: underline;
+}
+
+/* Related */
+div.related {
+	clear: both;
+	display: block;
+}
+
+/* Debugging */
+pre {
+	color: #000;
+	background: #f0f0f0;
+	padding: 1em;
+}
+pre.cake-debug {
+	background: #ffcc00;
+	font-size: 120%;
+	line-height: 140%;
+	margin-top: 1em;
+	overflow: auto;
+	position: relative;
+}
+div.cake-stack-trace {
+	background: #fff;
+	border: 4px dotted #ffcc00;
+	color: #333;
+	margin: 0px;
+	padding: 6px;
+	font-size: 120%;
+	line-height: 140%;
+	overflow: auto;
+	position: relative;
+}
+div.cake-code-dump pre {
+	position: relative;
+	overflow: auto;
+}
+div.cake-stack-trace pre, div.cake-code-dump pre {
+	color: #000;
+	background-color: #F0F0F0;
+	margin: 0px;
+	padding: 1em;
+	overflow: auto;
+}
+div.cake-code-dump pre, div.cake-code-dump pre code {
+	clear: both;
+	font-size: 12px;
+	line-height: 15px;
+	margin: 4px 2px;
+	padding: 4px;
+	overflow: auto;
+}
+div.cake-code-dump span.code-highlight {
+	background-color: #ff0;
+	padding: 4px;
+}
+div.code-coverage-results div.code-line {
+	padding-left:5px;
+	display:block;
+	margin-left:10px;
+}
+div.code-coverage-results div.uncovered span.content {
+	background:#ecc;
+}
+div.code-coverage-results div.covered span.content {
+	background:#cec;
+}
+div.code-coverage-results div.ignored span.content {
+	color:#aaa;
+}
+div.code-coverage-results span.line-num {
+	color:#666;
+	display:block;
+	float:left;
+	width:20px;
+	text-align:right;
+	margin-right:5px;
+}
+div.code-coverage-results span.line-num strong {
+	color:#666;
+}
+div.code-coverage-results div.start {
+	border:1px solid #aaa;
+	border-width:1px 1px 0px 1px;
+	margin-top:30px;
+	padding-top:5px;
+}
+div.code-coverage-results div.end {
+	border:1px solid #aaa;
+	border-width:0px 1px 1px 1px;
+	margin-bottom:30px;
+	padding-bottom:5px;
+}
+div.code-coverage-results div.realstart {
+	margin-top:0px;
+}
+div.code-coverage-results p.note {
+	color:#bbb;
+	padding:5px;
+	margin:5px 0 10px;
+	font-size:10px;
+}
+div.code-coverage-results span.result-bad {
+	color: #a00;
+}
+div.code-coverage-results span.result-ok {
+	color: #fa0;
+}
+div.code-coverage-results span.result-good {
+	color: #0a0;
+}
+
+/* Forms */
+form {
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+label {
+	display: block;
+	padding-right: 20px;
+}
+input:hover, select:hover, textarea:hover {
+    background: #EDF2DC;
+}
+ input:focus,  select:focus, textarea:focus {
+    background: #f9f9f1;
+}
+input.form, textarea.form {
+	border-top:1px dotted #999999;
+	border-bottom:1px dotted #999999;
+	border-left:1px dotted #999999;
+	border-right:1px dotted #999999;
+	display: block;
+	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
+	width: 50%;
+}
+input[type=checkbox] {
+	clear: left;
+	float: left;
+	width: auto;
+}
+div.submit input {
+	color: #FFF;
+	border:0; 
+	height:20px;
+	margin: 6px;
+	font-size:12px;
+	text-transform: uppercase;
+	background: url(images/toolbar/tb-button.gif);
+	background-position: 0px -40px !important;
+	width: 107px;
+}
+div.submit input:hover {
+	background-position: 0px -60px !important;
+}
+input hidden {
+	border-top:none;
+	border-bottom:none;
+	border-left:none;
+	border-right:none;
+}
