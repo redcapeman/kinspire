@@ -44,7 +44,7 @@
 			Owner
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Owner']['id'], array('controller'=> 'users', 'action'=>'view', $ticket['Owner']['id'])); ?>
+			<?php echo $html->link($ticket['Owner']['name'], array('controller'=> 'users', 'action'=>'view', $ticket['Owner']['id'])); ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
 	<?php if ($ticket['Reporter']['id']): ?>
@@ -52,7 +52,7 @@
 			Reporter
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Reporter']['id'], array('controller'=> 'users', 'action'=>'view', $ticket['Reporter']['id'])); ?>
+			<?php echo $html->link($ticket['Reporter']['name'], array('controller'=> 'users', 'action'=>'view', $ticket['Reporter']['id'])); ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
 	<?php if ($ticket['Version']['name']): ?>
@@ -127,6 +127,15 @@
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
 		<?php echo $ticket['Ticket']['created']; ?>
+	<?php echo $this->element('cboxbottom'); ?>
+	<div class="reset"></div>
+<?php endif; ?>
+<?php if ($ticket['Ticket']['due']): ?>
+	<?php echo $this->element('yboxmediumtop'); ?>
+		Due
+	<?php echo $this->element('yboxbottom'); ?>
+	<?php echo $this->element('cboxmediumtop'); ?>
+		<?php echo $ticket['Ticket']['due']; ?>
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>

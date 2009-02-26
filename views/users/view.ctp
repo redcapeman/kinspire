@@ -19,6 +19,15 @@
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
+<?php if ($user['User']['name']): ?>
+	<?php echo $this->element('yboxmediumtop'); ?>
+		Name
+	<?php echo $this->element('yboxbottom'); ?>
+	<?php echo $this->element('cboxmediumtop'); ?>
+		<?php echo $user['User']['name']; ?>
+	<?php echo $this->element('cboxbottom'); ?>
+	<div class="reset"></div>
+<?php endif; ?>
 <?php if ($user['User']['username']): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
 		Username
