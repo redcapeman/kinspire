@@ -1,7 +1,7 @@
 <div class="right">
 	<?php if ($user['Group']['name']): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
-			<strong>Group</strong>
+			Group
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
 			<?php echo $html->link($user['Group']['name'], array('controller'=> 'groups', 'action'=>'view', $user['Group']['id'])); ?>
@@ -12,7 +12,7 @@
 <div class="nullbox">
 <?php if ($user['User']['id']): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
-		<strong>Id</strong>
+		Id
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
 		<?php echo $user['User']['id']; ?>
@@ -21,7 +21,7 @@
 <?php endif; ?>
 <?php if ($user['User']['username']): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
-		<strong>Username</strong>
+		Username
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
 		<?php echo $user['User']['username']; ?>
@@ -30,7 +30,7 @@
 <?php endif; ?>
 <?php if ($user['User']['created']): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
-		<strong>Created</strong>
+		Created
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
 		<?php echo $user['User']['created']; ?>
@@ -39,7 +39,7 @@
 <?php endif; ?>
 <?php if ($user['User']['updated']): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
-		<strong>Updated</strong>
+		Updated
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
 		<?php echo $user['User']['updated']; ?>

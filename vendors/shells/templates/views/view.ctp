@@ -32,7 +32,7 @@ foreach ($fields as $field) {
 				$isKey = true;
 				echo "\t<?php if (\${$singularVar}['{$alias}']['{$details['displayField']}']): ?>\n";
 				echo "\t\t<?php echo \$this->element('yboxsmallrighttop'); ?>\n";
-				echo "\t\t\t<strong>" . Inflector::humanize(Inflector::underscore($alias)) . "</strong>\n";
+				echo "\t\t\t" . Inflector::humanize(Inflector::underscore($alias)) . "\n";
 				echo "\t\t<?php echo \$this->element('yboxbottom'); ?>\n";
 				echo "\t\t<?php echo \$this->element('cboxsmallrighttop'); ?>\n";
 				echo "\t\t\t<?php echo \$html->link(\${$singularVar}['{$alias}']['{$details['displayField']}'], array('controller'=> '{$details['controller']}', 'action'=>'view', \${$singularVar}['{$alias}']['{$details['primaryKey']}'])); ?>\n";
@@ -77,7 +77,7 @@ foreach ($fields as $field) {
 	if ($isKey !== true) {
 		echo "<?php if (\${$singularVar}['{$modelClass}']['{$field}']): ?>\n";
 		echo "\t<?php echo \$this->element('yboxmediumtop'); ?>\n";
-		echo "\t\t<strong>" . Inflector::humanize($field) . "</strong>\n";
+		echo "\t\t" . Inflector::humanize($field) . "\n";
 		echo "\t<?php echo \$this->element('yboxbottom'); ?>\n";
 		echo "\t<?php echo \$this->element('cboxmediumtop'); ?>\n";
 		echo "\t\t<?php echo \${$singularVar}['{$modelClass}']['{$field}']; ?>\n";
