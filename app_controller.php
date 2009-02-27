@@ -9,7 +9,7 @@ class AppController extends Controller {
         $this->Auth->authorize = 'actions';
 		//$this->Auth->enabled = false;
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
-        $this->Auth->loginRedirect = array('controller' => 'users', 'action' => 'view', $this->Auth->user('id'));
+        $this->Auth->loginRedirect = array('controller' => 'projects', 'action' => 'index');
         $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginError = 'Sorry, the information you have entered is incorrect.';
 		//$this->Auth->allowedActions = array('display', 'login', 'logout');
@@ -60,7 +60,7 @@ class AppController extends Controller {
 		$controllerName = Inflector::humanize(Inflector::singularize($this->params['controller']));
 		
 		if ($url == 'dashboard') {
-			$url = array('controller'=>'users', 'action'=>'view', $this->Auth->user('id'));
+			$url = array('controller'=>'projects', 'action'=>'index');
 		} elseif ($url == 'index') {
 			$url = array('action'=>'index');
 		}
