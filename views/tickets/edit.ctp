@@ -33,6 +33,6 @@ echo $this->element('cboxbottom');
 echo $this->element('cboxtop');
 		echo $form->input('is_open', array('class'=>'form', 'label'=>null));
 echo $this->element('cboxbottom');
-		echo $form->input('id');
+		echo $form->input('id'); // adding this for now since it won't work without it
 	?>
 <?php echo $form->end('Submit');?>
