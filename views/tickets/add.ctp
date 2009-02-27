@@ -34,7 +34,7 @@ echo $this->element('cboxtop');
 		echo $form->input('milestone_id', array('class'=>'form', 'label'=>null));
 echo $this->element('cboxbottom');
 echo $this->element('cboxtop');
-		echo $form->input('status_id', array('class'=>'form', 'label'=>null));
+		echo $form->input('TicketChange.0.status_id', array('class'=>'form', 'label'=>null));
 echo $this->element('cboxbottom');
 echo $this->element('cboxtop');
 		echo $form->input('is_due', array('type'=>'checkbox', 'class'=>'form', 'label'=>null));
