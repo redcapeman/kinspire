@@ -18,6 +18,9 @@ class Milestone extends AppModel {
 	var $belongsTo = array(
 			'Project' => array('className' => 'Project',
 								'foreignKey' => 'project_id'
+			),
+			'Owner' => array('className' => 'User',
+								'foreignKey' => 'owner_id'
 			)
 	);
 

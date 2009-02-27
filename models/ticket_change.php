@@ -10,6 +10,9 @@ class TicketChange extends AppModel {
 			),
 			'User' => array('className' => 'User',
 								'foreignKey' => 'user_id'
+			),
+			'Status' => array('className' => 'Status',
+								'foreignKey' => 'status_id'
 			)
 	);
 

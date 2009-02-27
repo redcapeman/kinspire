@@ -23,8 +23,9 @@ class MilestonesController extends AppController {
 			}
 		}
 		$this->data['Milestone']['project_id'] = $projectId;
+		$owners = $this->Milestone->Owner->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
 		$projects = $this->Milestone->Project->find('list', array('conditions' => array('id' => $this->data['Milestone']['project_id'])));
-		$this->set(compact('projects'));
+		$this->set(compact('projects', 'owners'));
 	}
 
 	function edit($id = null) {

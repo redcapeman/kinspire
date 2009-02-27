@@ -60,6 +60,14 @@ class User extends AppModel {
 			'Timeclock' => array('className' => 'Timeclock',
 								'foreignKey' => 'user_id',
 								'dependent' => false
+			),
+			'Version' => array('className' => 'Version',
+								'foreignKey' => 'owner_id',
+								'dependent' => false
+			),
+			'Milestone' => array('className' => 'Milestone',
+								'foreignKey' => 'owner_id',
+								'dependent' => false
 			)
 	);
 

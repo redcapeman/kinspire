@@ -31,9 +31,6 @@ class Ticket extends AppModel {
 			),
 			'Milestone' => array('className' => 'Milestone',
 								'foreignKey' => 'milestone_id'
-			),
-			'Status' => array('className' => 'Status',
-								'foreignKey' => 'status_id'
 			)
 	);
 

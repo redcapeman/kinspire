@@ -9,7 +9,6 @@
 			<th><?php echo $paginator->sort('severity_id');?></th>
 			<th><?php echo $paginator->sort('priority_id');?></th>
 			<th><?php echo $paginator->sort('milestone_id');?></th>
-			<th><?php echo $paginator->sort('status_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -44,9 +43,6 @@
 		</td>
 		<td>
 			<?php echo $html->link($ticket['Milestone']['name'], array('controller'=> 'milestones', 'action'=>'view', $ticket['Milestone']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $html->link($ticket['Status']['name'], array('controller'=> 'statuses', 'action'=>'view', $ticket['Status']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('View', true), array('action'=>'view', $ticket['Ticket']['id'])); ?>

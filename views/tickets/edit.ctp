@@ -31,10 +31,8 @@ echo $this->element('cboxtop');
 		echo $form->input('milestone_id', array('class'=>'form', 'label'=>null));
 echo $this->element('cboxbottom');
 echo $this->element('cboxtop');
-		echo $form->input('status_id', array('class'=>'form', 'label'=>null));
+		echo $form->input('is_open', array('class'=>'form', 'label'=>null));
 echo $this->element('cboxbottom');
-echo $this->element('cboxtop');
-		echo $form->input('due', array('class'=>'form', 'label'=>null));
-echo $this->element('cboxbottom');
+		echo $form->input('id');
 	?>
 <?php echo $form->end('Submit');?>

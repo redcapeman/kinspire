@@ -3,6 +3,7 @@ class AppController extends Controller {
     
     //var $components = array('Acl', 'Auth', 'DebugKit.Toolbar');
     var $components = array('Acl', 'Auth');
+	var $passed = null;
 
     function beforeFilter() {
         $this->Auth->authorize = 'actions';
@@ -14,19 +15,42 @@ class AppController extends Controller {
 		//$this->Auth->allowedActions = array('display', 'login', 'logout');
 		$this->Auth->allowedActions = array('*');
 		
-		if ($this->Auth->user()) {
+		if ($this->Auth->user('id')) {
 			$openTimeclocks = ClassRegistry::init('Timeclock');
 			$openTimeclocks = $openTimeclocks->openTimeclocks($this->Auth->user('id'));
 			$this->set('OpenTimeclocks', $openTimeclocks);
 			$userProjects = ClassRegistry::init('Project');
 			$userProjects = $userProjects->userProjects($this->Auth->user('id'));
 			$this->set('UserProjects', $userProjects);
+			
+			foreach ($this->params['pass'] as $pass) {
+				$this->passed .= $pass . ',';
+			}
+			
+			$this->passed = rtrim($this->passed, ",");
+			$this->logAction();
         } else {
         	$this->Session->write('Auth.User.username', 'Guest');
         }
 		
 		$this->pageTitle = Inflector::humanize($this->params['controller']) . ' : ' . Inflector::humanize($this->params['action']);
     }
+	
+	// This function tracks our user's actions
+	function logAction ()
+	{
+		//Prepare the data variable
+		$this->data['ActionLog']['user_id'] = $this->Auth->user('id');
+		$this->data['ActionLog']['controller'] = $this->params['controller'];
+		$this->data['ActionLog']['action'] = $this->params['action'];
+		$this->data['ActionLog']['params'] = $this->passed;
+		
+		$actionLog = ClassRegistry::init('ActionLog');
+		$actionLog->create();
+		$actionLog->save($this->data);
+		
+		unset($this->data['ActionLog']);
+	}
 	
 	function afterFilter() {
 	}

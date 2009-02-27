@@ -4,6 +4,7 @@ class TicketsController extends AppController {
 	var $name = 'Tickets';
 	var $helpers = array('Html', 'Form');
 	var $paginate = array();
+	var $uses = array('Ticket', 'Status');
 
 	function index() {
 		$this->Ticket->recursive = 0;
@@ -17,7 +18,7 @@ class TicketsController extends AppController {
 			
 		$this->paginate = array(
 	        'conditions' => array(
-	            'Ticket.status_id <' => 3,
+	            'Ticket.is_open' => 1,
 	            'Ticket.project_id' => $projectId
 			),
 	        'order' => array(
@@ -39,14 +40,16 @@ class TicketsController extends AppController {
 
 	function add($projectId = null) {
 		if (!$projectId && empty($this->data)) {
-			$this->flash('noid', 'noid');
+			$this->flash('noid', 'index');
 		}
 		
 		if (!empty($this->data)) {
 			if ($this->data['TicketChange']['0']['description'] == '') {
 				$this->data['TicketChange']['0']['description'] = null;
 			}
+			$this->data['TicketChange']['0']['resolution'] = null;
 			$this->data['TicketChange']['0']['user_id'] = $this->Auth->user('id');
+			$this->data['Ticket']['is_open'] = '1';
 			if ($this->Ticket->saveAll($this->data, array('validate'=>'first'))) {
 				$this->flash('saved', array('action'=>'view', $this->Ticket->id));
 			} else {
@@ -63,7 +66,7 @@ class TicketsController extends AppController {
 		$reporters = $this->Ticket->Reporter->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
 		$versions = $this->Ticket->Version->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
 		$milestones = $this->Ticket->Milestone->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
-		$statuses = $this->Ticket->Status->find('list');
+		$statuses = $this->Status->find('list');
 		$this->set(compact('projects', 'types', 'elements', 'severities', 'priorities', 'owners', 'reporters', 'versions', 'milestones', 'statuses'));
 	}
 
@@ -90,8 +93,7 @@ class TicketsController extends AppController {
 		$reporters = $this->Ticket->Reporter->find('list', array('fields'=>array('username')));
 		$versions = $this->Ticket->Version->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
 		$milestones = $this->Ticket->Milestone->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
-		$statuses = $this->Ticket->Status->find('list');
-		$this->set(compact('projects', 'types', 'elements', 'severities', 'priorities', 'owners', 'reporters', 'versions', 'milestones', 'statuses'));
+		$this->set(compact('projects', 'types', 'elements', 'severities', 'priorities', 'owners', 'reporters', 'versions', 'milestones'));
 	}
 
 	function delete($id = null) {

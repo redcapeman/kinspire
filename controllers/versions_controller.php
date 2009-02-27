@@ -23,8 +23,9 @@ class VersionsController extends AppController {
 			}
 		}
 		$this->data['Version']['project_id'] = $projectId;
+		$owners = $this->Version->Owner->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
 		$projects = $this->Version->Project->find('list', array('conditions' => array('id' => $this->data['Version']['project_id'])));
-		$this->set(compact('projects'));
+		$this->set(compact('projects', 'owners'));
 	}
 
 	function edit($id = null) {

@@ -1,3 +1,6 @@
+<?php if ($ticket['TicketChange']): ?>
+	<?php $currentChange = array_pop($ticket['TicketChange']); ?>
+<?php endif; ?>
 <div class="right">
 	<?php if ($ticket['Project']['name']): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
@@ -71,16 +74,7 @@
 			<?php echo $html->link($ticket['Milestone']['name'], array('controller'=> 'milestones', 'action'=>'view', $ticket['Milestone']['id'])); ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if ($ticket['Status']['name']): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
-			Status
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Status']['name'], array('controller'=> 'statuses', 'action'=>'view', $ticket['Status']['id'])); ?>
-		<?php echo $this->element('cboxbottom'); ?>
-	<?php endif; ?>
 </div>
-
 <div class="nullbox">
 <?php if ($ticket['Ticket']['id']): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
@@ -99,9 +93,6 @@
 		<?php echo $ticket['Ticket']['title']; ?>
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
-<?php endif; ?>
-<?php if ($ticket['TicketChange']): ?>
-	<?php $currentChange = array_pop($ticket['TicketChange']); ?>
 <?php endif; ?>
 <?php if (isset($currentChange['description'])): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
@@ -130,12 +121,12 @@
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if ($ticket['Ticket']['due']): ?>
+<?php if (isset($currentChange['due'])): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
 		Due
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
-		<?php echo $ticket['Ticket']['due']; ?>
+		<?php echo $currentChange['due']; ?>
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
@@ -145,6 +136,24 @@
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
 		<?php echo $ticket['Ticket']['updated']; ?>
+	<?php echo $this->element('cboxbottom'); ?>
+	<div class="reset"></div>
+<?php endif; ?>
+<?php if (isset($currentChange['completed'])): ?>
+	<?php echo $this->element('yboxmediumtop'); ?>
+		Completed
+	<?php echo $this->element('yboxbottom'); ?>
+	<?php echo $this->element('cboxmediumtop'); ?>
+		<?php echo $currentChange['completed']; ?>
+	<?php echo $this->element('cboxbottom'); ?>
+	<div class="reset"></div>
+<?php endif; ?>
+<?php if ($ticket['Ticket']['is_open']): ?>
+	<?php echo $this->element('yboxmediumtop'); ?>
+		Is Open
+	<?php echo $this->element('yboxbottom'); ?>
+	<?php echo $this->element('cboxmediumtop'); ?>
+		<?php echo $ticket['Ticket']['is_open']; ?>
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>

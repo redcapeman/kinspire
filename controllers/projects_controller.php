@@ -13,7 +13,7 @@ class ProjectsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Project->create();
 			if ($this->Project->save($this->data)) {
-				$this->flash('saved', array('action'=>'view', $this->Project->id));
+				$this->flash('saved', 'index');
 			} else {
 				$this->flash('failed');
 			}
@@ -30,7 +30,7 @@ class ProjectsController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->Project->save($this->data)) {
-				$this->flash('saved', array('action'=>'view', $this->Project->id));
+				$this->flash('saved', 'index');
 			} else {
 				$this->flash('failed');
 			}

@@ -4,6 +4,7 @@
 			<th><?php echo $paginator->sort('id');?></th>
 			<th><?php echo $paginator->sort('name');?></th>
 			<th><?php echo $paginator->sort('codename');?></th>
+			<th><?php echo $paginator->sort('owner_id');?></th>
 			<th><?php echo $paginator->sort('project_id');?></th>
 			<th><?php echo $paginator->sort('due');?></th>
 			<th><?php echo $paginator->sort('completed');?></th>
@@ -26,6 +27,9 @@
 		</td>
 		<td>
 			<?php echo $milestone['Milestone']['codename']; ?>
+		</td>
+		<td>
+			<?php echo $html->link($milestone['Owner']['username'], array('controller'=> 'users', 'action'=>'view', $milestone['Owner']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $html->link($milestone['Project']['name'], array('controller'=> 'projects', 'action'=>'view', $milestone['Project']['id'])); ?>
