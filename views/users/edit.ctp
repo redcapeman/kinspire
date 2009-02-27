@@ -12,5 +12,6 @@ echo $this->element('cboxbottom');
 echo $this->element('cboxtop');
 		echo $form->input('group_id', array('class'=>'form', 'label'=>null));
 echo $this->element('cboxbottom');
+		echo $form->input('id');
 	?>
 <?php echo $form->end('Submit');?>
