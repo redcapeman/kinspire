@@ -46,6 +46,18 @@ class MilestonesController extends AppController {
 		$this->set(compact('projects'));
 	}
 
+	function complete($id = null) {
+		if (!$id) {
+			$this->flash('invalid', 'index');
+		}
+		$this->data['Milestone']['completed'] = date('Y-m-d H:i:s');
+		if ($this->Milestone->save($this->data)) {
+			$this->flash('saved', 'index');
+		} else {
+			$this->flash('failed', 'index');
+		}
+	}
+
 	function delete($id = null) {
 		if (!$id) {
 			$this->flash('invalid', 'index');

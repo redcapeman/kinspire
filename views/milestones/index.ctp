@@ -41,6 +41,7 @@
 			<?php echo $milestone['Milestone']['completed']; ?>
 		</td>
 		<td class="actions">
+			<?php echo $html->link(__('Complete', true), array('action'=>'complete', $milestone['Milestone']['id'])); ?>
 			<?php echo $html->link(__('Edit', true), array('action'=>'edit', $milestone['Milestone']['id'])); ?>
 			<?php echo $html->link(__('Delete', true), array('action'=>'delete', $milestone['Milestone']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $milestone['Milestone']['id'])); ?>
 		</td>
