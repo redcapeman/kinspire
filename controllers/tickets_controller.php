@@ -47,6 +47,11 @@ class TicketsController extends AppController {
 			if ($this->data['TicketChange']['0']['description'] == '') {
 				$this->data['TicketChange']['0']['description'] = null;
 			}
+			
+			if ($this->data['Ticket']['is_due'] == 0) {
+				$this->data['TicketChange']['0']['due'] = null;
+			}
+			
 			$this->data['TicketChange']['0']['resolution'] = null;
 			$this->data['TicketChange']['0']['user_id'] = $this->Auth->user('id');
 			$this->data['Ticket']['is_open'] = '1';
