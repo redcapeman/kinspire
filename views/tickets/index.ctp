@@ -21,6 +21,7 @@
 			$class = ' class="altrow"';
 		}
 		
+		$ticketChange = null;
 		foreach ($ticket['TicketChange'] as $ticketChange) {
 			if ($ticketChange['is_active']) {
 				break;
