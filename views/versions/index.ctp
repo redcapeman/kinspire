@@ -3,7 +3,6 @@
 	<tr>
 			<th><?php echo $paginator->sort('id');?></th>
 			<th><?php echo $paginator->sort('name');?></th>
-			<th><?php echo $paginator->sort('description');?></th>
 			<th><?php echo $paginator->sort('owner_id');?></th>
 			<th><?php echo $paginator->sort('project_id');?></th>
 			<th><?php echo $paginator->sort('created');?></th>
@@ -23,9 +22,6 @@
 		</td>
 		<td>
 			<?php echo $version['Version']['name']; ?>
-		</td>
-		<td>
-			<?php echo $version['Version']['description']; ?>
 		</td>
 		<td>
 			<?php echo $html->link($version['Owner']['username'], array('controller'=> 'users', 'action'=>'view', $version['Owner']['id'])); ?>
