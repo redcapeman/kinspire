@@ -14,7 +14,7 @@ class Element extends AppModel {
 	);
 
 	var $hasMany = array(
-			'Ticket' => array('className' => 'Ticket',
+			'TicketChange' => array('className' => 'TicketChange',
 								'foreignKey' => 'element_id',
 								'dependent' => false
 			),

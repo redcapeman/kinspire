@@ -4,7 +4,7 @@
 			Group
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($user['Group']['name'], array('controller'=> 'groups', 'action'=>'view', $user['Group']['id'])); ?>
+			<?php echo $user['Group']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
 </div>

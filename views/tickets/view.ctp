@@ -7,47 +7,47 @@
 			Project
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Project']['name'], array('controller'=> 'projects', 'action'=>'view', $ticket['Project']['id'])); ?>
+			<?php echo $ticket['Project']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if ($ticket['Type']['name']): ?>
+	<?php if (isset($currentChange['Type']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Type
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Type']['name'], array('controller'=> 'types', 'action'=>'view', $ticket['Type']['id'])); ?>
+			<?php echo $currentChange['Type']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if ($ticket['Element']['name']): ?>
+	<?php if (isset($currentChange['Element']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Element
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Element']['name'], array('controller'=> 'elements', 'action'=>'view', $ticket['Element']['id'])); ?>
+			<?php echo $currentChange['Element']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if ($ticket['Severity']['name']): ?>
+	<?php if (isset($currentChange['Severity']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Severity
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Severity']['name'], array('controller'=> 'severities', 'action'=>'view', $ticket['Severity']['id'])); ?>
+			<?php echo $currentChange['Severity']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if ($ticket['Priority']['name']): ?>
+	<?php if (isset($currentChange['Priority']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Priority
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Priority']['name'], array('controller'=> 'priorities', 'action'=>'view', $ticket['Priority']['id'])); ?>
+			<?php echo $currentChange['Priority']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if ($ticket['Owner']['id']): ?>
+	<?php if (isset($currentChange['TicketOwner']['id']) && isset($currentChange['TicketOwner']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Owner
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Owner']['name'], array('controller'=> 'users', 'action'=>'view', $ticket['Owner']['id'])); ?>
+			<?php echo $html->link($currentChange['TicketOwner']['name'], array('controller'=> 'users', 'action'=>'view', $currentChange['TicketOwner']['id'])); ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
 	<?php if ($ticket['Reporter']['id']): ?>
@@ -58,20 +58,28 @@
 			<?php echo $html->link($ticket['Reporter']['name'], array('controller'=> 'users', 'action'=>'view', $ticket['Reporter']['id'])); ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if ($ticket['Version']['name']): ?>
+	<?php if (isset($currentChange['Version']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Version
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Version']['name'], array('controller'=> 'versions', 'action'=>'view', $ticket['Version']['id'])); ?>
+			<?php echo $currentChange['Version']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if ($ticket['Milestone']['name']): ?>
+	<?php if (isset($currentChange['Milestone']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Milestone
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticket['Milestone']['name'], array('controller'=> 'milestones', 'action'=>'view', $ticket['Milestone']['id'])); ?>
+			<?php echo $currentChange['Milestone']['name']; ?>
+		<?php echo $this->element('cboxbottom'); ?>
+	<?php endif; ?>
+	<?php if (isset($currentChange['Status']['name'])): ?>
+		<?php echo $this->element('yboxsmallrighttop'); ?>
+			Status
+		<?php echo $this->element('yboxbottom'); ?>
+		<?php echo $this->element('cboxsmallrighttop'); ?>
+			<?php echo $currentChange['Status']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
 </div>

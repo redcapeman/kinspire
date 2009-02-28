@@ -42,10 +42,6 @@ class User extends AppModel {
 								'dependent' => false
 			),
 			'Ticket' => array('className' => 'Ticket',
-								'foreignKey' => 'owner_id',
-								'dependent' => false
-			),
-			'ReportedTicket' => array('className' => 'Ticket',
 								'foreignKey' => 'reporter_id',
 								'dependent' => false
 			),

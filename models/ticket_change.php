@@ -13,6 +13,27 @@ class TicketChange extends AppModel {
 			),
 			'Status' => array('className' => 'Status',
 								'foreignKey' => 'status_id'
+			),
+			'Type' => array('className' => 'Type',
+								'foreignKey' => 'type_id'
+			),
+			'Element' => array('className' => 'Element',
+								'foreignKey' => 'element_id'
+			),
+			'Severity' => array('className' => 'Severity',
+								'foreignKey' => 'severity_id'
+			),
+			'Priority' => array('className' => 'Priority',
+								'foreignKey' => 'priority_id'
+			),
+			'TicketOwner' => array('className' => 'User',
+								'foreignKey' => 'ticket_owner_id'
+			),
+			'Version' => array('className' => 'Version',
+								'foreignKey' => 'version_id'
+			),
+			'Milestone' => array('className' => 'Milestone',
+								'foreignKey' => 'milestone_id'
 			)
 	);
 

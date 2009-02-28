@@ -5,7 +5,7 @@ class Type extends AppModel {
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 	var $hasMany = array(
-			'Ticket' => array('className' => 'Ticket',
+			'TicketChange' => array('className' => 'TicketChange',
 								'foreignKey' => 'type_id',
 								'dependent' => false
 			)
