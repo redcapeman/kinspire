@@ -67,8 +67,7 @@ class TicketsController extends AppController {
 		$elements = $this->Ticket->Element->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
 		$severities = $this->Ticket->Severity->find('list');
 		$priorities = $this->Ticket->Priority->find('list');
-		$owners = $this->Ticket->Owner->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
-		$reporters = $this->Ticket->Reporter->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
+		$owners = $reporters = $this->Ticket->Owner->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
 		$versions = $this->Ticket->Version->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
 		$milestones = $this->Ticket->Milestone->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
 		$statuses = $this->Status->find('list');
@@ -94,8 +93,7 @@ class TicketsController extends AppController {
 		$elements = $this->Ticket->Element->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
 		$severities = $this->Ticket->Severity->find('list');
 		$priorities = $this->Ticket->Priority->find('list');
-		$owners = $this->Ticket->Owner->find('list', array('fields'=>array('username')));
-		$reporters = $this->Ticket->Reporter->find('list', array('fields'=>array('username')));
+		$owners = $reporters = $this->Ticket->Owner->find('list', array('fields'=>array('username')));
 		$versions = $this->Ticket->Version->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
 		$milestones = $this->Ticket->Milestone->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
 		$this->set(compact('projects', 'types', 'elements', 'severities', 'priorities', 'owners', 'reporters', 'versions', 'milestones'));

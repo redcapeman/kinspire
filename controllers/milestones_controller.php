@@ -23,7 +23,7 @@ class MilestonesController extends AppController {
 			}
 		}
 		$this->data['Milestone']['project_id'] = $projectId;
-		$owners = $this->Milestone->Owner->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
+		$owners = $this->Milestone->Owner->find('list', array('fields'=>array('username')));
 		$projects = $this->Milestone->Project->find('list', array('conditions' => array('id' => $this->data['Milestone']['project_id'])));
 		$this->set(compact('projects', 'owners'));
 	}
@@ -42,8 +42,9 @@ class MilestonesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Milestone->read(null, $id);
 		}
+		$owners = $this->Milestone->Owner->find('list', array('fields'=>array('username')));
 		$projects = $this->Milestone->Project->find('list');
-		$this->set(compact('projects'));
+		$this->set(compact('projects', 'owners'));
 	}
 
 	function complete($id = null) {

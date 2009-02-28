@@ -19,8 +19,7 @@ class ProjectsController extends AppController {
 			}
 		}
 		$this->data['Project']['is_active'] = 1;
-		$clients = $this->Project->Client->find('list', array('fields'=>array('username')));
-		$owners = $this->Project->Owner->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
+		$clients = $owners = $this->Project->Client->find('list', array('fields'=>array('username')));
 		$this->set(compact('clients', 'owners'));
 	}
 
@@ -38,8 +37,7 @@ class ProjectsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Project->read(null, $id);
 		}
-		$clients = $this->Project->Client->find('list', array('fields'=>array('username')));
-		$owners = $this->Project->Owner->find('list', array('fields'=>array('username')));
+		$clients = $owners = $this->Project->Client->find('list', array('fields'=>array('username')));
 		$this->set(compact('clients','owners'));
 	}
 

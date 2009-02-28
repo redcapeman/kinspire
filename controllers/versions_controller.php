@@ -23,7 +23,7 @@ class VersionsController extends AppController {
 			}
 		}
 		$this->data['Version']['project_id'] = $projectId;
-		$owners = $this->Version->Owner->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
+		$owners = $this->Version->Owner->find('list', array('fields'=>array('username')));
 		$projects = $this->Version->Project->find('list', array('conditions' => array('id' => $this->data['Version']['project_id'])));
 		$this->set(compact('projects', 'owners'));
 	}
@@ -42,8 +42,9 @@ class VersionsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Version->read(null, $id);
 		}
+		$owners = $this->Version->Owner->find('list', array('fields'=>array('username')));
 		$projects = $this->Version->Project->find('list');
-		$this->set(compact('projects'));
+		$this->set(compact('projects', 'owners'));
 	}
 
 	function delete($id = null) {
