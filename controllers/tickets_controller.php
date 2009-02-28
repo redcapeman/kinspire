@@ -7,7 +7,16 @@ class TicketsController extends AppController {
 	var $uses = array('Ticket', 'Status', 'Type', 'Element', 'Severity', 'Priority', 'Version', 'Milestone');
 
 	function index() {
-	    $this->set('tickets', $this->paginate());
+	    $types = $this->Type->find('list');
+		$elements = $this->Element->find('list');
+		$severities = $this->Severity->find('list');
+		$priorities = $this->Priority->find('list');
+		$versions = $this->Version->find('list');
+		$milestones = $this->Milestone->find('list');
+		$statuses = $this->Status->find('list');
+		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses'));
+		
+		$this->set('tickets', $this->paginate());
 	}
 
 	function open_by_project($projectId) {
