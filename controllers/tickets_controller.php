@@ -7,21 +7,29 @@ class TicketsController extends AppController {
 	var $uses = array('Ticket', 'Status', 'Type', 'Element', 'Severity', 'Priority', 'Version', 'Milestone');
 
 	function index() {
-		$this->Ticket->recursive = 0;
-		$this->set('tickets', $this->paginate());
+	    $this->set('tickets', $this->paginate());
 	}
 
 	function open_by_project($projectId) {
 		if(!$projectId) {
 			$this->flash('noid', 'index');
 		}
-			
+		
 		$this->paginate = array(
 	        'conditions' => array(
 	            'Ticket.is_open' => 1,
 	            'Ticket.project_id' => $projectId
 			)
 	    );
+		
+		$types = $this->Type->find('list');
+		$elements = $this->Element->find('list');
+		$severities = $this->Severity->find('list');
+		$priorities = $this->Priority->find('list');
+		$versions = $this->Version->find('list');
+		$milestones = $this->Milestone->find('list');
+		$statuses = $this->Status->find('list');
+		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses'));
 		
 		$this->set('tickets', $this->paginate());
 	    $this->render(null, null, 'index');
@@ -49,6 +57,7 @@ class TicketsController extends AppController {
 				$this->data['TicketChange']['0']['due'] = null;
 			}
 			
+			$this->data['TicketChange']['0']['is_active'] = 1;
 			$this->data['TicketChange']['0']['resolution'] = null;
 			$this->data['TicketChange']['0']['user_id'] = $this->Auth->user('id');
 			$this->data['Ticket']['is_open'] = '1';

@@ -27,6 +27,11 @@ class TicketChangesController extends AppController {
 			if ($this->data['TicketChange']['resolution'] == '') {
 				$this->data['TicketChange']['resolution'] = null;
 			}
+			$this->data['TicketChange']['is_active'] = 1;
+			$this->TicketChange->updateAll(
+			    array('TicketChange.is_active' => '0'),
+			    array('TicketChange.ticket_id' => $this->data['TicketChange']['ticket_id'])
+			);
 			$this->TicketChange->create();
 			if ($this->TicketChange->saveAll($this->data, array('validate'=>'last'))) {
 				$this->flash('saved', array('controller'=>'tickets', 'action'=>'view', $this->data['TicketChange']['ticket_id']));
@@ -35,8 +40,7 @@ class TicketChangesController extends AppController {
 			}
 		}
 		$conditions = array(
-			'conditions' => array('TicketChange.ticket_id' => $ticketId),
-			'order' => array('TicketChange.id DESC')
+			'conditions' => array('TicketChange.ticket_id' => $ticketId, 'TicketChange.is_active' => 1)
 		);
 		$this->data = $this->TicketChange->find('first', $conditions);
 		if (empty($this->data)) {
