@@ -1,12 +1,12 @@
 <?php
 class AppController extends Controller {
     
-    //var $components = array('Acl', 'Auth', 'DebugKit.Toolbar');
     var $components = array('Acl', 'Auth');
 	var $passed = null;
 
     function beforeFilter() {
-        $this->Auth->authorize = 'actions';
+        // auth component stuff
+		$this->Auth->authorize = 'actions';
 		//$this->Auth->enabled = false;
         $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'projects', 'action' => 'index');
@@ -15,6 +15,7 @@ class AppController extends Controller {
 		//$this->Auth->allowedActions = array('display', 'login', 'logout');
 		$this->Auth->allowedActions = array('*');
 		
+		// if the user is logged in and see if they have open timeclocks and projects
 		if ($this->Auth->user('id')) {
 			$openTimeclocks = ClassRegistry::init('Timeclock');
 			$openTimeclocks = $openTimeclocks->openTimeclocks($this->Auth->user('id'));
@@ -23,6 +24,7 @@ class AppController extends Controller {
 			$userProjects = $userProjects->userProjects($this->Auth->user('id'));
 			$this->set('UserProjects', $userProjects);
 			
+			// log the user's actions
 			foreach ($this->params['pass'] as $pass) {
 				$this->passed .= $pass . ',';
 			}
@@ -30,21 +32,24 @@ class AppController extends Controller {
 			$this->passed = rtrim($this->passed, ",");
 			$this->logAction();
         } else {
-        	$this->Session->write('Auth.User.username', 'Guest');
+        	// if they are not logged in set some default info
+			$this->Session->write('Auth.User.username', 'Guest');
         }
 		
+		// set our default page title into our view based off the current controller name
 		$this->pageTitle = Inflector::humanize($this->params['controller']) . ' : ' . Inflector::humanize($this->params['action']);
     }
 	
-	// This function tracks our user's actions
+	// this function tracks our user's actions
 	function logAction ()
 	{
-		//Prepare the data variable
+		// prepare the data variable
 		$this->data['ActionLog']['user_id'] = $this->Auth->user('id');
 		$this->data['ActionLog']['controller'] = $this->params['controller'];
 		$this->data['ActionLog']['action'] = $this->params['action'];
 		$this->data['ActionLog']['params'] = $this->passed;
 		
+		// insert new log
 		$actionLog = ClassRegistry::init('ActionLog');
 		$actionLog->create();
 		$actionLog->save($this->data);
@@ -55,6 +60,7 @@ class AppController extends Controller {
 	function afterFilter() {
 	}
 	
+	// our custom flash function that makes life easier
 	function flash($message, $url)
 	{
 		$controllerName = Inflector::humanize(Inflector::singularize($this->params['controller']));
