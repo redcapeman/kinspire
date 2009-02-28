@@ -10,10 +10,10 @@ class TicketsController extends AppController {
 	    $types = $this->Type->find('list');
 		$elements = $this->Element->find('list');
 		$severities = $this->Severity->find('list');
-		$priorities = $this->Priority->find('list', array('order' => 'order'));
+		$priorities = $this->Priority->find('list'));
 		$versions = $this->Version->find('list');
 		$milestones = $this->Milestone->find('list');
-		$statuses = $this->Status->find('list', array('order' => 'order'));
+		$statuses = $this->Status->find('list');
 		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses'));
 		
 		$this->set('tickets', $this->paginate());
@@ -81,11 +81,11 @@ class TicketsController extends AppController {
 		$types = $this->Type->find('list');
 		$elements = $this->Element->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
 		$severities = $this->Severity->find('list');
-		$priorities = $this->Priority->find('list');
+		$priorities = $this->Priority->find('list', array('order' => 'order'));
 		$reporters = $ticket_owners = $this->Ticket->Reporter->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
 		$versions = $this->Version->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
 		$milestones = $this->Milestone->find('list', array('conditions' => array('project_id' => array($this->data['Ticket']['project_id'], 0))));
-		$statuses = $this->Status->find('list');
+		$statuses = $this->Status->find('list', array('order' => 'order'));
 		$this->set(compact('projects', 'types', 'elements', 'severities', 'priorities', 'ticket_owners', 'reporters', 'versions', 'milestones', 'statuses'));
 	}
 
