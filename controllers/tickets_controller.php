@@ -10,7 +10,7 @@ class TicketsController extends AppController {
 	    $types = $this->Type->find('list');
 		$elements = $this->Element->find('list');
 		$severities = $this->Severity->find('list');
-		$priorities = $this->Priority->find('list'));
+		$priorities = $this->Priority->find('list');
 		$versions = $this->Version->find('list');
 		$milestones = $this->Milestone->find('list');
 		$statuses = $this->Status->find('list');
