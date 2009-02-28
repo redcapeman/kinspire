@@ -51,7 +51,13 @@ p {
 	margin: 0px 0px 0px 0px;
 }
 
-/* ----- HELPER CLASSES ----- */  
+/*  classes for fast styling */
+
+.small {
+	font-size: 12px;
+}
+
+/* ----- HELPER CLASSES ----- */
 
 /* FLOAT LEFT */
 

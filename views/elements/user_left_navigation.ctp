@@ -22,14 +22,14 @@
 				<div class="leftnav">
 					<ul>
 						<?php foreach($UserProjects as $project) : ?>
-							<li><div class="pagetitle"><?php echo $project['Project']['name'] . ' [' . $project['Project']['ticket_count'] . ']' . ' [' . $project['Project']['open_ticket_count'] . ']'; ?></div></li>
+							<li><div class="pagetitle"><?php echo $project['Project']['name']; ?></div></li>
+							<li><div class="small"><?php echo 'Open Tickets ' . $html->link($project['Project']['open_ticket_count'], array('controller'=> 'tickets', 'action'=>'open_by_project', $project['Project']['id'])) . '/' . $project['Project']['ticket_count']; ?></div></li>
 							<ul>
 								<li><?php echo $html->link(__('New Ticket', true), array('controller'=> 'tickets', 'action'=>'add', $project['Project']['id'])); ?></li>
 								<li><?php echo $html->link(__('New Timeclock', true), array('controller'=> 'timeclocks', 'action'=>'add', $project['Project']['id'])); ?></li>
 								<li><?php echo $html->link(__('New Element', true), array('controller'=> 'elements', 'action'=>'add', $project['Project']['id'])); ?></li>
 								<li><?php echo $html->link(__('New Milestone', true), array('controller'=> 'milestones', 'action'=>'add', $project['Project']['id'])); ?></li>
 								<li><?php echo $html->link(__('New Version', true), array('controller'=> 'versions', 'action'=>'add', $project['Project']['id'])); ?></li>
-								<li><?php echo $html->link(__('Open Tickets', true), array('controller'=> 'tickets', 'action'=>'open_by_project', $project['Project']['id'])); ?></li>
 							</ul>
 						<?php endforeach; ?>
 					</ul>
