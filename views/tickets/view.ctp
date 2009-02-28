@@ -1,6 +1,10 @@
-<?php if ($ticket['TicketChange']): ?>
-	<?php $currentChange = array_pop($ticket['TicketChange']); ?>
-<?php endif; ?>
+<?php
+foreach ($ticket['TicketChange'] as $ticketChange) {
+	if ($ticketChange['is_active']) {
+		break;
+	}
+}
+?>
 <div class="right">
 	<?php if ($ticket['Project']['name']): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
@@ -10,44 +14,44 @@
 			<?php echo $ticket['Project']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if (isset($currentChange['Type']['name'])): ?>
+	<?php if (isset($ticketChange['Type']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Type
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $currentChange['Type']['name']; ?>
+			<?php echo $ticketChange['Type']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if (isset($currentChange['Element']['name'])): ?>
+	<?php if (isset($ticketChange['Element']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Element
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $currentChange['Element']['name']; ?>
+			<?php echo $ticketChange['Element']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if (isset($currentChange['Severity']['name'])): ?>
+	<?php if (isset($ticketChange['Severity']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Severity
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $currentChange['Severity']['name']; ?>
+			<?php echo $ticketChange['Severity']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if (isset($currentChange['Priority']['name'])): ?>
+	<?php if (isset($ticketChange['Priority']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Priority
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $currentChange['Priority']['name']; ?>
+			<?php echo $ticketChange['Priority']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if (isset($currentChange['TicketOwner']['id']) && isset($currentChange['TicketOwner']['name'])): ?>
+	<?php if (isset($ticketChange['TicketOwner']['id']) && isset($ticketChange['TicketOwner']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Owner
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($currentChange['TicketOwner']['name'], array('controller'=> 'users', 'action'=>'view', $currentChange['TicketOwner']['id'])); ?>
+			<?php echo $html->link($ticketChange['TicketOwner']['name'], array('controller'=> 'users', 'action'=>'view', $ticketChange['TicketOwner']['id'])); ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
 	<?php if ($ticket['Reporter']['id']): ?>
@@ -58,28 +62,28 @@
 			<?php echo $html->link($ticket['Reporter']['name'], array('controller'=> 'users', 'action'=>'view', $ticket['Reporter']['id'])); ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if (isset($currentChange['Version']['name'])): ?>
+	<?php if (isset($ticketChange['Version']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Version
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $currentChange['Version']['name']; ?>
+			<?php echo $ticketChange['Version']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if (isset($currentChange['Milestone']['name'])): ?>
+	<?php if (isset($ticketChange['Milestone']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Milestone
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $currentChange['Milestone']['name']; ?>
+			<?php echo $ticketChange['Milestone']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if (isset($currentChange['Status']['name'])): ?>
+	<?php if (isset($ticketChange['Status']['name'])): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Status
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $currentChange['Status']['name']; ?>
+			<?php echo $ticketChange['Status']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
 </div>
@@ -102,21 +106,21 @@
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if (isset($currentChange['description'])): ?>
+<?php if (isset($ticketChange['description'])): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
 		Description
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
-		<?php echo $currentChange['description']; ?>
+		<?php echo $ticketChange['description']; ?>
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if (isset($currentChange['resolution'])): ?>
+<?php if (isset($ticketChange['resolution'])): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
 		Resolution
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
-		<?php echo $currentChange['resolution']; ?>
+		<?php echo $ticketChange['resolution']; ?>
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
@@ -129,12 +133,12 @@
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if (isset($currentChange['due'])): ?>
+<?php if (isset($ticketChange['due'])): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
 		Due
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
-		<?php echo $currentChange['due']; ?>
+		<?php echo $ticketChange['due']; ?>
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
@@ -147,12 +151,12 @@
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if (isset($currentChange['completed'])): ?>
+<?php if (isset($ticketChange['completed'])): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
 		Completed
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
-		<?php echo $currentChange['completed']; ?>
+		<?php echo $ticketChange['completed']; ?>
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
