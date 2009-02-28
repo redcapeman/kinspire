@@ -32,8 +32,10 @@ class TicketChangesController extends AppController {
 			    array('TicketChange.is_active' => '0'),
 			    array('TicketChange.ticket_id' => $this->data['TicketChange']['ticket_id'])
 			);
+			$projectId = $this->TicketChange->Ticket->findById($this->data['Ticket']['id']);
+			$projectId = $projectId['Ticket']['project_id'];
 			$this->TicketChange->create();
-			if ($this->TicketChange->saveAll($this->data, array('validate'=>'last'))) {
+			if ($this->TicketChange->saveAll($this->data, array('validate'=>'last')) && $this->TicketChange->Ticket->updateOpenCount($projectId)) {
 				$this->flash('saved', array('controller'=>'tickets', 'action'=>'view', $this->data['TicketChange']['ticket_id']));
 			} else {
 				$this->flash('failed');

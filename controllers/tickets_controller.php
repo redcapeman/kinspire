@@ -70,7 +70,7 @@ class TicketsController extends AppController {
 			$this->data['TicketChange']['0']['resolution'] = null;
 			$this->data['TicketChange']['0']['user_id'] = $this->Auth->user('id');
 			$this->data['Ticket']['is_open'] = '1';
-			if ($this->Ticket->saveAll($this->data, array('validate'=>'first'))) {
+			if ($this->Ticket->saveAll($this->data, array('validate'=>'first')) && $this->Ticket->updateOpenCount($this->data['Ticket']['project_id'])) {
 				$this->flash('saved', array('action'=>'view', $this->Ticket->id));
 			} else {
 				$this->flash('failed');

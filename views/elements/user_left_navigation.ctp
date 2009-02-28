@@ -22,7 +22,7 @@
 				<div class="leftnav">
 					<ul>
 						<?php foreach($UserProjects as $project) : ?>
-							<li><div class="pagetitle"><?php echo $project['Project']['name']; ?></div></li>
+							<li><div class="pagetitle"><?php echo $project['Project']['name'] . ' [' . $project['Project']['ticket_count'] . ']' . ' [' . $project['Project']['open_ticket_count'] . ']'; ?></div></li>
 							<ul>
 								<li><?php echo $html->link(__('New Ticket', true), array('controller'=> 'tickets', 'action'=>'add', $project['Project']['id'])); ?></li>
 								<li><?php echo $html->link(__('New Timeclock', true), array('controller'=> 'timeclocks', 'action'=>'add', $project['Project']['id'])); ?></li>

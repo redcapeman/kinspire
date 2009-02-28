@@ -2,12 +2,12 @@
 class Ticket extends AppModel {
 
 	var $name = 'Ticket';
-	var $actsAs = array('Containable');
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 	var $belongsTo = array(
 			'Project' => array('className' => 'Project',
-								'foreignKey' => 'project_id'
+								'foreignKey' => 'project_id',
+								'counterCache' => true
 			),
 			'Reporter' => array('className' => 'User',
 								'foreignKey' => 'reporter_id'
@@ -24,6 +24,20 @@ class Ticket extends AppModel {
 								'dependent' => false
 			)
 	);
+	
+	function updateOpenCount($projectId) {
+		$conditions = array(
+		            'conditions' => array('Ticket.is_open' => 1, 'Ticket.project_id' => $projectId));
+	
+		$count = $this->find('count', $conditions);
+		$this->Project->id = $projectId;
+		
+		if ($this->Project->saveField('open_ticket_count', $count)) {
+			return true;
+		}
+		
+		return;
+	}
 
 }
 ?>
