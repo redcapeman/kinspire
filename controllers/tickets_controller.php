@@ -101,14 +101,5 @@ class TicketsController extends AppController {
 		$this->set(compact('projects', 'types', 'elements', 'severities', 'priorities', 'owners', 'reporters', 'versions', 'milestones'));
 	}
 
-	function delete($id = null) {
-		if (!$id) {
-			$this->flash('invalid', 'index');
-		}
-		if ($this->Ticket->del($id)) {
-			$this->flash('deleted', 'index');
-		}
-	}
-
 }
 ?>

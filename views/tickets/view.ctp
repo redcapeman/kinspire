@@ -159,8 +159,7 @@
 <?php endif; ?>
 <div id="toolbar">
 	<ul>
-		<li><div align="center"><?php echo $html->link('Description', array('controller'=>'ticket_changes', 'action'=>'add', $ticket['Ticket']['id']), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
-		<li><div align="center"><?php echo $html->link('Resolution', array('controller'=>'ticket_changes', 'action'=>'add', $ticket['Ticket']['id']), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
+		<li><div align="center"><?php echo $html->link('Update Ticket', array('controller'=>'ticket_changes', 'action'=>'add', $ticket['Ticket']['id']), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 	</ul>
 </div>
 <div class="reset"></div>

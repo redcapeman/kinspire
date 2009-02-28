@@ -37,4 +37,3 @@ echo $this->element('cboxtop');
 echo $this->element('cboxbottom');
 	?>
 <?php echo $form->end('Submit');?>
-<?php debug($this->data); ?>
