@@ -10,12 +10,11 @@ class TicketChangesController extends AppController {
 		}
 		
 		if (!empty($this->data)) {
+			$this->data['Ticket']['id'] = $this->data['TicketChange']['ticket_id'];
 			if ($this->data['TicketChange']['is_completed'] == 0) {
 				$this->data['TicketChange']['completed'] = null;
-				$this->data['Ticket']['id'] = $this->data['TicketChange']['ticket_id'];
 				$this->data['Ticket']['is_open'] = '1';
 			} else {
-				$this->data['Ticket']['id'] = $this->data['TicketChange']['ticket_id'];
 				$this->data['Ticket']['is_open'] = '0';
 			}
 			if ($this->data['TicketChange']['is_due'] == 0) {
