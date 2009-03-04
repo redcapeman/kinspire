@@ -635,7 +635,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `group_id`, `created`) VALUES
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `group_id`, `created`, 'modified') VALUES
 (2, 'kinspire admin', 'admin', '74bc469af3d692f9d15242af00e556a3b0a4bc76', 1, NULL, NULL);
 
 ALTER TABLE `users` ADD `modified` DATETIME NULL AFTER `created` 
