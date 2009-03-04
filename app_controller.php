@@ -8,12 +8,7 @@ class AppController extends Controller {
         // auth component stuff
 		$this->Auth->authorize = 'actions';
 		//$this->Auth->enabled = false;
-        //$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'projects', 'action' => 'index');
-       // $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
-       // $this->Auth->loginError = 'Sorry, the information you have entered is incorrect.';
-        //$this->Auth->autoRedirect = FALSE;
-		//$this->Auth->allowedActions = array('display', 'login', 'logout');
 		$this->Auth->allow('logout', 'login', 'display');
 		$this->Auth->authError = 'Access Denied. Please contact the administrator.';
 		
@@ -33,10 +28,7 @@ class AppController extends Controller {
 			
 			$this->passed = rtrim($this->passed, ",");
 			$this->logAction();
-        } //else {
-        	// if they are not logged in set some default info
-		//	$this->Session->write('Auth.User.id', 'Guest');
-        //}
+        }
 		
 		// set our default page title into our view based off the current controller name
 		$this->pageTitle = Inflector::humanize($this->params['controller']) . ' : ' . Inflector::humanize($this->params['action']);
@@ -58,9 +50,6 @@ class AppController extends Controller {
 		
 		unset($this->data['ActionLog']);
 	}
-	
-	//function afterFilter() {
-	//}
 	
 	// our custom flash function that makes life easier
 	function flash($message, $url)
