@@ -8,12 +8,9 @@ class AppController extends Controller {
         // auth component stuff
 		$this->Auth->authorize = 'actions';
 		//$this->Auth->enabled = false;
-        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
         $this->Auth->loginRedirect = array('controller' => 'projects', 'action' => 'index');
-        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
-        $this->Auth->loginError = 'Sorry, the information you have entered is incorrect.';
-		//$this->Auth->allowedActions = array('display', 'login', 'logout');
-		$this->Auth->allowedActions = array('*');
+		$this->Auth->allow('logout', 'login', 'display');
+		$this->Auth->authError = 'Access Denied. Please contact the administrator.';
 		
 		// if the user is logged in and see if they have open timeclocks and projects
 		if ($this->Auth->user('id')) {
@@ -31,9 +28,6 @@ class AppController extends Controller {
 			
 			$this->passed = rtrim($this->passed, ",");
 			$this->logAction();
-        } else {
-        	// if they are not logged in set some default info
-			$this->Session->write('Auth.User.username', 'Guest');
         }
 		
 		// set our default page title into our view based off the current controller name
@@ -55,9 +49,6 @@ class AppController extends Controller {
 		$actionLog->save($this->data);
 		
 		unset($this->data['ActionLog']);
-	}
-	
-	function afterFilter() {
 	}
 	
 	// our custom flash function that makes life easier
