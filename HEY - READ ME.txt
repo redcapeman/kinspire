@@ -1,0 +1,14 @@
+This is a fork of Kinspire by Travis Rowland
+
+!!!STILL UNDER DEVELOPMENT!!!
+
+features added from the original
+
+* ACL security permission level checking - users groups permissions.
+* User records can only be edited by the owner - to be added soon :P
+
+Default login - Note: change the user username/password informations as soon as you finished setting up the app.
+
+
+USERNAME: admin
+PASSWORD: admin
