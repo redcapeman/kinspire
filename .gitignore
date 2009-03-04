@@ -1,3 +1,4 @@
 .gitignore
 config/database.php
 *.tmp*
+/tmp/
