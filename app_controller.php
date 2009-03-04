@@ -23,6 +23,7 @@ class AppController extends Controller {
 			$userProjects = ClassRegistry::init('Project');
 			$userProjects = $userProjects->userProjects($this->Auth->user('id'));
 			$this->set('UserProjects', $userProjects);
+			//nextversion
 			
 			// log the user's actions
 			foreach ($this->params['pass'] as $pass) {
