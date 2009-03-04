@@ -23,6 +23,7 @@
 		<td class="actions">
 			<?php echo $html->link(__('Edit', true), array('action'=>'edit', $group['Group']['id'])); ?>
 			<?php echo $html->link(__('Delete', true), array('action'=>'delete', $group['Group']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $group['Group']['id'])); ?>
+			<?php echo $html->link(__('Security', true), array('action'=>'security', $group['Group']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
