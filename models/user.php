@@ -3,6 +3,16 @@ class User extends AppModel {
 
 	var $name = 'User';
 	var $actsAs = array('Acl' => array('requester'));
+	
+	var $validate = array(
+           'new_password' => array(
+		       'equalTo' => array(
+			       'rule' => array('equalTo', 'confirm_password' ),
+				   'message' => 'Please re-enter your password twice so that the values match',
+				   'allowEmpty' => true
+				   )
+				)
+        );
 	 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 	var $belongsTo = array(
@@ -96,6 +106,11 @@ class User extends AppModel {
 		return true;
 	}
 	
+	function beforeSave(){
+	    $this->setNewPassword();
+		return true;
+	}
+	
 	function parentNode(){
     
         // This should be the alias of the parent $model::$id
@@ -103,6 +118,48 @@ class User extends AppModel {
 
         // This needs to be unique    
         return 'Group:'.$data['User']['group_id'];
+    }
+    
+    /**
+	 * sets the password to be equal to the verified value from the temporary password field
+	 *
+	 * Under AuthComponent, any time a form is submitted with a field name that matches the 
+	 * expected password field, it is hashed before any other operation can be done.  This 
+	 * prevents the equalTo() rule check from working, so we take the password in a form input
+	 * named something else.  Then after verification, but before saving the record, we pass
+	 * the hashed value to the correct password field.
+	 *
+	 * @return boolean TRUE
+	 */
+	function setNewPassword()
+	{
+	    if( !empty( $this->data['User']['new_passwd_hash'] ) ){
+		    $this->data['User']['password'] = $this->data['User']['new_passwd_hash'];
+		}
+		return TRUE;
+	}
+
+    /**
+	 * Overrides core equalTo() to verify that two form fields are equal
+	 *
+	 * @param array $field contains the name of the primary field and the value of that field
+	 * @param string $compare_field contains the name of the field to compare the primary field to
+	 * @access public
+	 * @return boolean FALSE if the fields do not match TRUE if they do
+	 */
+	function equalTo( $field=array(), $compare_field=null ) 
+	{
+		foreach( $field as $key => $value ){
+			$v1 = $value;
+			$v2 = $this->data[$this->name][ $compare_field ];
+            if($v1 !== $v2) {
+			    return FALSE;
+		    } else {
+		       continue;
+		    }
+		}
+		return TRUE;
+
     }
 
 }

@@ -42,10 +42,11 @@ class UsersController extends AppController {
 			$this->flash('invalid', 'index');
 		}
 		if (!empty($this->data)) {
+			$this->__convertPasswords();
 			if ($this->User->save($this->data)) {
 				$this->flash('saved', 'index');
 			} else {
-				$this->flash('failed');
+				//$this->flash('failed');
 			}
 		}
 		if (empty($this->data)) {
@@ -61,6 +62,28 @@ class UsersController extends AppController {
 		}
 		if ($this->User->del($id)) {
 			$this->flash('deleted', 'index');
+		}
+	}
+		
+    /**
+     * Hash submitted passwords according to the scheme used by the Auth component
+	 *
+	 * We need to keep a copy of the string submitted by the user, so we can
+	 * use built-in validation rules on it.  However, we also need to convert this value
+	 * to the hashed string that will be stored in the database.
+	 *
+	 * @access private
+	 * @return null
+     *
+     */
+	function __convertPasswords()
+	{
+	    if(!empty( $this->data['User']['new_password'] ) ){
+            // we still want to validate the value entered in new_passwd
+            // so we store the hashed value in a new data field which
+            // we will later pass on to the passwd field in an 
+            // afterSave() function 
+		    $this->data['User']['password'] = $this->Auth->password( $this->data['User']['new_password'] );
 		}
 	}
 
