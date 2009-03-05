@@ -43,15 +43,16 @@
         
         // levels
         $pattern = '/_/';
-        $matches = preg_match($pattern, $item);
-                
-        echo str_repeat( '&nbsp;', $matches*3 );
-        echo $acoRecord['Aco']['model'].' : '.$acoRecord['Aco']['alias'];
-        echo '&nbsp;';
-        
+        $matches = preg_match($pattern, $item);     
+        echo str_repeat( ' ', $matches*3 );
+
+         echo $this->element('cboxtop');  
+         
+echo $acoRecord['Aco']['model'].' : '.$acoRecord['Aco']['alias'];
+        //echo $this->element('cboxbottom');
         $inflect = new Inflector();
         if ( $inflect->pluralize( $acoRecord['Aco']['model'] ) != $acoRecord['Aco']['alias'] ) {
-        echo '<table><tr><td>';
+        	//echo $this->element('cboxtop');
             echo $form->radio(  'Group.SecurityAccess.'.$aco_id,
                                 array(  'allow' => '&nbsp;Allow',
                                         'deny' => '&nbsp;Deny' ),
@@ -59,12 +60,13 @@
                                         'legend' => false
                                         )
                                 );
-         echo '</td></tr></table>';
+                                 
         }
+		  
+        echo $this->element('cboxbottom');
         
-        echo '<br />';
     }
-        
+            echo '<br />';
     echo $form->hidden( 'Group.id', array('value' => $this->data['Group']['id'] ));
         
     echo $form->end( array( 'label' => 'Submit', 'div' => false ) );

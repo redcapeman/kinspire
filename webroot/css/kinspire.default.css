@@ -604,3 +604,11 @@ input hidden {
 	border-left:none;
 	border-right:none;
 }
+input[type=radio] {
+	float:left;
+	width:auto;
+	margin: 0 0px 0px 0;
+	padding:10px;
+	clear: left;
+}
+
