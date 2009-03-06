@@ -47,17 +47,20 @@
 			<div class="actions">
 				<ul>
 					<li><?php echo $html->link('Action Logs', array('controller'=> 'action_logs', 'action'=>'index')); ?></li>
-					<li><?php echo $html->link('Categories', array('controller'=> 'categories', 'action'=>'index')); ?></li>
-					<li><?php echo $html->link('Category Types', array('controller'=> 'category_types', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Elements', array('controller'=> 'elements', 'action'=>'index')); ?></li>
 					<li><?php echo $html->link('Groups', array('controller'=> 'groups', 'action'=>'index')); ?></li>
-					<li><?php echo $html->link('Ingredients', array('controller'=> 'ingredients', 'action'=>'index')); ?></li>
-					<li><?php echo $html->link('Meal Times', array('controller'=> 'meal_times', 'action'=>'index')); ?></li>
-					<li><?php echo $html->link('Meals', array('controller'=> 'meals', 'action'=>'index')); ?></li>
-					<li><?php echo $html->link('Measurements', array('controller'=> 'measurements', 'action'=>'index')); ?></li>
-					<li><?php echo $html->link('Pantry Items', array('controller'=> 'pantry_items', 'action'=>'index')); ?></li>
-					<li><?php echo $html->link('Recipe Ingredients', array('controller'=> 'recipe_ingredients', 'action'=>'index')); ?></li>
-					<li><?php echo $html->link('Recipes', array('controller'=> 'recipes', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Milestones', array('controller'=> 'milestones', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Priorities', array('controller'=> 'priorities', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Projects', array('controller'=> 'projects', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Severities', array('controller'=> 'severities', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Statuses', array('controller'=> 'statuses', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Ticket Changes', array('controller'=> 'ticket_changes', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Ticket Comments', array('controller'=> 'ticket_comments', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Tickets', array('controller'=> 'tickets', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Timeclocks', array('controller'=> 'timeclocks', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Types', array('controller'=> 'types', 'action'=>'index')); ?></li>
 					<li><?php echo $html->link('Users', array('controller'=> 'users', 'action'=>'index')); ?></li>
+					<li><?php echo $html->link('Versions', array('controller'=> 'versions', 'action'=>'index')); ?></li>
 				</ul>
 			</div>
 		</div>
