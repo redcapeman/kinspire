@@ -36,10 +36,16 @@ class Project extends AppModel {
 			)
 	);
 	
-	function userProjects($userId) {
-		$conditions = array(
-			'conditions' => array('owner_id' => $userId, 'is_active' => 1)
-		);
+	function userProjects($userId = null) {
+		if ($userId) {
+			$conditions = array(
+				'conditions' => array('owner_id' => $userId, 'is_active' => 1)
+			);
+		} else {
+			$conditions = array(
+				'conditions' => array('is_active' => 1)
+			);
+		}
 		
 		$projects = $this->find('all', $conditions);
 		
