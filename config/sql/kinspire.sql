@@ -1,16 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 3.1.1
+-- version 3.1.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 03, 2009 at 05:04 PM
--- Server version: 5.1.30
+-- Generation Time: Mar 05, 2009 at 10:34 PM
+-- Server version: 5.0.45
 -- PHP Version: 5.2.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
--- Database: `kinspire`
+-- Database: `kinspirebeta`
 --
 
 -- --------------------------------------------------------
@@ -20,14 +26,14 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `acos` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) DEFAULT NULL,
-  `model` varchar(255) DEFAULT NULL,
-  `foreign_key` int(10) DEFAULT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `lft` int(10) DEFAULT NULL,
-  `rght` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `id` int(10) NOT NULL auto_increment,
+  `parent_id` int(10) default NULL,
+  `model` varchar(255) default NULL,
+  `foreign_key` int(10) default NULL,
+  `alias` varchar(255) default NULL,
+  `lft` int(10) default NULL,
+  `rght` int(10) default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=78 ;
 
 --
@@ -118,30 +124,35 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 --
 
 CREATE TABLE IF NOT EXISTS `action_logs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
   `controller` varchar(255) NOT NULL,
   `action` varchar(255) NOT NULL,
   `params` varchar(255) NOT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  `created` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=519 ;
 
+--
+-- Dumping data for table `action_logs`
+--
 
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `aros`
 --
 
 CREATE TABLE IF NOT EXISTS `aros` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) DEFAULT NULL,
-  `model` varchar(255) DEFAULT NULL,
-  `foreign_key` int(10) DEFAULT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `lft` int(10) DEFAULT NULL,
-  `rght` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `id` int(10) NOT NULL auto_increment,
+  `parent_id` int(10) default NULL,
+  `model` varchar(255) default NULL,
+  `foreign_key` int(10) default NULL,
+  `alias` varchar(255) default NULL,
+  `lft` int(10) default NULL,
+  `rght` int(10) default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
@@ -151,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `aros` (
 INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
 (2, NULL, 'Group', 1, 'Group:1', 3, 6),
 (9, 0, 'Group', 4, 'Group:4', 1, 2),
-(4, 2, 'User', 2, 'User:2', 4, 5);
+(4, 2, 'User', 1, 'User:1', 4, 5);
 
 -- --------------------------------------------------------
 
@@ -160,14 +171,14 @@ INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 --
 
 CREATE TABLE IF NOT EXISTS `aros_acos` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL auto_increment,
   `aro_id` int(10) NOT NULL,
   `aco_id` int(10) NOT NULL,
-  `_create` varchar(2) NOT NULL DEFAULT '0',
-  `_read` varchar(2) NOT NULL DEFAULT '0',
-  `_update` varchar(2) NOT NULL DEFAULT '0',
-  `_delete` varchar(2) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
+  `_create` varchar(2) NOT NULL default '0',
+  `_read` varchar(2) NOT NULL default '0',
+  `_update` varchar(2) NOT NULL default '0',
+  `_delete` varchar(2) NOT NULL default '0',
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=238 ;
 
@@ -361,12 +372,12 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 --
 
 CREATE TABLE IF NOT EXISTS `elements` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `project_id` int(11) NOT NULL,
-  `owner_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `owner_id` int(11) default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -381,10 +392,10 @@ CREATE TABLE IF NOT EXISTS `elements` (
 --
 
 CREATE TABLE IF NOT EXISTS `groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
-  `parent_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `parent_id` int(11) default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
@@ -402,16 +413,16 @@ INSERT INTO `groups` (`id`, `name`, `parent_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `milestones` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `codename` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
   `project_id` int(11) NOT NULL,
-  `owner_id` int(11) DEFAULT NULL,
-  `due` datetime DEFAULT NULL,
-  `completed` datetime DEFAULT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  `owner_id` int(11) default NULL,
+  `due` datetime default NULL,
+  `completed` datetime default NULL,
+  `created` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -426,10 +437,10 @@ CREATE TABLE IF NOT EXISTS `milestones` (
 --
 
 CREATE TABLE IF NOT EXISTS `priorities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -444,7 +455,7 @@ CREATE TABLE IF NOT EXISTS `priorities` (
 --
 
 CREATE TABLE IF NOT EXISTS `projects` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
   `client_id` int(11) NOT NULL,
@@ -452,10 +463,10 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `is_active` tinyint(1) NOT NULL,
   `ticket_count` int(11) NOT NULL,
   `open_ticket_count` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `updated` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `created` datetime default NULL,
+  `updated` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `projects`
@@ -469,10 +480,10 @@ CREATE TABLE IF NOT EXISTS `projects` (
 --
 
 CREATE TABLE IF NOT EXISTS `severities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -487,10 +498,10 @@ CREATE TABLE IF NOT EXISTS `severities` (
 --
 
 CREATE TABLE IF NOT EXISTS `statuses` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -505,14 +516,14 @@ CREATE TABLE IF NOT EXISTS `statuses` (
 --
 
 CREATE TABLE IF NOT EXISTS `tickets` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `title` varchar(255) NOT NULL,
   `project_id` int(11) NOT NULL,
   `reporter_id` int(11) NOT NULL,
   `is_open` tinyint(1) NOT NULL,
-  `created` datetime NOT NULL,
-  `updated` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  `created` datetime default NULL,
+  `updated` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -527,7 +538,7 @@ CREATE TABLE IF NOT EXISTS `tickets` (
 --
 
 CREATE TABLE IF NOT EXISTS `ticket_changes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `ticket_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `ticket_owner_id` int(11) NOT NULL,
@@ -541,10 +552,10 @@ CREATE TABLE IF NOT EXISTS `ticket_changes` (
   `resolution` longtext,
   `status_id` int(11) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
-  `due` datetime DEFAULT NULL,
-  `completed` datetime DEFAULT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  `due` datetime default NULL,
+  `completed` datetime default NULL,
+  `created` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -559,14 +570,14 @@ CREATE TABLE IF NOT EXISTS `ticket_changes` (
 --
 
 CREATE TABLE IF NOT EXISTS `ticket_comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `ticket_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `body` longtext NOT NULL,
-  `created` datetime NOT NULL,
-  `updated` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  `created` datetime default NULL,
+  `updated` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -581,14 +592,14 @@ CREATE TABLE IF NOT EXISTS `ticket_comments` (
 --
 
 CREATE TABLE IF NOT EXISTS `timeclocks` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
   `milestone_id` int(11) NOT NULL,
   `element_id` int(11) NOT NULL,
-  `clocked_in` datetime NOT NULL,
-  `clocked_out` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `clocked_in` datetime default NULL,
+  `clocked_out` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -603,10 +614,10 @@ CREATE TABLE IF NOT EXISTS `timeclocks` (
 --
 
 CREATE TABLE IF NOT EXISTS `types` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `order` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -621,24 +632,23 @@ CREATE TABLE IF NOT EXISTS `types` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `name` varchar(50) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  `created` datetime default NULL,
+  `updated` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `group_id`, `created`, 'modified') VALUES
-(2, 'kinspire admin', 'admin', '74bc469af3d692f9d15242af00e556a3b0a4bc76', 1, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `group_id`, `created`, `updated`) VALUES
+(9, 'kinspire admin', 'admin', '74bc469af3d692f9d15242af00e556a3b0a4bc76', 1, NULL, NULL);
 
-ALTER TABLE `users` ADD `modified` DATETIME NULL AFTER `created` 
 -- --------------------------------------------------------
 
 --
@@ -646,17 +656,17 @@ ALTER TABLE `users` ADD `modified` DATETIME NULL AFTER `created`
 --
 
 CREATE TABLE IF NOT EXISTS `versions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `project_id` int(11) NOT NULL,
-  `owner_id` int(11) DEFAULT NULL,
-  `created` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL default '',
+  `description` varchar(255) NOT NULL default '',
+  `project_id` int(11) NOT NULL default '0',
+  `owner_id` int(11) default NULL,
+  `created` datetime default NULL,
+  `updated` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `versions`
 --
-
 

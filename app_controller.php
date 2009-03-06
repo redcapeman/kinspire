@@ -13,7 +13,13 @@ class AppController extends Controller {
 		$this->Auth->authError = 'Access Denied. Please contact the administrator.';
 		
 		// if the user is logged in and see if they have open timeclocks and projects
-		if ($this->Auth->user('id')) {
+		if ($this->Auth->user()) {
+			if (!empty($this->params['admin']) && $this->Auth->user('group_id') == 1) {
+                // Request is for an admin method and using admin routing.
+                $this->scaffold = 'admin';
+                // Set the layout to admin for various different options and menus
+                $this->layout = 'admin';
+	        }
 			$openTimeclocks = ClassRegistry::init('Timeclock');
 			$openTimeclocks = $openTimeclocks->openTimeclocks($this->Auth->user('id'));
 			$this->set('OpenTimeclocks', $openTimeclocks);
