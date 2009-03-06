@@ -24,7 +24,7 @@ class AppController extends Controller {
 			$openTimeclocks = $openTimeclocks->openTimeclocks($this->Auth->user('id'));
 			$this->set('OpenTimeclocks', $openTimeclocks);
 			$userProjects = ClassRegistry::init('Project');
-			$userProjects = $userProjects->userProjects($this->Auth->user('id'));
+			$userProjects = $userProjects->userProjects();
 			$this->set('UserProjects', $userProjects);
 			
 			// log the user's actions
