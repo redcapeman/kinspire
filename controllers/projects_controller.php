@@ -3,8 +3,17 @@ class ProjectsController extends AppController {
 
 	var $name = 'Projects';
 	var $helpers = array('Html', 'Form');
+	var $paginate = array();
 
 	function index() {
+		if ($this->Auth->user('group_id') != 1) {
+			$this->paginate = array(
+		        'conditions' => array(
+		            'Project.client_id' => $this->Auth->user('id')
+				)
+		    );
+		}
+		
 		$this->Project->recursive = 0;
 		$this->set('projects', $this->paginate());
 	}
@@ -19,7 +28,11 @@ class ProjectsController extends AppController {
 			}
 		}
 		$this->data['Project']['is_active'] = 1;
-		$clients = $owners = $this->Project->Client->find('list', array('fields'=>array('username')));
+		if ($this->Auth->user('group_id') == 1) {
+			$clients = $owners = $this->Project->Client->find('list', array('fields'=>array('username')));
+		} else {
+			$clients = $owners = $this->Project->Client->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
+		}
 		$this->set(compact('clients', 'owners'));
 	}
 

@@ -11,7 +11,9 @@
 			<th>Version</th>
 			<th>Milestone</th>
 			<th>Status</th>
-			<th class="actions"><?php __('Actions');?></th>
+			<?php if ($session->read('Auth.User.group_id') == 1) : ?>
+				<th class="actions"><?php __('Actions');?></th>
+			<?php endif; ?>
 	</tr>
 	<?php
 	$i = 0;
@@ -33,7 +35,7 @@
 			<?php echo $ticket['Ticket']['id']; ?>
 		</td>
 		<td>
-			<?php echo $ticket['Ticket']['title']; ?>
+			<?php echo $html->link($ticket['Ticket']['title'], array('controller'=>'ticket_changes', 'action'=>'add', $ticket['Ticket']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $ticket['Project']['name']; ?>
@@ -73,11 +75,12 @@
 				<?php echo $statuses[$ticketChange['status_id']]; ?>
 			<?php endif; ?>
 		</td>
-		<td class="actions">
-			<?php echo $html->link(__('Update', true), array('controller'=>'ticket_changes', 'action'=>'add', $ticket['Ticket']['id'])); ?>
-			<?php echo $html->link(__('View', true), array('action'=>'view', $ticket['Ticket']['id'])); ?>
-			<?php echo $html->link(__('Edit', true), array('action'=>'edit', $ticket['Ticket']['id'])); ?>
-		</td>
+		<?php if ($session->read('Auth.User.group_id') == 1) : ?>
+			<td class="actions">
+				<?php echo $html->link(__('View', true), array('action'=>'view', $ticket['Ticket']['id'])); ?>
+				<?php echo $html->link(__('Edit', true), array('action'=>'edit', $ticket['Ticket']['id'])); ?>
+			</td>
+		<?php endif; ?>
 	</tr>
 <?php endforeach; ?>
 	</table>

@@ -36,14 +36,14 @@ class Project extends AppModel {
 			)
 	);
 	
-	function userProjects($userId = null) {
-		if ($userId) {
+	function userProjects($userId = null, $groupId = null) {
+		if ($groupId == 1) {
 			$conditions = array(
-				'conditions' => array('owner_id' => $userId, 'is_active' => 1)
+				'conditions' => array('is_active' => 1)
 			);
 		} else {
 			$conditions = array(
-				'conditions' => array('is_active' => 1)
+				'conditions' => array('is_active' => 1, 'client_id' => $userId)
 			);
 		}
 		

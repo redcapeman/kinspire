@@ -7,7 +7,9 @@
 			<th><?php echo $paginator->sort('owner_id');?></th>
 			<th><?php echo $paginator->sort('is_active');?></th>
 			<th><?php echo $paginator->sort('created');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+			<?php if ($session->read('Auth.User.group_id') == 1) : ?>
+				<th class="actions"><?php __('Actions');?></th>
+			<?php endif; ?>
 	</tr>
 	<?php
 	$i = 0;
@@ -36,17 +38,21 @@
 		<td>
 			<?php echo $project['Project']['created']; ?>
 		</td>
-		<td class="actions">
-			<?php echo $html->link(__('Edit', true), array('action'=>'edit', $project['Project']['id'])); ?>
-			<?php echo $html->link(__('Delete', true), array('action'=>'delete', $project['Project']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $project['Project']['id'])); ?>
-		</td>
+		<?php if ($session->read('Auth.User.group_id') == 1) : ?>
+			<td class="actions">
+				<?php echo $html->link(__('Edit', true), array('action'=>'edit', $project['Project']['id'])); ?>
+				<?php echo $html->link(__('Delete', true), array('action'=>'delete', $project['Project']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $project['Project']['id'])); ?>
+			</td>
+		<?php endif; ?>
 	</tr>
 <?php endforeach; ?>
 	</table>
 <?php echo $this->element('cboxbottom'); ?>
 <?php echo $this->element('pagination_links'); ?>
-<div id="toolbar">
-	<ul>
-		<li><div align="center"><?php echo $html->link('New Project', array('action'=>'add'), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
-	</ul>
-</div>
+<?php if ($session->read('Auth.User.group_id') == 1) : ?>
+	<div id="toolbar">
+		<ul>
+			<li><div align="center"><?php echo $html->link('New Project', array('action'=>'add'), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
+		</ul>
+	</div>
+<?php endif; ?>
