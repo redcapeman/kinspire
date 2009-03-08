@@ -46,12 +46,12 @@
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if ($user['User']['modified']): ?>
+<?php if ($user['User']['updated']): ?>
 	<?php echo $this->element('yboxmediumtop'); ?>
 		Updated
 	<?php echo $this->element('yboxbottom'); ?>
 	<?php echo $this->element('cboxmediumtop'); ?>
-		<?php echo $user['User']['modified']; ?>
+		<?php echo $user['User']['updated']; ?>
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>

@@ -27,7 +27,7 @@
 			<?php echo $user['User']['username']; ?>
 		</td>
 		<td>
-			<?php echo $html->link($user['Group']['name'], array('controller'=> 'groups', 'action'=>'view', $user['Group']['id'])); ?>
+			<?php echo $user['Group']['name']; ?>
 		</td>
 		<td>
 			<?php echo $user['User']['created']; ?>
