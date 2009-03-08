@@ -35,7 +35,7 @@
 			<?php echo $ticket['Ticket']['id']; ?>
 		</td>
 		<td>
-			<?php echo $html->link($ticket['Ticket']['title'], array('controller'=>'ticket_changes', 'action'=>'add', $ticket['Ticket']['id'])); ?>
+			<?php echo $html->link($ticket['Ticket']['title'], array('controller'=>'tickets', 'action'=>'view', $ticket['Ticket']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $ticket['Project']['name']; ?>

@@ -37,8 +37,3 @@
 	</table>
 <?php echo $this->element('cboxbottom'); ?>
 <?php echo $this->element('pagination_links'); ?>
-<div id="toolbar">
-	<ul>
-		<li><div align="center"><?php echo $html->link('New Element', array('action'=>'add'), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
-	</ul>
-</div>
