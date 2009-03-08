@@ -4,6 +4,16 @@ class UsersController extends AppController {
 	var $name = 'Users';
 	var $helpers = array('Html', 'Form');
 
+	function initDB() {
+	    $group =& $this->User->Group;
+	    //Allow developers to everything
+	    $group->id = 1;     
+	    $this->Acl->allow($group, 'controllers');
+	    //Allow clients to everything
+	    $group->id = 2;     
+	    $this->Acl->allow($group, 'controllers');
+	}
+
     function login() {
     }
     

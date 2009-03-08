@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost:3306
--- Generation Time: Mar 08, 2009 at 12:59 AM
+-- Generation Time: Mar 08, 2009 at 01:44 AM
 -- Server version: 4.1.22
 -- PHP Version: 5.2.6
 -- 
@@ -25,87 +25,104 @@ CREATE TABLE `acos` (
   `lft` int(10) default NULL,
   `rght` int(10) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=latin1 AUTO_INCREMENT=78 ;
+) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=latin1 AUTO_INCREMENT=93 ;
 
 -- 
 -- Dumping data for table `acos`
 -- 
 
-INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES (3, NULL, 'Version', NULL, 'Versions', 5, 14),
-(4, 3, 'Version', NULL, 'index', 6, 7),
-(5, 3, 'Version', NULL, 'add', 8, 9),
-(6, 3, 'Version', NULL, 'edit', 10, 11),
-(7, 3, 'Version', NULL, 'delete', 12, 13),
-(8, NULL, 'Element', NULL, 'Elements', 15, 24),
-(9, 8, 'Element', NULL, 'index', 16, 17),
-(10, 8, 'Element', NULL, 'add', 18, 19),
-(11, 8, 'Element', NULL, 'edit', 20, 21),
-(12, 8, 'Element', NULL, 'delete', 22, 23),
-(13, NULL, 'TicketChange', NULL, 'TicketChanges', 25, 28),
-(14, 13, 'TicketChange', NULL, 'add', 26, 27),
-(15, NULL, 'TicketComment', NULL, 'TicketComments', 29, 32),
-(16, 15, 'TicketComment', NULL, 'add', 30, 31),
-(17, NULL, 'Severity', NULL, 'Severities', 33, 42),
-(18, 17, 'Severity', NULL, 'index', 34, 35),
-(19, 17, 'Severity', NULL, 'add', 36, 37),
-(20, 17, 'Severity', NULL, 'edit', 38, 39),
-(21, 17, 'Severity', NULL, 'delete', 40, 41),
-(22, NULL, 'Page', NULL, 'Pages', 43, 46),
-(23, 22, 'Page', NULL, 'display', 44, 45),
-(24, NULL, 'Type', NULL, 'Types', 47, 56),
-(25, 24, 'Type', NULL, 'index', 48, 49),
-(26, 24, 'Type', NULL, 'add', 50, 51),
-(27, 24, 'Type', NULL, 'edit', 52, 53),
-(28, 24, 'Type', NULL, 'delete', 54, 55),
-(29, NULL, 'Status', NULL, 'Statuses', 57, 66),
-(30, 29, 'Status', NULL, 'index', 58, 59),
-(31, 29, 'Status', NULL, 'add', 60, 61),
-(32, 29, 'Status', NULL, 'edit', 62, 63),
-(33, 29, 'Status', NULL, 'delete', 64, 65),
-(34, NULL, 'User', NULL, 'Users', 67, 82),
-(35, 34, 'User', NULL, 'login', 68, 69),
-(36, 34, 'User', NULL, 'logout', 70, 71),
-(37, 34, 'User', NULL, 'index', 72, 73),
-(38, 34, 'User', NULL, 'view', 74, 75),
-(39, 34, 'User', NULL, 'add', 76, 77),
-(40, 34, 'User', NULL, 'edit', 78, 79),
-(41, 34, 'User', NULL, 'delete', 80, 81),
-(42, NULL, 'Milestone', NULL, 'Milestones', 83, 94),
-(43, 42, 'Milestone', NULL, 'index', 84, 85),
-(44, 42, 'Milestone', NULL, 'add', 86, 87),
-(45, 42, 'Milestone', NULL, 'edit', 88, 89),
-(46, 42, 'Milestone', NULL, 'complete', 90, 91),
-(47, 42, 'Milestone', NULL, 'delete', 92, 93),
-(48, NULL, 'Ticket', NULL, 'Tickets', 95, 104),
-(49, 48, 'Ticket', NULL, 'index', 96, 97),
-(50, 48, 'Ticket', NULL, 'view', 98, 99),
-(51, 48, 'Ticket', NULL, 'add', 100, 101),
-(52, 48, 'Ticket', NULL, 'edit', 102, 103),
-(53, NULL, 'Action', NULL, 'Actions', 105, 110),
-(54, 53, 'Action', NULL, 'beforeFilter', 106, 107),
-(55, 53, 'Action', NULL, 'index', 108, 109),
-(56, NULL, 'Project', NULL, 'Projects', 111, 120),
-(57, 56, 'Project', NULL, 'index', 112, 113),
-(58, 56, 'Project', NULL, 'add', 114, 115),
-(59, 56, 'Project', NULL, 'edit', 116, 117),
-(60, 56, 'Project', NULL, 'delete', 118, 119),
-(61, NULL, 'Timeclock', NULL, 'Timeclocks', 121, 132),
-(62, 61, 'Timeclock', NULL, 'index', 122, 123),
-(63, 61, 'Timeclock', NULL, 'add', 124, 125),
-(64, 61, 'Timeclock', NULL, 'edit', 126, 127),
-(65, 61, 'Timeclock', NULL, 'out', 128, 129),
-(66, 61, 'Timeclock', NULL, 'delete', 130, 131),
-(67, NULL, 'Group', NULL, 'Groups', 133, 144),
-(68, 67, 'Group', NULL, 'index', 134, 135),
-(69, 67, 'Group', NULL, 'add', 136, 137),
-(70, 67, 'Group', NULL, 'edit', 138, 139),
-(71, 67, 'Group', NULL, 'delete', 140, 141),
-(72, 67, 'Group', NULL, 'security', 142, 143),
-(73, NULL, 'Priority', NULL, 'Priorities', 145, 154),
-(74, 73, 'Priority', NULL, 'index', 146, 147),
-(75, 73, 'Priority', NULL, 'add', 148, 149),
-(76, 73, 'Priority', NULL, 'edit', 150, 151),
-(77, 73, 'Priority', NULL, 'delete', 152, 153);
+INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES (1, NULL, NULL, NULL, 'controllers', 1, 184),
+(2, 1, NULL, NULL, 'Pages', 2, 7),
+(3, 2, NULL, NULL, 'display', 3, 4),
+(4, 2, NULL, NULL, 'logAction', 5, 6),
+(5, 1, NULL, NULL, 'Users', 8, 25),
+(6, 5, NULL, NULL, 'login', 9, 10),
+(7, 5, NULL, NULL, 'logout', 11, 12),
+(8, 5, NULL, NULL, 'index', 13, 14),
+(9, 5, NULL, NULL, 'view', 15, 16),
+(10, 5, NULL, NULL, 'add', 17, 18),
+(11, 5, NULL, NULL, 'edit', 19, 20),
+(12, 5, NULL, NULL, 'delete', 21, 22),
+(13, 5, NULL, NULL, 'logAction', 23, 24),
+(14, 1, NULL, NULL, 'Groups', 26, 37),
+(15, 14, NULL, NULL, 'index', 27, 28),
+(16, 14, NULL, NULL, 'add', 29, 30),
+(17, 14, NULL, NULL, 'edit', 31, 32),
+(18, 14, NULL, NULL, 'delete', 33, 34),
+(19, 14, NULL, NULL, 'logAction', 35, 36),
+(20, 1, NULL, NULL, 'TicketComments', 38, 43),
+(21, 20, NULL, NULL, 'add', 39, 40),
+(22, 20, NULL, NULL, 'logAction', 41, 42),
+(23, 1, NULL, NULL, 'Statuses', 44, 55),
+(24, 23, NULL, NULL, 'index', 45, 46),
+(25, 23, NULL, NULL, 'add', 47, 48),
+(26, 23, NULL, NULL, 'edit', 49, 50),
+(27, 23, NULL, NULL, 'delete', 51, 52),
+(28, 23, NULL, NULL, 'logAction', 53, 54),
+(29, 1, NULL, NULL, 'Severities', 56, 67),
+(30, 29, NULL, NULL, 'index', 57, 58),
+(31, 29, NULL, NULL, 'add', 59, 60),
+(32, 29, NULL, NULL, 'edit', 61, 62),
+(33, 29, NULL, NULL, 'delete', 63, 64),
+(34, 29, NULL, NULL, 'logAction', 65, 66),
+(35, 1, NULL, NULL, 'Milestones', 68, 81),
+(36, 35, NULL, NULL, 'index', 69, 70),
+(37, 35, NULL, NULL, 'add', 71, 72),
+(38, 35, NULL, NULL, 'edit', 73, 74),
+(39, 35, NULL, NULL, 'complete', 75, 76),
+(40, 35, NULL, NULL, 'delete', 77, 78),
+(41, 35, NULL, NULL, 'logAction', 79, 80),
+(42, 1, NULL, NULL, 'Configurations', 82, 85),
+(43, 42, NULL, NULL, 'logAction', 83, 84),
+(44, 1, NULL, NULL, 'Projects', 86, 97),
+(45, 44, NULL, NULL, 'index', 87, 88),
+(46, 44, NULL, NULL, 'add', 89, 90),
+(47, 44, NULL, NULL, 'edit', 91, 92),
+(48, 44, NULL, NULL, 'delete', 93, 94),
+(49, 44, NULL, NULL, 'logAction', 95, 96),
+(50, 1, NULL, NULL, 'Types', 98, 109),
+(51, 50, NULL, NULL, 'index', 99, 100),
+(52, 50, NULL, NULL, 'add', 101, 102),
+(53, 50, NULL, NULL, 'edit', 103, 104),
+(54, 50, NULL, NULL, 'delete', 105, 106),
+(55, 50, NULL, NULL, 'logAction', 107, 108),
+(56, 1, NULL, NULL, 'ActionLogs', 110, 113),
+(57, 56, NULL, NULL, 'logAction', 111, 112),
+(58, 1, NULL, NULL, 'Tickets', 114, 127),
+(59, 58, NULL, NULL, 'index', 115, 116),
+(60, 58, NULL, NULL, 'open_by_project', 117, 118),
+(61, 58, NULL, NULL, 'view', 119, 120),
+(62, 58, NULL, NULL, 'add', 121, 122),
+(63, 58, NULL, NULL, 'edit', 123, 124),
+(64, 58, NULL, NULL, 'logAction', 125, 126),
+(65, 1, NULL, NULL, 'Versions', 128, 139),
+(66, 65, NULL, NULL, 'index', 129, 130),
+(67, 65, NULL, NULL, 'add', 131, 132),
+(68, 65, NULL, NULL, 'edit', 133, 134),
+(69, 65, NULL, NULL, 'delete', 135, 136),
+(70, 65, NULL, NULL, 'logAction', 137, 138),
+(71, 1, NULL, NULL, 'Timeclocks', 140, 153),
+(72, 71, NULL, NULL, 'index', 141, 142),
+(73, 71, NULL, NULL, 'add', 143, 144),
+(74, 71, NULL, NULL, 'edit', 145, 146),
+(75, 71, NULL, NULL, 'out', 147, 148),
+(76, 71, NULL, NULL, 'delete', 149, 150),
+(77, 71, NULL, NULL, 'logAction', 151, 152),
+(78, 1, NULL, NULL, 'TicketChanges', 154, 159),
+(79, 78, NULL, NULL, 'add', 155, 156),
+(80, 78, NULL, NULL, 'logAction', 157, 158),
+(81, 1, NULL, NULL, 'Priorities', 160, 171),
+(82, 81, NULL, NULL, 'index', 161, 162),
+(83, 81, NULL, NULL, 'add', 163, 164),
+(84, 81, NULL, NULL, 'edit', 165, 166),
+(85, 81, NULL, NULL, 'delete', 167, 168),
+(86, 81, NULL, NULL, 'logAction', 169, 170),
+(87, 1, NULL, NULL, 'Elements', 172, 183),
+(88, 87, NULL, NULL, 'index', 173, 174),
+(89, 87, NULL, NULL, 'add', 175, 176),
+(90, 87, NULL, NULL, 'edit', 177, 178),
+(91, 87, NULL, NULL, 'delete', 179, 180),
+(92, 87, NULL, NULL, 'logAction', 181, 182);
 
 -- --------------------------------------------------------
 
@@ -121,14 +138,91 @@ CREATE TABLE `action_logs` (
   `params` varchar(255) NOT NULL default '',
   `created` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=521 DEFAULT CHARSET=latin1 AUTO_INCREMENT=521 ;
+) ENGINE=MyISAM AUTO_INCREMENT=598 DEFAULT CHARSET=latin1 AUTO_INCREMENT=598 ;
 
 -- 
 -- Dumping data for table `action_logs`
 -- 
 
 INSERT INTO `action_logs` (`id`, `user_id`, `controller`, `action`, `params`, `created`) VALUES (519, 9, 'projects', 'index', '', '2009-03-06 21:09:26'),
-(520, 9, 'users', 'login', '', '2009-03-06 21:12:16');
+(520, 9, 'users', 'login', '', '2009-03-06 21:12:16'),
+(521, 9, 'projects', 'index', '', '2009-03-08 01:22:32'),
+(522, 9, 'tickets', 'index', '', '2009-03-08 01:22:49'),
+(523, 1, 'tickets', 'index', '', '2009-03-08 01:25:28'),
+(524, 1, 'projects', 'index', '', '2009-03-08 01:26:23'),
+(525, 1, 'projects', 'add', '', '2009-03-08 01:26:25'),
+(526, 1, 'projects', 'add', '', '2009-03-08 01:26:33'),
+(527, 1, 'projects', 'index', '', '2009-03-08 01:26:33'),
+(528, 1, 'tickets', 'open_by_project', '1', '2009-03-08 01:26:36'),
+(529, 1, 'projects', 'index', '', '2009-03-08 01:26:37'),
+(530, 1, 'tickets', 'add', '1', '2009-03-08 01:26:42'),
+(531, 1, 'types', 'index', '', '2009-03-08 01:26:53'),
+(532, 1, 'types', 'add', '', '2009-03-08 01:26:55'),
+(533, 1, 'types', 'add', '', '2009-03-08 01:27:03'),
+(534, 1, 'types', 'index', '', '2009-03-08 01:27:03'),
+(535, 1, 'statuses', 'index', '', '2009-03-08 01:27:07'),
+(536, 1, 'statuses', 'add', '', '2009-03-08 01:27:12'),
+(537, 1, 'statuses', 'add', '', '2009-03-08 01:27:19'),
+(538, 1, 'statuses', 'index', '', '2009-03-08 01:27:19'),
+(539, 1, 'types', 'index', '', '2009-03-08 01:27:24'),
+(540, 1, 'types', 'edit', '1', '2009-03-08 01:27:26'),
+(541, 1, 'types', 'edit', '1', '2009-03-08 01:27:31'),
+(542, 1, 'types', 'index', '', '2009-03-08 01:27:31'),
+(543, 1, 'statuses', 'index', '', '2009-03-08 01:27:33'),
+(544, 1, 'priorities', 'index', '', '2009-03-08 01:27:36'),
+(545, 1, 'severities', 'index', '', '2009-03-08 01:27:37'),
+(546, 1, 'severities', 'add', '', '2009-03-08 01:27:38'),
+(547, 1, 'severities', 'add', '', '2009-03-08 01:27:43'),
+(548, 1, 'severities', 'index', '', '2009-03-08 01:27:44'),
+(549, 1, 'priorities', 'index', '', '2009-03-08 01:27:45'),
+(550, 1, 'priorities', 'add', '', '2009-03-08 01:27:46'),
+(551, 1, 'priorities', 'add', '', '2009-03-08 01:27:52'),
+(552, 1, 'priorities', 'index', '', '2009-03-08 01:27:52'),
+(553, 1, 'milestones', 'index', '', '2009-03-08 01:27:57'),
+(554, 1, 'elements', 'index', '', '2009-03-08 01:28:00'),
+(555, 1, 'elements', 'add', '', '2009-03-08 01:28:03'),
+(556, 1, 'elements', 'index', '', '2009-03-08 01:28:03'),
+(557, 1, 'elements', 'add', '', '2009-03-08 01:28:05'),
+(558, 1, 'elements', 'index', '', '2009-03-08 01:28:05'),
+(559, 1, 'elements', 'add', '', '2009-03-08 01:28:09'),
+(560, 1, 'elements', 'index', '', '2009-03-08 01:28:09'),
+(561, 1, 'elements', 'add', '1', '2009-03-08 01:28:13'),
+(562, 1, 'elements', 'add', '', '2009-03-08 01:28:19'),
+(563, 1, 'elements', 'index', '', '2009-03-08 01:28:19'),
+(564, 1, 'milestones', 'add', '1', '2009-03-08 01:28:56'),
+(565, 1, 'milestones', 'add', '', '2009-03-08 01:29:11'),
+(566, 1, 'milestones', 'index', '', '2009-03-08 01:29:11'),
+(567, 1, 'versions', 'add', '1', '2009-03-08 01:29:15'),
+(568, 1, 'versions', 'add', '', '2009-03-08 01:29:25'),
+(569, 1, 'versions', 'index', '', '2009-03-08 01:29:25'),
+(570, 1, 'versions', 'edit', '1', '2009-03-08 01:29:28'),
+(571, 1, 'versions', 'edit', '1', '2009-03-08 01:29:31'),
+(572, 1, 'versions', 'index', '', '2009-03-08 01:29:31'),
+(573, 1, 'tickets', 'add', '1', '2009-03-08 01:29:35'),
+(574, 1, 'tickets', 'add', '', '2009-03-08 01:29:43'),
+(575, 1, 'tickets', 'view', '1', '2009-03-08 01:29:43'),
+(576, 1, 'tickets', 'open_by_project', '1', '2009-03-08 01:29:48'),
+(577, 1, 'tickets', 'view', '1', '2009-03-08 01:29:48'),
+(578, 1, 'tickets', 'view', '1', '2009-03-08 01:31:22'),
+(579, 1, 'tickets', 'view', '1', '2009-03-08 01:31:42'),
+(580, 1, 'tickets', 'open_by_project', '1', '2009-03-08 01:31:45'),
+(581, 1, 'users', 'logout', '', '2009-03-08 01:31:49'),
+(582, 1, 'projects', 'index', '', '2009-03-08 01:34:38'),
+(583, 1, 'users', 'login', '', '2009-03-08 01:34:38'),
+(584, 1, 'users', 'login', '', '2009-03-08 01:35:16'),
+(585, 1, 'projects', 'index', '', '2009-03-08 01:35:17'),
+(586, 1, 'users', 'login', '', '2009-03-08 01:35:17'),
+(587, 1, 'users', 'logout', '', '2009-03-08 01:35:19'),
+(588, 1, 'projects', 'index', '', '2009-03-08 01:35:25'),
+(589, 1, 'users', 'login', '', '2009-03-08 01:35:26'),
+(590, 1, 'users', 'login', '', '2009-03-08 01:40:17'),
+(591, 1, 'tickets', 'open_by_project', '1', '2009-03-08 01:40:21'),
+(592, 1, 'users', 'initDB', '', '2009-03-08 01:42:12'),
+(593, 1, 'users', 'initDB', '', '2009-03-08 01:42:13'),
+(594, 1, 'users', 'initDB', '', '2009-03-08 01:43:00'),
+(595, 1, 'users', 'logout', '', '2009-03-08 01:43:36'),
+(596, 1, 'tickets', 'index', '', '2009-03-08 01:43:47'),
+(597, 1, 'tickets', 'open_by_project', '1', '2009-03-08 01:43:49');
 
 -- --------------------------------------------------------
 
@@ -152,7 +246,7 @@ CREATE TABLE `aros` (
 -- 
 
 INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES (2, NULL, 'Group', 1, 'Group:1', 3, 6),
-(9, 0, 'Group', 4, 'Group:4', 1, 2),
+(9, 0, 'Group', 2, 'Group:2', 1, 2),
 (4, 2, 'User', 1, 'User:1', 4, 5);
 
 -- --------------------------------------------------------
@@ -171,189 +265,14 @@ CREATE TABLE `aros_acos` (
   `_delete` char(2) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=238 DEFAULT CHARSET=latin1 AUTO_INCREMENT=238 ;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- 
 -- Dumping data for table `aros_acos`
 -- 
 
-INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`) VALUES (1, 2, 2, '1', '1', '1', '1'),
-(2, 2, 4, '1', '1', '1', '1'),
-(3, 2, 5, '1', '1', '1', '1'),
-(4, 2, 6, '1', '1', '1', '1'),
-(5, 2, 7, '1', '1', '1', '1'),
-(6, 2, 9, '1', '1', '1', '1'),
-(7, 2, 10, '1', '1', '1', '1'),
-(8, 2, 11, '1', '1', '1', '1'),
-(9, 2, 12, '1', '1', '1', '1'),
-(10, 2, 14, '1', '1', '1', '1'),
-(11, 2, 16, '1', '1', '1', '1'),
-(12, 2, 18, '1', '1', '1', '1'),
-(13, 2, 19, '1', '1', '1', '1'),
-(14, 2, 20, '1', '1', '1', '1'),
-(15, 2, 21, '1', '1', '1', '1'),
-(16, 2, 23, '1', '1', '1', '1'),
-(17, 2, 25, '1', '1', '1', '1'),
-(18, 2, 26, '1', '1', '1', '1'),
-(19, 2, 27, '1', '1', '1', '1'),
-(20, 2, 28, '1', '1', '1', '1'),
-(21, 2, 30, '1', '1', '1', '1'),
-(22, 2, 31, '1', '1', '1', '1'),
-(23, 2, 32, '1', '1', '1', '1'),
-(24, 2, 33, '1', '1', '1', '1'),
-(25, 2, 35, '1', '1', '1', '1'),
-(26, 2, 36, '1', '1', '1', '1'),
-(27, 2, 37, '1', '1', '1', '1'),
-(28, 2, 38, '1', '1', '1', '1'),
-(29, 2, 39, '1', '1', '1', '1'),
-(30, 2, 40, '1', '1', '1', '1'),
-(31, 2, 41, '1', '1', '1', '1'),
-(32, 2, 43, '1', '1', '1', '1'),
-(33, 2, 44, '1', '1', '1', '1'),
-(34, 2, 45, '1', '1', '1', '1'),
-(35, 2, 46, '1', '1', '1', '1'),
-(36, 2, 47, '1', '1', '1', '1'),
-(37, 2, 49, '1', '1', '1', '1'),
-(38, 2, 50, '1', '1', '1', '1'),
-(39, 2, 51, '1', '1', '1', '1'),
-(40, 2, 52, '1', '1', '1', '1'),
-(41, 2, 54, '1', '1', '1', '1'),
-(42, 2, 55, '1', '1', '1', '1'),
-(43, 2, 57, '1', '1', '1', '1'),
-(44, 2, 58, '1', '1', '1', '1'),
-(45, 2, 59, '1', '1', '1', '1'),
-(46, 2, 60, '1', '1', '1', '1'),
-(47, 2, 62, '1', '1', '1', '1'),
-(48, 2, 63, '1', '1', '1', '1'),
-(49, 2, 64, '1', '1', '1', '1'),
-(50, 2, 65, '1', '1', '1', '1'),
-(51, 2, 66, '1', '1', '1', '1'),
-(52, 2, 68, '1', '1', '1', '1'),
-(53, 2, 69, '1', '1', '1', '1'),
-(54, 2, 70, '1', '1', '1', '1'),
-(55, 2, 71, '1', '1', '1', '1'),
-(56, 2, 72, '1', '1', '1', '1'),
-(57, 2, 74, '1', '1', '1', '1'),
-(58, 2, 75, '1', '1', '1', '1'),
-(59, 2, 76, '1', '1', '1', '1'),
-(60, 2, 77, '1', '1', '1', '1'),
-(61, 4, 4, '1', '1', '1', '1'),
-(62, 4, 5, '1', '1', '1', '1'),
-(63, 4, 6, '1', '1', '1', '1'),
-(64, 4, 7, '1', '1', '1', '1'),
-(65, 4, 9, '1', '1', '1', '1'),
-(66, 4, 10, '1', '1', '1', '1'),
-(67, 4, 11, '1', '1', '1', '1'),
-(68, 4, 12, '1', '1', '1', '1'),
-(69, 4, 14, '1', '1', '1', '1'),
-(70, 4, 16, '1', '1', '1', '1'),
-(71, 4, 18, '1', '1', '1', '1'),
-(72, 4, 19, '1', '1', '1', '1'),
-(73, 4, 20, '1', '1', '1', '1'),
-(74, 4, 21, '1', '1', '1', '1'),
-(75, 4, 23, '1', '1', '1', '1'),
-(76, 4, 25, '1', '1', '1', '1'),
-(77, 4, 26, '1', '1', '1', '1'),
-(78, 4, 27, '1', '1', '1', '1'),
-(79, 4, 28, '1', '1', '1', '1'),
-(80, 4, 30, '1', '1', '1', '1'),
-(81, 4, 31, '1', '1', '1', '1'),
-(82, 4, 32, '1', '1', '1', '1'),
-(83, 4, 33, '1', '1', '1', '1'),
-(84, 4, 35, '1', '1', '1', '1'),
-(85, 4, 36, '1', '1', '1', '1'),
-(86, 4, 37, '1', '1', '1', '1'),
-(87, 4, 38, '1', '1', '1', '1'),
-(88, 4, 39, '1', '1', '1', '1'),
-(89, 4, 40, '1', '1', '1', '1'),
-(90, 4, 41, '1', '1', '1', '1'),
-(91, 4, 43, '1', '1', '1', '1'),
-(92, 4, 44, '1', '1', '1', '1'),
-(93, 4, 45, '1', '1', '1', '1'),
-(94, 4, 46, '1', '1', '1', '1'),
-(95, 4, 47, '1', '1', '1', '1'),
-(96, 4, 49, '1', '1', '1', '1'),
-(97, 4, 50, '1', '1', '1', '1'),
-(98, 4, 51, '1', '1', '1', '1'),
-(99, 4, 52, '1', '1', '1', '1'),
-(100, 4, 54, '1', '1', '1', '1'),
-(101, 4, 55, '1', '1', '1', '1'),
-(102, 4, 57, '1', '1', '1', '1'),
-(103, 4, 58, '1', '1', '1', '1'),
-(104, 4, 59, '1', '1', '1', '1'),
-(105, 4, 60, '1', '1', '1', '1'),
-(106, 4, 62, '1', '1', '1', '1'),
-(107, 4, 63, '1', '1', '1', '1'),
-(108, 4, 64, '1', '1', '1', '1'),
-(109, 4, 66, '1', '1', '1', '1'),
-(110, 4, 68, '1', '1', '1', '1'),
-(111, 4, 69, '1', '1', '1', '1'),
-(112, 4, 70, '1', '1', '1', '1'),
-(113, 4, 71, '1', '1', '1', '1'),
-(114, 4, 72, '1', '1', '1', '1'),
-(115, 4, 74, '1', '1', '1', '1'),
-(116, 4, 75, '1', '1', '1', '1'),
-(117, 4, 76, '1', '1', '1', '1'),
-(118, 4, 77, '1', '1', '1', '1'),
-(221, 9, 58, '1', '1', '1', '1'),
-(220, 9, 57, '1', '1', '1', '1'),
-(219, 9, 55, '1', '1', '1', '1'),
-(218, 9, 54, '-1', '-1', '-1', '-1'),
-(217, 9, 52, '1', '1', '1', '1'),
-(216, 9, 51, '1', '1', '1', '1'),
-(215, 9, 50, '1', '1', '1', '1'),
-(214, 9, 49, '1', '1', '1', '1'),
-(213, 9, 47, '-1', '-1', '-1', '-1'),
-(212, 9, 46, '-1', '-1', '-1', '-1'),
-(211, 9, 45, '-1', '-1', '-1', '-1'),
-(210, 9, 44, '-1', '-1', '-1', '-1'),
-(209, 9, 43, '1', '1', '1', '1'),
-(208, 9, 38, '1', '1', '1', '1'),
-(207, 9, 37, '1', '1', '1', '1'),
-(206, 9, 36, '1', '1', '1', '1'),
-(205, 9, 35, '1', '1', '1', '1'),
-(204, 9, 33, '-1', '-1', '-1', '-1'),
-(203, 9, 32, '-1', '-1', '-1', '-1'),
-(202, 9, 31, '-1', '-1', '-1', '-1'),
-(201, 9, 30, '1', '1', '1', '1'),
-(200, 9, 28, '-1', '-1', '-1', '-1'),
-(199, 9, 27, '-1', '-1', '-1', '-1'),
-(198, 9, 26, '-1', '-1', '-1', '-1'),
-(197, 9, 25, '1', '1', '1', '1'),
-(196, 9, 23, '1', '1', '1', '1'),
-(195, 9, 21, '-1', '-1', '-1', '-1'),
-(194, 9, 20, '-1', '-1', '-1', '-1'),
-(193, 9, 19, '-1', '-1', '-1', '-1'),
-(192, 9, 18, '-1', '-1', '-1', '-1'),
-(191, 9, 16, '1', '1', '1', '1'),
-(190, 9, 14, '1', '1', '1', '1'),
-(189, 9, 12, '1', '1', '1', '1'),
-(188, 9, 11, '1', '1', '1', '1'),
-(187, 9, 10, '1', '1', '1', '1'),
-(186, 9, 9, '1', '1', '1', '1'),
-(185, 9, 7, '-1', '-1', '-1', '-1'),
-(184, 9, 6, '-1', '-1', '-1', '-1'),
-(183, 9, 5, '-1', '-1', '-1', '-1'),
-(182, 9, 4, '1', '1', '1', '1'),
-(178, 9, 41, '-1', '-1', '-1', '-1'),
-(177, 9, 40, '1', '1', '1', '1'),
-(176, 9, 39, '-1', '-1', '-1', '-1'),
-(222, 9, 59, '1', '1', '1', '1'),
-(223, 9, 60, '-1', '-1', '-1', '-1'),
-(224, 9, 62, '1', '1', '1', '1'),
-(225, 9, 63, '1', '1', '1', '1'),
-(226, 9, 64, '1', '1', '1', '1'),
-(227, 9, 65, '1', '1', '1', '1'),
-(228, 9, 66, '1', '1', '1', '1'),
-(229, 9, 68, '1', '1', '1', '1'),
-(230, 9, 69, '-1', '-1', '-1', '-1'),
-(231, 9, 70, '-1', '-1', '-1', '-1'),
-(232, 9, 71, '-1', '-1', '-1', '-1'),
-(233, 9, 72, '-1', '-1', '-1', '-1'),
-(234, 9, 74, '1', '1', '1', '1'),
-(235, 9, 75, '1', '1', '1', '1'),
-(236, 9, 76, '1', '1', '1', '1'),
-(237, 9, 77, '-1', '-1', '-1', '-1');
+INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`) VALUES (1, 2, 1, '1', '1', '1', '1'),
+(2, 9, 1, '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -388,12 +307,13 @@ CREATE TABLE `elements` (
   `project_id` int(11) NOT NULL default '0',
   `owner_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- 
 -- Dumping data for table `elements`
 -- 
 
+INSERT INTO `elements` (`id`, `name`, `description`, `project_id`, `owner_id`) VALUES (1, 'General', '', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -413,7 +333,7 @@ CREATE TABLE `groups` (
 -- 
 
 INSERT INTO `groups` (`id`, `name`, `parent_id`) VALUES (1, 'Developers', 0),
-(4, 'Clients', NULL);
+(2, 'Clients', NULL);
 
 -- --------------------------------------------------------
 
@@ -432,12 +352,13 @@ CREATE TABLE `milestones` (
   `completed` datetime default NULL,
   `created` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- 
 -- Dumping data for table `milestones`
 -- 
 
+INSERT INTO `milestones` (`id`, `name`, `codename`, `description`, `project_id`, `owner_id`, `due`, `completed`, `created`) VALUES (1, '1.0', 'release', '', 1, 1, '2009-03-15 01:28:00', NULL, '2009-03-08 01:29:11');
 
 -- --------------------------------------------------------
 
@@ -450,12 +371,13 @@ CREATE TABLE `priorities` (
   `name` varchar(255) NOT NULL default '',
   `order` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- 
 -- Dumping data for table `priorities`
 -- 
 
+INSERT INTO `priorities` (`id`, `name`, `order`) VALUES (1, 'Critical', 1);
 
 -- --------------------------------------------------------
 
@@ -475,12 +397,13 @@ CREATE TABLE `projects` (
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- 
 -- Dumping data for table `projects`
 -- 
 
+INSERT INTO `projects` (`id`, `name`, `description`, `client_id`, `owner_id`, `is_active`, `ticket_count`, `open_ticket_count`, `created`, `updated`) VALUES (1, 'Test Project', '', 1, 1, 1, 1, 1, '2009-03-08 01:26:33', '2009-03-08 01:29:43');
 
 -- --------------------------------------------------------
 
@@ -493,12 +416,13 @@ CREATE TABLE `severities` (
   `name` varchar(255) NOT NULL default '',
   `order` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- 
 -- Dumping data for table `severities`
 -- 
 
+INSERT INTO `severities` (`id`, `name`, `order`) VALUES (1, 'Critical', 1);
 
 -- --------------------------------------------------------
 
@@ -511,12 +435,13 @@ CREATE TABLE `statuses` (
   `name` varchar(255) NOT NULL default '',
   `order` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- 
 -- Dumping data for table `statuses`
 -- 
 
+INSERT INTO `statuses` (`id`, `name`, `order`) VALUES (1, 'New', 1);
 
 -- --------------------------------------------------------
 
@@ -543,12 +468,13 @@ CREATE TABLE `ticket_changes` (
   `completed` datetime default NULL,
   `created` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- 
 -- Dumping data for table `ticket_changes`
 -- 
 
+INSERT INTO `ticket_changes` (`id`, `ticket_id`, `user_id`, `ticket_owner_id`, `type_id`, `element_id`, `severity_id`, `priority_id`, `version_id`, `milestone_id`, `description`, `resolution`, `status_id`, `is_active`, `due`, `completed`, `created`) VALUES (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, NULL, NULL, 1, 1, NULL, NULL, '2009-03-08 01:29:43');
 
 -- --------------------------------------------------------
 
@@ -587,12 +513,13 @@ CREATE TABLE `tickets` (
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- 
 -- Dumping data for table `tickets`
 -- 
 
+INSERT INTO `tickets` (`id`, `title`, `project_id`, `reporter_id`, `is_open`, `created`, `updated`) VALUES (1, 'test the tickets', 1, 1, 1, '2009-03-08 01:29:43', '2009-03-08 01:29:43');
 
 -- --------------------------------------------------------
 
@@ -627,12 +554,13 @@ CREATE TABLE `types` (
   `name` varchar(255) NOT NULL default '',
   `order` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- 
 -- Dumping data for table `types`
 -- 
 
+INSERT INTO `types` (`id`, `name`, `order`) VALUES (1, 'General', 1);
 
 -- --------------------------------------------------------
 
@@ -655,7 +583,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 -- 
 
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `group_id`, `created`, `updated`) VALUES (9, 'kinspire admin', 'admin', '74bc469af3d692f9d15242af00e556a3b0a4bc76', 1, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `group_id`, `created`, `updated`) VALUES (1, 'kinspire admin', 'admin', '74bc469af3d692f9d15242af00e556a3b0a4bc76', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -672,9 +600,10 @@ CREATE TABLE `versions` (
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- 
 -- Dumping data for table `versions`
 -- 
 
+INSERT INTO `versions` (`id`, `name`, `description`, `project_id`, `owner_id`, `created`, `updated`) VALUES (1, '0.1a', '', 1, 1, '2009-03-08 01:29:25', '2009-03-08 01:29:31');
