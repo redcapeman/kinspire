@@ -5,7 +5,12 @@ class AppController extends Controller {
 	var $passed = null;
 
     function beforeFilter() {
-        // auth component stuff
+        $this->Configuration = ClassRegistry::init('Configuration');
+		if (isset($this->Configuration) && !empty($this->Configuration->table)) {
+        	$this->Configuration->load();
+        }
+		
+		// auth component stuff
 		$this->Auth->authorize = 'actions';
 		//$this->Auth->enabled = false;
         $this->Auth->loginRedirect = array('controller' => 'projects', 'action' => 'index');

@@ -1,31 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 3.1.2
+-- version 2.8.2.4
 -- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Mar 05, 2009 at 10:34 PM
--- Server version: 5.0.45
--- PHP Version: 5.2.8
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Database: `kinspirebeta`
---
+-- 
+-- Host: localhost:3306
+-- Generation Time: Mar 08, 2009 at 12:39 AM
+-- Server version: 4.1.22
+-- PHP Version: 5.2.6
+-- 
+-- Database: `exqsoft_kinspiredemo`
+-- 
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `acos`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `acos` (
+CREATE TABLE `acos` (
   `id` int(10) NOT NULL auto_increment,
   `parent_id` int(10) default NULL,
   `model` varchar(255) default NULL,
@@ -34,14 +25,13 @@ CREATE TABLE IF NOT EXISTS `acos` (
   `lft` int(10) default NULL,
   `rght` int(10) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=78 ;
+) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=latin1 AUTO_INCREMENT=78 ;
 
---
+-- 
 -- Dumping data for table `acos`
---
+-- 
 
-INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(3, NULL, 'Version', NULL, 'Versions', 5, 14),
+INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES (3, NULL, 'Version', NULL, 'Versions', 5, 14),
 (4, 3, 'Version', NULL, 'index', 6, 7),
 (5, 3, 'Version', NULL, 'add', 8, 9),
 (6, 3, 'Version', NULL, 'edit', 10, 11),
@@ -119,32 +109,34 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `action_logs`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `action_logs` (
+CREATE TABLE `action_logs` (
   `id` int(11) NOT NULL auto_increment,
-  `user_id` int(11) NOT NULL,
-  `controller` varchar(255) NOT NULL,
-  `action` varchar(255) NOT NULL,
-  `params` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL default '0',
+  `controller` varchar(255) NOT NULL default '',
+  `action` varchar(255) NOT NULL default '',
+  `params` varchar(255) NOT NULL default '',
   `created` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=519 ;
+) ENGINE=MyISAM AUTO_INCREMENT=521 DEFAULT CHARSET=latin1 AUTO_INCREMENT=521 ;
 
---
+-- 
 -- Dumping data for table `action_logs`
---
+-- 
 
+INSERT INTO `action_logs` (`id`, `user_id`, `controller`, `action`, `params`, `created`) VALUES (519, 9, 'projects', 'index', '', '2009-03-06 21:09:26'),
+(520, 9, 'users', 'login', '', '2009-03-06 21:12:16');
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `aros`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `aros` (
+CREATE TABLE `aros` (
   `id` int(10) NOT NULL auto_increment,
   `parent_id` int(10) default NULL,
   `model` varchar(255) default NULL,
@@ -153,41 +145,39 @@ CREATE TABLE IF NOT EXISTS `aros` (
   `lft` int(10) default NULL,
   `rght` int(10) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
---
+-- 
 -- Dumping data for table `aros`
---
+-- 
 
-INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(2, NULL, 'Group', 1, 'Group:1', 3, 6),
+INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES (2, NULL, 'Group', 1, 'Group:1', 3, 6),
 (9, 0, 'Group', 4, 'Group:4', 1, 2),
 (4, 2, 'User', 1, 'User:1', 4, 5);
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `aros_acos`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `aros_acos` (
+CREATE TABLE `aros_acos` (
   `id` int(10) NOT NULL auto_increment,
-  `aro_id` int(10) NOT NULL,
-  `aco_id` int(10) NOT NULL,
-  `_create` varchar(2) NOT NULL default '0',
-  `_read` varchar(2) NOT NULL default '0',
-  `_update` varchar(2) NOT NULL default '0',
-  `_delete` varchar(2) NOT NULL default '0',
+  `aro_id` int(10) NOT NULL default '0',
+  `aco_id` int(10) NOT NULL default '0',
+  `_create` char(2) NOT NULL default '0',
+  `_read` char(2) NOT NULL default '0',
+  `_update` char(2) NOT NULL default '0',
+  `_delete` char(2) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=238 ;
+) ENGINE=MyISAM AUTO_INCREMENT=238 DEFAULT CHARSET=latin1 AUTO_INCREMENT=238 ;
 
---
+-- 
 -- Dumping data for table `aros_acos`
---
+-- 
 
-INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`) VALUES
-(1, 2, 2, '1', '1', '1', '1'),
+INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`) VALUES (1, 2, 2, '1', '1', '1', '1'),
 (2, 2, 4, '1', '1', '1', '1'),
 (3, 2, 5, '1', '1', '1', '1'),
 (4, 2, 6, '1', '1', '1', '1'),
@@ -367,57 +357,76 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `elements`
---
+-- 
+-- Table structure for table `configurations`
+-- 
 
-CREATE TABLE IF NOT EXISTS `elements` (
+CREATE TABLE `configurations` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `project_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL default '',
+  `value` text NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Dumping data for table `configurations`
+-- 
+
+INSERT INTO `configurations` (`id`, `name`, `value`) VALUES (1, 'foo', 'bar');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `elements`
+-- 
+
+CREATE TABLE `elements` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL default '',
+  `description` varchar(255) NOT NULL default '',
+  `project_id` int(11) NOT NULL default '0',
   `owner_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `elements`
---
+-- 
 
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `groups`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `groups` (
+CREATE TABLE `groups` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL default '',
   `parent_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
---
+-- 
 -- Dumping data for table `groups`
---
+-- 
 
-INSERT INTO `groups` (`id`, `name`, `parent_id`) VALUES
-(1, 'Developers', 0),
+INSERT INTO `groups` (`id`, `name`, `parent_id`) VALUES (1, 'Developers', 0),
 (4, 'Clients', NULL);
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `milestones`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `milestones` (
+CREATE TABLE `milestones` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) NOT NULL,
-  `codename` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL default '',
+  `codename` varchar(255) NOT NULL default '',
   `description` longtext NOT NULL,
-  `project_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL default '0',
   `owner_id` int(11) default NULL,
   `due` datetime default NULL,
   `completed` datetime default NULL,
@@ -425,237 +434,236 @@ CREATE TABLE IF NOT EXISTS `milestones` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `milestones`
---
+-- 
 
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `priorities`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `priorities` (
+CREATE TABLE `priorities` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) NOT NULL,
-  `order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL default '',
+  `order` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `priorities`
---
+-- 
 
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `projects`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `projects` (
+CREATE TABLE `projects` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL default '',
   `description` longtext NOT NULL,
-  `client_id` int(11) NOT NULL,
-  `owner_id` int(11) NOT NULL,
-  `is_active` tinyint(1) NOT NULL,
-  `ticket_count` int(11) NOT NULL,
-  `open_ticket_count` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL default '0',
+  `owner_id` int(11) NOT NULL default '0',
+  `is_active` tinyint(1) NOT NULL default '0',
+  `ticket_count` int(11) NOT NULL default '0',
+  `open_ticket_count` int(11) NOT NULL default '0',
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `projects`
---
+-- 
 
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `severities`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `severities` (
+CREATE TABLE `severities` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) NOT NULL,
-  `order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL default '',
+  `order` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `severities`
---
+-- 
 
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `statuses`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `statuses` (
+CREATE TABLE `statuses` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) NOT NULL,
-  `order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL default '',
+  `order` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `statuses`
---
+-- 
 
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `tickets`
---
-
-CREATE TABLE IF NOT EXISTS `tickets` (
-  `id` int(11) NOT NULL auto_increment,
-  `title` varchar(255) NOT NULL,
-  `project_id` int(11) NOT NULL,
-  `reporter_id` int(11) NOT NULL,
-  `is_open` tinyint(1) NOT NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `tickets`
---
-
-
--- --------------------------------------------------------
-
---
+-- 
 -- Table structure for table `ticket_changes`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `ticket_changes` (
+CREATE TABLE `ticket_changes` (
   `id` int(11) NOT NULL auto_increment,
-  `ticket_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `ticket_owner_id` int(11) NOT NULL,
-  `type_id` int(11) NOT NULL,
-  `element_id` int(11) NOT NULL,
-  `severity_id` int(11) NOT NULL,
-  `priority_id` int(11) NOT NULL,
-  `version_id` int(11) NOT NULL,
-  `milestone_id` int(11) NOT NULL,
+  `ticket_id` int(11) NOT NULL default '0',
+  `user_id` int(11) NOT NULL default '0',
+  `ticket_owner_id` int(11) NOT NULL default '0',
+  `type_id` int(11) NOT NULL default '0',
+  `element_id` int(11) NOT NULL default '0',
+  `severity_id` int(11) NOT NULL default '0',
+  `priority_id` int(11) NOT NULL default '0',
+  `version_id` int(11) NOT NULL default '0',
+  `milestone_id` int(11) NOT NULL default '0',
   `description` longtext,
   `resolution` longtext,
-  `status_id` int(11) NOT NULL,
-  `is_active` tinyint(1) NOT NULL,
+  `status_id` int(11) NOT NULL default '0',
+  `is_active` tinyint(1) NOT NULL default '0',
   `due` datetime default NULL,
   `completed` datetime default NULL,
   `created` datetime default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `ticket_changes`
---
+-- 
 
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `ticket_comments`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `ticket_comments` (
+CREATE TABLE `ticket_comments` (
   `id` int(11) NOT NULL auto_increment,
-  `ticket_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `ticket_id` int(11) NOT NULL default '0',
+  `user_id` int(11) NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
   `body` longtext NOT NULL,
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `ticket_comments`
---
+-- 
 
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `timeclocks`
---
+-- 
+-- Table structure for table `tickets`
+-- 
 
-CREATE TABLE IF NOT EXISTS `timeclocks` (
+CREATE TABLE `tickets` (
   `id` int(11) NOT NULL auto_increment,
-  `user_id` int(11) NOT NULL,
-  `project_id` int(11) NOT NULL,
-  `milestone_id` int(11) NOT NULL,
-  `element_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL default '',
+  `project_id` int(11) NOT NULL default '0',
+  `reporter_id` int(11) NOT NULL default '0',
+  `is_open` tinyint(1) NOT NULL default '0',
+  `created` datetime default NULL,
+  `updated` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `tickets`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `timeclocks`
+-- 
+
+CREATE TABLE `timeclocks` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL default '0',
+  `project_id` int(11) NOT NULL default '0',
+  `milestone_id` int(11) NOT NULL default '0',
+  `element_id` int(11) NOT NULL default '0',
   `clocked_in` datetime default NULL,
   `clocked_out` datetime default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `timeclocks`
---
+-- 
 
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `types`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `types` (
+CREATE TABLE `types` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) NOT NULL,
-  `order` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL default '',
+  `order` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `types`
---
+-- 
 
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `users`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(50) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `group_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL default '',
+  `username` varchar(255) NOT NULL default '',
+  `password` varchar(255) NOT NULL default '',
+  `group_id` int(11) NOT NULL default '0',
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
---
+-- 
 -- Dumping data for table `users`
---
+-- 
 
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `group_id`, `created`, `updated`) VALUES
-(9, 'kinspire admin', 'admin', '74bc469af3d692f9d15242af00e556a3b0a4bc76', 1, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `group_id`, `created`, `updated`) VALUES (9, 'kinspire admin', 'admin', '74bc469af3d692f9d15242af00e556a3b0a4bc76', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `versions`
---
+-- 
 
-CREATE TABLE IF NOT EXISTS `versions` (
+CREATE TABLE `versions` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL default '',
   `description` varchar(255) NOT NULL default '',
@@ -666,7 +674,7 @@ CREATE TABLE IF NOT EXISTS `versions` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
+-- 
 -- Dumping data for table `versions`
---
+-- 
 
