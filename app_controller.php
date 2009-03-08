@@ -17,6 +17,7 @@ class AppController extends Controller {
 		$this->Auth->allowedActions = array('logout', 'login', 'display');
 		//$this->Auth->allowedActions = array('*');
 		$this->Auth->authError = 'Access Denied. Please contact the administrator.';
+		$this->Auth->actionPath = 'controllers/';
 		
 		// if the user is logged in and see if they have open timeclocks and projects
 		if ($this->Auth->user()) {
