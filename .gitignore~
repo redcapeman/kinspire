@@ -1,0 +1,5 @@
+.gitignore
+config/database.php
+*.tmp*
+/tmp/
+/plugins/
