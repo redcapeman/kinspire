@@ -77,7 +77,7 @@
 		</td>
 		<?php if ($session->read('Auth.User.group_id') == 1) : ?>
 			<td class="actions">
-				<?php echo $html->link(__('View', true), array('action'=>'view', $ticket['Ticket']['id'])); ?>
+				<?php echo $html->link(__('Update', true), array('controller'=>'ticket_changes', 'action'=>'add', $ticket['Ticket']['id'])); ?>
 				<?php echo $html->link(__('Edit', true), array('action'=>'edit', $ticket['Ticket']['id'])); ?>
 			</td>
 		<?php endif; ?>
