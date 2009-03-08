@@ -4,8 +4,6 @@
 			<th><?php echo $paginator->sort('id');?></th>
 			<th><?php echo $paginator->sort('title');?></th>
 			<th><?php echo $paginator->sort('project_id');?></th>
-			<th>Type</th>
-			<th>Element</th>
 			<th>Severity</th>
 			<th>Priority</th>
 			<th>Version</th>
@@ -39,16 +37,6 @@
 		</td>
 		<td>
 			<?php echo $ticket['Project']['name']; ?>
-		</td>
-		<td>
-			<?php if(isset($ticketChange['type_id'])): ?>
-				<?php echo $types[$ticketChange['type_id']]; ?>
-			<?php endif; ?>
-		</td>
-		<td>
-			<?php if(isset($ticketChange['element_id'])): ?>
-				<?php echo $elements[$ticketChange['element_id']]; ?>
-			<?php endif; ?>
 		</td>
 		<td>
 			<?php if(isset($ticketChange['severity_id'])): ?>
