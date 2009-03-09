@@ -16,6 +16,11 @@ class UploadsController extends FileAppController {
 	var $name = 'Uploads';
 	var $paginate = array();
 	
+	//temporary only until we can add the acos to the main DB
+	function beforeFilter(){
+		$this->Auth->allow('*');	
+	}
+	
 	function index(){
 		$this->Upload->recursive = 0;
 		$this->set('uploads', $this->paginate());;	
