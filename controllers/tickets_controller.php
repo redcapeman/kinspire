@@ -6,14 +6,15 @@ class TicketsController extends AppController {
 	var $paginate = array();
 
 	function index() {
-	    $types = $this->Ticket->TicketChange->Type->find('list');
+		$types = $this->Ticket->TicketChange->Type->find('list');
 		$elements = $this->Ticket->TicketChange->Element->find('list');
 		$severities = $this->Ticket->TicketChange->Severity->find('list');
 		$priorities = $this->Ticket->TicketChange->Priority->find('list');
 		$versions = $this->Ticket->TicketChange->Version->find('list');
 		$milestones = $this->Ticket->TicketChange->Milestone->find('list');
 		$statuses = $this->Ticket->TicketChange->Status->find('list');
-		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses'));
+		$owners = $this->Ticket->TicketChange->TicketOwner->find('list', array('fields'=>array('username')));
+		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses', 'owners'));
 		
 		$this->set('tickets', $this->paginate());
 	}
@@ -37,7 +38,8 @@ class TicketsController extends AppController {
 		$versions = $this->Ticket->TicketChange->Version->find('list');
 		$milestones = $this->Ticket->TicketChange->Milestone->find('list');
 		$statuses = $this->Ticket->TicketChange->Status->find('list');
-		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses'));
+		$owners = $this->Ticket->TicketChange->TicketOwner->find('list', array('fields'=>array('username')));
+		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses', 'owners'));
 		
 		$this->set('tickets', $this->paginate());
 	    $this->render(null, null, 'index');
