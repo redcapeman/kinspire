@@ -42,4 +42,7 @@
 	<ul>
 		<li><div align="center"><?php echo $html->link('New Upload', array('action'=>'add'), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 	</ul>
+	<ul>
+		<li><div align="center"><?php echo $html->link('Folders', array('controller' => 'upload_folders', 'action'=>'index'), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
+	</ul>
 </div>
