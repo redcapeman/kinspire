@@ -28,6 +28,13 @@ class UploadFoldersController extends FileAppController {
 		$files = $this->UploadFolder->Upload->find('all');
 		$this->set(compact('files'));
     }
+    
+    function files($id = null){
+		$this->UploadFolder->read(null, $id);
+		//$this->paginate = $this->UploadFolder->read(null, $id);
+		
+		$this->set('uploads', $this->paginate('Upload', array('upload_folder_id' => $id)));
+	}
         
     function add() {
 		if (!empty($this->data)) {
