@@ -30,9 +30,7 @@ class UploadFoldersController extends FileAppController {
     }
     
     function files($id = null){
-		$this->UploadFolder->read(null, $id);
-		//$this->paginate = $this->UploadFolder->read(null, $id);
-		
+		$this->UploadFolder->recursive = 0;
 		$this->set('uploads', $this->paginate('Upload', array('upload_folder_id' => $id)));
 	}
         
