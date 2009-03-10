@@ -23,7 +23,7 @@
 					<ul>
 						<?php foreach($UserProjects as $project) : ?>
 							<li><div class="pagetitle"><?php echo $project['Project']['name']; ?></div></li>
-							<li><div class="small"><?php echo 'Open Tickets ' . $html->link($project['Project']['open_ticket_count'], array('controller'=> 'tickets', 'action'=>'open_by_project', $project['Project']['id'])) . '/' . $project['Project']['ticket_count']; ?></div></li>
+							<li><div class="small"><?php echo 'Open Tickets ' . $html->link($project['Project']['open_ticket_count'], array('controller'=> 'projects', 'action'=>'tickets', $project['Project']['id'])) . '/' . $project['Project']['ticket_count']; ?></div></li>
 							<ul>
 								<li><?php echo $html->link(__('New Ticket', true), array('controller'=> 'tickets', 'action'=>'add', $project['Project']['id'])); ?></li>
 								<?php if ($session->read('Auth.User.group_id') == 1) : ?>

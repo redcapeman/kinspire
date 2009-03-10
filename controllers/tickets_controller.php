@@ -19,32 +19,6 @@ class TicketsController extends AppController {
 		$this->set('tickets', $this->paginate());
 	}
 
-	function open_by_project($projectId) {
-		if(!$projectId) {
-			$this->flash('noid', 'index');
-		}
-		
-		$this->paginate = array(
-	        'conditions' => array(
-	            'Ticket.is_open' => 1,
-	            'Ticket.project_id' => $projectId
-			)
-	    );
-		
-		$types = $this->Ticket->TicketChange->Type->find('list');
-		$elements = $this->Ticket->TicketChange->Element->find('list');
-		$severities = $this->Ticket->TicketChange->Severity->find('list');
-		$priorities = $this->Ticket->TicketChange->Priority->find('list');
-		$versions = $this->Ticket->TicketChange->Version->find('list');
-		$milestones = $this->Ticket->TicketChange->Milestone->find('list');
-		$statuses = $this->Ticket->TicketChange->Status->find('list');
-		$owners = $this->Ticket->TicketChange->TicketOwner->find('list', array('fields'=>array('username')));
-		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses', 'owners'));
-		
-		$this->set('tickets', $this->paginate());
-	    $this->render(null, null, 'index');
-	}
-
 	function view($id = null) {
 		if (!$id) {
 			$this->flash('invalid', 'index');
