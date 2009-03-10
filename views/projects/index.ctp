@@ -40,8 +40,10 @@
 		</td>
 		<?php if ($session->read('Auth.User.group_id') == 1) : ?>
 			<td class="actions">
+				<?php echo $html->link(__('New Element', true), array('controller'=> 'elements', 'action'=>'add', $project['Project']['id'], 'plugin'=>null)); ?>
+				<?php echo $html->link(__('New Milestone', true), array('controller'=> 'milestones', 'action'=>'add', $project['Project']['id'], 'plugin'=>null)); ?>
+				<?php echo $html->link(__('New Version', true), array('controller'=> 'versions', 'action'=>'add', $project['Project']['id'], 'plugin'=>null)); ?>
 				<?php echo $html->link(__('Edit', true), array('action'=>'edit', $project['Project']['id'])); ?>
-				<?php echo $html->link(__('Delete', true), array('action'=>'delete', $project['Project']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $project['Project']['id'])); ?>
 			</td>
 		<?php endif; ?>
 	</tr>

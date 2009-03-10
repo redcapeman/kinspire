@@ -3,7 +3,7 @@
 	<tr>
 		<th><?php echo $paginator->sort('id');?></th>
 		<th><?php echo $paginator->sort('title');?></th>
-		<th><?php echo $paginator->sort('Owner');?></th>
+		<th><?php echo $paginator->sort('owner');?></th>
 		<th>Severity</th>
 		<th>Priority</th>
 		<th>Type</th>

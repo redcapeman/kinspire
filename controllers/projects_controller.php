@@ -100,14 +100,5 @@ class ProjectsController extends AppController {
 		$this->set(compact('clients','owners'));
 	}
 
-	function delete($id = null) {
-		if (!$id) {
-			$this->flash('invalid', 'index');
-		}
-		if ($this->Project->del($id)) {
-			$this->flash('deleted', 'index');
-		}
-	}
-
 }
 ?>
