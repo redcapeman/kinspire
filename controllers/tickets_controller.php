@@ -13,8 +13,7 @@ class TicketsController extends AppController {
 		$versions = $this->Ticket->TicketChange->Version->find('list');
 		$milestones = $this->Ticket->TicketChange->Milestone->find('list');
 		$statuses = $this->Ticket->TicketChange->Status->find('list');
-		$owners = $this->Ticket->TicketChange->TicketOwner->find('list', array('fields'=>array('username')));
-		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses', 'owners'));
+		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses'));
 		
 		$this->set('tickets', $this->paginate());
 	}

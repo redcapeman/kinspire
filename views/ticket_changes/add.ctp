@@ -13,7 +13,7 @@ echo $this->element('cboxtop');
 		echo $form->input('resolution', array('class'=>'form', 'label'=>null));
 echo $this->element('cboxbottom');
 echo $this->element('cboxtop');
-		echo $form->input('ticket_owner_id', array('class'=>'form', 'label'=>null));
+		echo $form->input('Ticket.owner_id', array('class'=>'form', 'label'=>null));
 echo $this->element('cboxbottom');
 echo $this->element('cboxtop');
 		echo $form->input('type_id', array('class'=>'form', 'label'=>null));
