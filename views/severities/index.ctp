@@ -4,6 +4,7 @@
 			<th><?php echo $paginator->sort('id');?></th>
 			<th><?php echo $paginator->sort('name');?></th>
 			<th><?php echo $paginator->sort('order');?></th>
+			<th><?php echo $paginator->sort('icon');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -23,6 +24,9 @@
 		</td>
 		<td>
 			<?php echo $severity['Severity']['order']; ?>
+		</td>
+		<td>
+			<?php echo $html->image('icons/' . $icons[$severity['Severity']['icon_id']]); ?>
 		</td>
 		<td class="actions">
 			<?php echo $html->link(__('Edit', true), array('action'=>'edit', $severity['Severity']['id'])); ?>

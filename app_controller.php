@@ -3,6 +3,7 @@ class AppController extends Controller {
     
     var $components = array('Acl', 'Auth');
 	var $passed = null;
+	var $icons = null;
 
     function beforeFilter() {
         $this->Configuration = ClassRegistry::init('Configuration');
@@ -27,12 +28,16 @@ class AppController extends Controller {
                 // Set the layout to admin for various different options and menus
                 $this->layout = 'admin';
 	        }
-			$openTimeclocks = ClassRegistry::init('Timeclock');
-			$openTimeclocks = $openTimeclocks->openTimeclocks($this->Auth->user('id'));
-			$this->set('OpenTimeclocks', $openTimeclocks);
-			$userProjects = ClassRegistry::init('Project');
-			$userProjects = $userProjects->userProjects($this->Auth->user('id'), $this->Auth->user('group_id'));
-			$this->set('UserProjects', $userProjects);
+			$OpenTimeclocks = ClassRegistry::init('Timeclock');
+			$OpenTimeclocks = $OpenTimeclocks->openTimeclocks($this->Auth->user('id'));
+			$this->set('OpenTimeclocks', $OpenTimeclocks);
+			$UserProjects = ClassRegistry::init('Project');
+			$UserProjects = $UserProjects->userProjects($this->Auth->user('id'), $this->Auth->user('group_id'));
+			$this->set('UserProjects', $UserProjects);
+			$icons = ClassRegistry::init('Icon');
+			$icons = $icons->find('list');
+			$this->icons = $icons;
+			$this->set(compact('icons'));
 			
 			// log the user's actions
 			foreach ($this->params['pass'] as $pass) {

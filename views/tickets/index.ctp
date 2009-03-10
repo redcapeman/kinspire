@@ -4,12 +4,12 @@
 		<th><?php echo $paginator->sort('id');?></th>
 		<th><?php echo $paginator->sort('title');?></th>
 		<th><?php echo $paginator->sort('owner');?></th>
+		<th>Status</th>
 		<th>Severity</th>
 		<th>Priority</th>
 		<th>Type</th>
 		<th>Version</th>
 		<th>Milestone</th>
-		<th>Status</th>
 		<?php if ($session->read('Auth.User.group_id') == 1) : ?>
 			<th class="actions"><?php __('Actions');?></th>
 		<?php endif; ?>
@@ -40,22 +40,27 @@
 			<?php if(isset($ticket['Ticket']['owner_id'])): ?>
 				<?php echo $html->link($ticket['Owner']['username'], array('controller'=> 'users', 'action'=>'view', $ticket['Owner']['id'])); ?>
 			<?php else: ?>
-				None
+				<?php echo $html->image('icons/status_busy.png'); ?>
+			<?php endif; ?>
+		</td>
+		<td>
+			<?php if(isset($ticketChange['status_id'])): ?>
+				<?php echo $html->image('icons/' . $icons[$statusIcons[$ticketChange['status_id']]], array('title'=>$statuses[$ticketChange['status_id']])); ?>
 			<?php endif; ?>
 		</td>
 		<td>
 			<?php if(isset($ticketChange['severity_id'])): ?>
-				<?php echo $severities[$ticketChange['severity_id']]; ?>
+				<?php echo $html->image('icons/' . $icons[$severityIcons[$ticketChange['severity_id']]], array('title'=>$severities[$ticketChange['severity_id']])); ?>
 			<?php endif; ?>
 		</td>
 		<td>
 			<?php if(isset($ticketChange['priority_id'])): ?>
-				<?php echo $priorities[$ticketChange['priority_id']]; ?>
+				<?php echo $html->image('icons/' . $icons[$priorityIcons[$ticketChange['priority_id']]], array('title'=>$priorities[$ticketChange['priority_id']])); ?>
 			<?php endif; ?>
 		</td>
 		<td>
 			<?php if(isset($ticketChange['type_id'])): ?>
-				<?php echo $types[$ticketChange['type_id']]; ?>
+				<?php echo $html->image('icons/' . $icons[$typeIcons[$ticketChange['type_id']]], array('title'=>$types[$ticketChange['type_id']])); ?>
 			<?php endif; ?>
 		</td>
 		<td>
@@ -66,11 +71,6 @@
 		<td>
 			<?php if(isset($ticketChange['milestone_id'])): ?>
 				<?php echo $milestones[$ticketChange['milestone_id']]; ?>
-			<?php endif; ?>
-		</td>
-		<td>
-			<?php if(isset($ticketChange['status_id'])): ?>
-				<?php echo $statuses[$ticketChange['status_id']]; ?>
 			<?php endif; ?>
 		</td>
 		<?php if ($session->read('Auth.User.group_id') == 1) : ?>
