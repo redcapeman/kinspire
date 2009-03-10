@@ -6,14 +6,23 @@ class TicketsController extends AppController {
 	var $paginate = array();
 
 	function index() {
-		$types = $this->Ticket->TicketChange->Type->find('list');
 		$elements = $this->Ticket->TicketChange->Element->find('list');
-		$severities = $this->Ticket->TicketChange->Severity->find('list');
-		$priorities = $this->Ticket->TicketChange->Priority->find('list');
 		$versions = $this->Ticket->TicketChange->Version->find('list');
 		$milestones = $this->Ticket->TicketChange->Milestone->find('list');
+		$this->set(compact('elements', 'versions', 'milestones'));
+		
+		// Below you will see some bad code because I can't figure out a beter way to do it at this point in time.
+		/****************************************************************************************************************/
+		$types = $this->Ticket->TicketChange->Type->find('list');
+		$typeIcons = $this->Ticket->TicketChange->Type->find('list', array('fields'=>array('icon_id')));
+		$severities = $this->Ticket->TicketChange->Severity->find('list');
+		$severityIcons = $this->Ticket->TicketChange->Severity->find('list', array('fields'=>array('icon_id')));
+		$priorities = $this->Ticket->TicketChange->Priority->find('list');
+		$priorityIcons = $this->Ticket->TicketChange->Priority->find('list', array('fields'=>array('icon_id')));
 		$statuses = $this->Ticket->TicketChange->Status->find('list');
-		$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses'));
+		$statusIcons = $this->Ticket->TicketChange->Status->find('list', array('fields'=>array('icon_id')));
+		$this->set(compact('types', 'typeIcons', 'severities', 'severityIcons', 'priorities', 'priorityIcons', 'statuses', 'statusIcons'));
+		/****************************************************************************************************************/
 		
 		$this->set('tickets', $this->paginate());
 	}

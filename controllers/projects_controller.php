@@ -50,15 +50,24 @@ class ProjectsController extends AppController {
 		}
 		
 		if ($projectId) {
-			$types = $this->Project->Ticket->TicketChange->Type->find('list');
 			$elements = $this->Project->Ticket->TicketChange->Element->find('list');
+			
+			// Below you will see some bad code because I can't figure out a beter way to do it at this point in time.
+			/****************************************************************************************************************/
+			$types = $this->Project->Ticket->TicketChange->Type->find('list');
+			$typeIcons = $this->Project->Ticket->TicketChange->Type->find('list', array('fields'=>array('icon_id')));
 			$severities = $this->Project->Ticket->TicketChange->Severity->find('list');
+			$severityIcons = $this->Project->Ticket->TicketChange->Severity->find('list', array('fields'=>array('icon_id')));
 			$priorities = $this->Project->Ticket->TicketChange->Priority->find('list');
+			$priorityIcons = $this->Project->Ticket->TicketChange->Priority->find('list', array('fields'=>array('icon_id')));
+			$statuses = $this->Project->Ticket->TicketChange->Status->find('list');
+			$statusIcons = $this->Project->Ticket->TicketChange->Status->find('list', array('fields'=>array('icon_id')));
+			/****************************************************************************************************************/
+			
 			$versions = $this->Project->Ticket->TicketChange->Version->find('list');
 			$milestones = $this->Project->Ticket->TicketChange->Milestone->find('list');
-			$statuses = $this->Project->Ticket->TicketChange->Status->find('list');
 			$owners = $this->Project->Ticket->Owner->find('list', array('fields'=>array('username')));
-			$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses', 'owners'));
+			$this->set(compact('types', 'typeIcons', 'elements', 'severities', 'severityIcons', 'priorities', 'priorityIcons', 'versions', 'milestones', 'statuses', 'statusIcons', 'owners'));
 			$this->set('tickets', $this->paginate('Ticket'));
 			$this->render(null, null, '/tickets/index');
 		}
@@ -98,15 +107,6 @@ class ProjectsController extends AppController {
 		}
 		$clients = $owners = $this->Project->Client->find('list', array('fields'=>array('username')));
 		$this->set(compact('clients','owners'));
-	}
-
-	function delete($id = null) {
-		if (!$id) {
-			$this->flash('invalid', 'index');
-		}
-		if ($this->Project->del($id)) {
-			$this->flash('deleted', 'index');
-		}
 	}
 
 }
