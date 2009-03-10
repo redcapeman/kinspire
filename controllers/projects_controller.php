@@ -17,6 +17,53 @@ class ProjectsController extends AppController {
 		$this->Project->recursive = 0;
 		$this->set('projects', $this->paginate());
 	}
+	
+	function tickets($projectId = null, $ticketStatus = null) {
+		switch ($ticketStatus) {
+			case 'all':
+				$this->paginate = array(
+			        'conditions' => array(
+			            'Ticket.project_id' => $projectId
+					)
+			    );
+				break;
+				
+			
+			case 'mine':
+				$this->paginate = array(
+			        'conditions' => array(
+			            'Ticket.owner_id' => $this->Auth->user('id'),
+			            'Ticket.project_id' => $projectId
+					)
+			    );
+				break;
+				
+			default:
+				$this->paginate = array(
+			        'conditions' => array(
+			            'Ticket.is_open' => 1,
+			            'Ticket.project_id' => $projectId
+					)
+			    );
+				break;
+		}
+		
+		if ($projectId) {
+			
+
+			$types = $this->Project->Ticket->TicketChange->Type->find('list');
+			$elements = $this->Project->Ticket->TicketChange->Element->find('list');
+			$severities = $this->Project->Ticket->TicketChange->Severity->find('list');
+			$priorities = $this->Project->Ticket->TicketChange->Priority->find('list');
+			$versions = $this->Project->Ticket->TicketChange->Version->find('list');
+			$milestones = $this->Project->Ticket->TicketChange->Milestone->find('list');
+			$statuses = $this->Project->Ticket->TicketChange->Status->find('list');
+			$owners = $this->Project->Ticket->TicketChange->TicketOwner->find('list', array('fields'=>array('username')));
+			$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses', 'owners'));
+			$this->set('tickets', $this->paginate('Ticket'));
+			$this->render(null, null, '/tickets/index');
+		}
+	}
 
 	function add() {
 		if (!empty($this->data)) {

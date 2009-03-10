@@ -169,12 +169,14 @@ foreach ($ticket['TicketChange'] as $ticketChange) {
 	<?php echo $this->element('cboxbottom'); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<div id="toolbar">
-	<ul>
-		<li><div align="center"><?php echo $html->link('Update Ticket', array('controller'=>'ticket_changes', 'action'=>'add', $ticket['Ticket']['id']), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
-	</ul>
-</div>
-<div class="reset"></div>
+<?php if ($session->read('Auth.User.group_id') == 1) : ?>
+	<div id="toolbar">
+		<ul>
+			<li><div align="center"><?php echo $html->link('Update Ticket', array('controller'=>'ticket_changes', 'action'=>'add', $ticket['Ticket']['id']), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
+		</ul>
+	</div>
+	<div class="reset"></div>
+<?php endif; ?>
 
 <?php if (!empty($ticket['TicketComment'])):?>
 	<br>
