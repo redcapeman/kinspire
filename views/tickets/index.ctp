@@ -3,7 +3,7 @@
 	<tr>
 		<th><?php echo $paginator->sort('id');?></th>
 		<th><?php echo $paginator->sort('title');?></th>
-		<th>Owner</th>
+		<th><?php echo $paginator->sort('Owner');?></th>
 		<th>Severity</th>
 		<th>Priority</th>
 		<th>Type</th>
@@ -37,8 +37,10 @@
 			<?php echo $html->link($ticket['Ticket']['title'], array('controller'=>'tickets', 'action'=>'view', $ticket['Ticket']['id'])); ?>
 		</td>
 		<td>
-			<?php if(isset($ticketChange['ticket_owner_id'])): ?>
-				<?php echo $owners[$ticketChange['ticket_owner_id']]; ?>
+			<?php if(isset($ticket['Ticket']['owner_id'])): ?>
+				<?php echo $html->link($ticket['Owner']['username'], array('controller'=> 'users', 'action'=>'view', $ticket['Owner']['id'])); ?>
+			<?php else: ?>
+				None
 			<?php endif; ?>
 		</td>
 		<td>

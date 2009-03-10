@@ -9,6 +9,9 @@ class Ticket extends AppModel {
 								'foreignKey' => 'project_id',
 								'counterCache' => true
 			),
+			'Owner' => array('className' => 'User',
+								'foreignKey' => 'owner_id'
+			),
 			'Reporter' => array('className' => 'User',
 								'foreignKey' => 'reporter_id'
 			)

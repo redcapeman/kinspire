@@ -32,6 +32,7 @@ class ProjectsController extends AppController {
 			case 'mine':
 				$this->paginate = array(
 			        'conditions' => array(
+			            'Ticket.is_open' => 1,
 			            'Ticket.owner_id' => $this->Auth->user('id'),
 			            'Ticket.project_id' => $projectId
 					)
@@ -49,8 +50,6 @@ class ProjectsController extends AppController {
 		}
 		
 		if ($projectId) {
-			
-
 			$types = $this->Project->Ticket->TicketChange->Type->find('list');
 			$elements = $this->Project->Ticket->TicketChange->Element->find('list');
 			$severities = $this->Project->Ticket->TicketChange->Severity->find('list');
@@ -58,7 +57,7 @@ class ProjectsController extends AppController {
 			$versions = $this->Project->Ticket->TicketChange->Version->find('list');
 			$milestones = $this->Project->Ticket->TicketChange->Milestone->find('list');
 			$statuses = $this->Project->Ticket->TicketChange->Status->find('list');
-			$owners = $this->Project->Ticket->TicketChange->TicketOwner->find('list', array('fields'=>array('username')));
+			$owners = $this->Project->Ticket->Owner->find('list', array('fields'=>array('username')));
 			$this->set(compact('types', 'elements', 'severities', 'priorities', 'versions', 'milestones', 'statuses', 'owners'));
 			$this->set('tickets', $this->paginate('Ticket'));
 			$this->render(null, null, '/tickets/index');

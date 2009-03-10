@@ -46,12 +46,12 @@ foreach ($ticket['TicketChange'] as $ticketChange) {
 			<?php echo $ticketChange['Priority']['name']; ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
-	<?php if (isset($ticketChange['TicketOwner']['id']) && isset($ticketChange['TicketOwner']['name'])): ?>
+	<?php if ($ticket['Owner']['id']): ?>
 		<?php echo $this->element('yboxsmallrighttop'); ?>
 			Owner
 		<?php echo $this->element('yboxbottom'); ?>
 		<?php echo $this->element('cboxsmallrighttop'); ?>
-			<?php echo $html->link($ticketChange['TicketOwner']['name'], array('controller'=> 'users', 'action'=>'view', $ticketChange['TicketOwner']['id'])); ?>
+			<?php echo $html->link($ticket['Owner']['username'], array('controller'=> 'users', 'action'=>'view', $ticket['Owner']['id'])); ?>
 		<?php echo $this->element('cboxbottom'); ?>
 	<?php endif; ?>
 	<?php if ($ticket['Reporter']['id']): ?>

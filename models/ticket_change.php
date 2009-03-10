@@ -26,9 +26,6 @@ class TicketChange extends AppModel {
 			'Priority' => array('className' => 'Priority',
 								'foreignKey' => 'priority_id'
 			),
-			'TicketOwner' => array('className' => 'User',
-								'foreignKey' => 'ticket_owner_id'
-			),
 			'Version' => array('className' => 'Version',
 								'foreignKey' => 'version_id'
 			),

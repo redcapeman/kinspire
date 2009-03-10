@@ -38,8 +38,8 @@ class User extends AppModel {
 								'foreignKey' => 'reporter_id',
 								'dependent' => false
 			),
-			'TicketChange' => array('className' => 'TicketChange',
-								'foreignKey' => 'user_id',
+			'OwnedTickets' => array('className' => 'Ticket',
+								'foreignKey' => 'owner_id',
 								'dependent' => false
 			),
 			'TicketComment' => array('className' => 'TicketComment',

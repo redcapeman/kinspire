@@ -58,10 +58,10 @@ class TicketChangesController extends AppController {
 		$elements = $this->TicketChange->Element->find('list', array('conditions' => array('project_id' => array($projectId, 0))));
 		$severities = $this->TicketChange->Severity->find('list');
 		$priorities = $this->TicketChange->Priority->find('list', array('order' => 'order'));
-		$ticket_owners = $users = $this->TicketChange->TicketOwner->find('list', array('fields'=>array('username')));
+		$owners = $users = $this->TicketChange->Ticket->Owner->find('list', array('fields'=>array('username')));
 		$versions = $this->TicketChange->Version->find('list', array('conditions' => array('project_id' => array($projectId, 0))));
 		$milestones = $this->TicketChange->Milestone->find('list', array('conditions' => array('project_id' => array($projectId, 0))));
-		$this->set(compact('tickets', 'statuses', 'types', 'elements', 'severities', 'priorities', 'ticket_owners', 'users', 'versions', 'milestones'));
+		$this->set(compact('tickets', 'statuses', 'types', 'elements', 'severities', 'priorities', 'owners', 'users', 'versions', 'milestones'));
 	}
 
 }
