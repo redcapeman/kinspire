@@ -15,11 +15,6 @@
 class UploadFoldersController extends FileAppController {
 	var $name = 'UploadFolders';
 	var $helpers = array('Tree');
-	
-	//temporary only until we can add the acos to the main DB
-	function beforeFilter(){
-		$this->Auth->allow('*');	
-	}
         
     function index() {      
         $stuff = $this->UploadFolder->find('all', 
