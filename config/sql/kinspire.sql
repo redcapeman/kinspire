@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost:3306
--- Generation Time: Mar 09, 2009 at 11:23 PM
+-- Generation Time: Mar 11, 2009 at 10:38 PM
 -- Server version: 4.1.22
 -- PHP Version: 5.2.6
 -- 
@@ -25,7 +25,7 @@ CREATE TABLE `acos` (
   `lft` int(10) default NULL,
   `rght` int(10) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=256 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=95 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -41,7 +41,7 @@ CREATE TABLE `action_logs` (
   `params` varchar(255) NOT NULL default '',
   `created` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3355 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4223 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -123,6 +123,18 @@ CREATE TABLE `groups` (
 -- --------------------------------------------------------
 
 -- 
+-- Table structure for table `icons`
+-- 
+
+CREATE TABLE `icons` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+-- 
 -- Table structure for table `milestones`
 -- 
 
@@ -149,6 +161,7 @@ CREATE TABLE `priorities` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL default '',
   `order` int(11) NOT NULL default '0',
+  `icon_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -182,6 +195,7 @@ CREATE TABLE `severities` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL default '',
   `order` int(11) NOT NULL default '0',
+  `icon_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -195,6 +209,7 @@ CREATE TABLE `statuses` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL default '',
   `order` int(11) NOT NULL default '0',
+  `icon_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -286,6 +301,7 @@ CREATE TABLE `types` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL default '',
   `order` int(11) NOT NULL default '0',
+  `icon_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -320,7 +336,7 @@ CREATE TABLE `uploads` (
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
