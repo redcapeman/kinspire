@@ -16,7 +16,6 @@ class Ticket extends AppModel {
 								'foreignKey' => 'reporter_id'
 			)
 	);
-
 	var $hasMany = array(
 			'TicketChange' => array('className' => 'TicketChange',
 								'foreignKey' => 'ticket_id',
@@ -25,7 +24,7 @@ class Ticket extends AppModel {
 			'TicketComment' => array('className' => 'TicketComment',
 								'foreignKey' => 'ticket_id',
 								'dependent' => false
-			)
+			)		
 	);
 	
 	function updateOpenCount($projectId) {
@@ -41,6 +40,6 @@ class Ticket extends AppModel {
 		
 		return;
 	}
-
+	
 }
 ?>
