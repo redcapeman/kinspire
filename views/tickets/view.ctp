@@ -189,6 +189,8 @@ foreach ($ticket['TicketChange'] as $ticketChange) {
 		<th><?php __('Title'); ?></th>
 		<th><?php __('Body'); ?></th>
 		<th><?php __('Created'); ?></th>
+		<th><?php __('Files'); ?></th>
+		<th><?php __('Actions'); ?></th>
 	</tr>
 	<?php
 		$i = 0;
@@ -203,6 +205,10 @@ foreach ($ticket['TicketChange'] as $ticketChange) {
 			<td><?php echo $ticketComment['title'];?></td>
 			<td><?php echo $ticketComment['body'];?></td>
 			<td><?php echo $ticketComment['created'];?></td>
+			<td><?php echo $ticketComment['upload_count'];?></td>
+			<td>
+			<?php echo $html->link(__('Attachments', true), array('controller' => 'ticket_comments' , 'action' => 'attach', $ticketComment['id']))?>
+			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
