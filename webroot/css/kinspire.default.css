@@ -604,3 +604,55 @@ input hidden {
 	border-left:none;
 	border-right:none;
 }
+
+/* calendar CSS */
+ 
+table.calendar {
+	width: 99%; 
+	border: 1px solid #cccccc; 
+	border-collapse: collapse; 
+	margin: 5px; 
+	padding: 2px; 
+	background-color: #ffffff;
+}
+table.calendar th {
+	background-color: #eeeeee; 
+	text-transform: none; 
+	color: #444444; 
+	padding: 4px; 
+	text-align: center; 
+	border: 1px solid #eeeeee;
+}
+table.calendar th.cell-prev {
+	text-align: left;
+}
+table.calendar th.cell-next {
+	text-align: right;
+}
+table.calendar th.cell-header {
+	width: 70px; 
+	border-bottom: 1px solid #cccccc;
+}
+table.calendar td.cell-today {
+	background-color: #e2e8f6;
+} /* today in the current month */
+table.calendar td.cell-weekend {
+	background-color: #F3F5EB;
+}
+table.calendar td {
+	border: 1px solid #cccccc;
+} 
+table.calendar td div.cell-number {
+	text-align: right; 
+	font-size: 10px; 
+	color: #444444; 
+	display: block;
+}
+table.calendar td div {
+	display: block; 
+	font-size: 10px; 
+	text-align: left;
+}
+table.calendar thead th {
+	border: 1px solid #cccccc;
+}

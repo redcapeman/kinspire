@@ -4,6 +4,8 @@ class AppController extends Controller {
     var $components = array('Acl', 'Auth');
 	var $passed = null;
 	var $icons = null;
+	var $events = null;
+	var $users = null;
 
     function beforeFilter() {
         $this->Configuration = ClassRegistry::init('Configuration');
@@ -38,6 +40,10 @@ class AppController extends Controller {
 			$icons = $icons->find('list');
 			$this->icons = $icons;
 			$this->set(compact('icons'));
+			$userEvents = ClassRegistry::init('User');
+			$userEvents = $userEvents->find('all', array('conditions' => array('User.id' => $this->Auth->user('id'))));
+			$this->set(compact('userEvents'));
+			
 			
 			// log the user's actions
 			foreach ($this->params['pass'] as $pass) {
