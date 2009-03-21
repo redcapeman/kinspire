@@ -22,3 +22,5 @@
 2009-03-21 06:55:59 Debug: Notice (8): Undefined variable: data in [APP\controllers\migrate_controller.php, line 52]
 2009-03-21 06:56:34 Debug: Notice (8): Undefined variable: data in [APP\controllers\migrate_controller.php, line 53]
 2009-03-21 06:57:26 Debug: Notice (8): Undefined variable: data in [APP\controllers\migrate_controller.php, line 55]
+2009-03-21 07:31:56 Debug: Notice (8): Undefined variable: key in [APP\controllers\migrate_controller.php, line 8]
+2009-03-21 07:55:52 Debug: Notice (8): Undefined index:  2 in [APP\controllers\migrate_controller.php, line 12]

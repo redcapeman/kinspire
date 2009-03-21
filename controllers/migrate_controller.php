@@ -5,14 +5,28 @@ class MigrateController extends AppController {
 	var $uses = array('Export', 'Ticket');
 	
 	function export ($key) {
-		if ($key == 'c937fee14d4a7a9366bd65cbb903dc645c5d2ffa') {
+		App::import('File');
+		$file = new File(APP .'vendors/license/key');
+		$file_contents = $file->read();
+		if ($key == $file_contents) {
+			if (isset($this->params['pass']['1'])) {
+				$cond_projects = array(
+					'conditions' => array('Export.client_id' => $this->params['pass']['1'])	
+				);
+				 $cond_tickets = array(
+				 	'conditions' => array('Project.client_id' => $this->params['pass']['1'])	
+				 );
+			}
+			else {
+				$cond_projects = array();
+				 $cond_tickets = array();
+			}
 			$this->layout = 'json';
-			$projects = $this->Export->find('all');
-			$tickets = $this->Ticket->find('all');
+			$projects = $this->Export->find('all', $cond_projects);
+			 $tickets = $this->Ticket->find('all', $cond_tickets);
 			
 			foreach ($projects as $project) {
 				$data['Project'][$project['Export']['id']] = $project['Export'];
-				$data['User'][$project['Owner']['id']] = $project['Owner'];
 				$data['User'][$project['Client']['id']] = $project['Client'];
 				
 				// structure milestones
@@ -36,6 +50,7 @@ class MigrateController extends AppController {
 					$data['Elements'][$element['id']] = $element;
 				}			
 			}
+			
 			foreach ($tickets as $ticket) {
 				
 				$data['Ticket'][$ticket['Ticket']['id']] = $ticket['Ticket'];
@@ -57,6 +72,8 @@ class MigrateController extends AppController {
 			$data = array();
 		}
 		$this->set(compact('data'));
+		
+		$file->close();
 	}
 }
 ?>
