@@ -15,8 +15,8 @@ class AppController extends Controller {
 		$this->Auth->authorize = 'actions';
 		//$this->Auth->enabled = false;
         $this->Auth->loginRedirect = array('controller' => 'projects', 'action' => 'index');
-		$this->Auth->allowedActions = array('logout', 'login', 'display');
-		//$this->Auth->allowedActions = array('*');
+		//$this->Auth->allowedActions = array('logout', 'login', 'display');
+		$this->Auth->allowedActions = array('*');
 		$this->Auth->authError = 'Access Denied. Please contact the administrator.';
 		$this->Auth->actionPath = 'controllers/';
 		

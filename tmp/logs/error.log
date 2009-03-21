@@ -1,0 +1,33 @@
+2009-03-21 04:42:19 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [name] => kinspire admin
+            [username] => admin
+            [group_id] => 1
+            [created] => 
+            [updated] => 
+        )
+
+)
+
+Aco: controllers/Migrate/gen_apiKey in [CORE\cake\libs\controller\components\acl.php, line 239]
+2009-03-21 04:42:19 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at D:\Projects\kinspire\cake\basics.php:111) in [CORE\cake\libs\controller\controller.php, line 640]
+2009-03-21 05:37:29 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Ticket.owner_id' in 'on clause'</span> in [CORE\cake\libs\model\datasources\dbo_source.php, line 525]
+2009-03-21 05:37:29 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at D:\Projects\kinspire\cake\basics.php:111) in [CORE\cake\libs\controller\controller.php, line 640]
+2009-03-21 05:44:03 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Ticket.owner_id' in 'on clause'</span> in [CORE\cake\libs\model\datasources\dbo_source.php, line 525]
+2009-03-21 05:44:03 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at D:\Projects\kinspire\cake\basics.php:111) in [CORE\cake\libs\controller\controller.php, line 640]
+2009-03-21 05:46:44 Warning: Warning (2): Invalid argument supplied for foreach() in [APP\views\migrate\export.ctp, line 42]
+2009-03-21 05:52:50 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Ticket.owner_id' in 'on clause'</span> in [CORE\cake\libs\model\datasources\dbo_source.php, line 525]
+2009-03-21 05:52:50 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at D:\Projects\kinspire\cake\basics.php:111) in [CORE\cake\libs\controller\controller.php, line 640]
+2009-03-21 05:52:53 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Ticket.id' in 'where clause'</span> in [CORE\cake\libs\model\datasources\dbo_source.php, line 525]
+2009-03-21 05:58:27 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Ticket.id' in 'where clause'</span> in [CORE\cake\libs\model\datasources\dbo_source.php, line 525]
+2009-03-21 05:58:34 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Ticket.id' in 'where clause'</span> in [CORE\cake\libs\model\datasources\dbo_source.php, line 525]
+2009-03-21 05:59:29 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'User.id' in 'where clause'</span> in [CORE\cake\libs\model\datasources\dbo_source.php, line 525]
+2009-03-21 06:00:36 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Owner.id' in 'where clause'</span> in [CORE\cake\libs\model\datasources\dbo_source.php, line 525]
+2009-03-21 06:00:52 Warning: Warning (2): Invalid argument supplied for foreach() in [APP\controllers\migrate_controller.php, line 37]
+2009-03-21 06:00:52 Warning: Warning (2): Invalid argument supplied for foreach() in [APP\controllers\migrate_controller.php, line 41]
+2009-03-21 06:01:41 Warning: Warning (2): key() [<a href='http://php.net/function.key'>function.key</a>]: Passed variable is not an array or object in [APP\views\migrate\export.ctp, line 6]
+2009-03-21 06:12:03 Warning: Warning (2): Illegal offset type in [APP\views\migrate\export.ctp, line 10]
