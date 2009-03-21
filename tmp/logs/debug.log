@@ -13,3 +13,6 @@
 2009-03-21 06:12:17 Debug: Notice (8): Undefined index:  timeclock in [APP\views\migrate\export.ctp, line 10]
 2009-03-21 06:12:17 Debug: Notice (8): Undefined index:  version in [APP\views\migrate\export.ctp, line 10]
 2009-03-21 06:12:17 Debug: Notice (8): Undefined index:  elements in [APP\views\migrate\export.ctp, line 10]
+2009-03-21 06:33:22 Debug: Notice (8): Undefined index:  TicketComment in [APP\controllers\migrate_controller.php, line 37]
+2009-03-21 06:33:22 Debug: Notice (8): Undefined index:  TicketChange in [APP\controllers\migrate_controller.php, line 41]
+2009-03-21 06:36:39 Debug: Notice (8): Undefined property: MigrateController::$Ticket in [APP\controllers\migrate_controller.php, line 10]

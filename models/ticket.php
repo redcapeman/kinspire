@@ -9,11 +9,14 @@ class Ticket extends AppModel {
 								'foreignKey' => 'project_id',
 								'counterCache' => true
 			),
-			'Owner' => array('className' => 'User',
-								'foreignKey' => 'owner_id'
-			),
 			'Reporter' => array('className' => 'User',
 								'foreignKey' => 'reporter_id'
+			)	
+	);
+	var $hasOne = array(
+			'Owner' => array('className' => 'User',
+								'conditions' => 'Project.owner_id = Owner.id',
+								'foreignKey' => ''
 			)
 	);
 	var $hasMany = array(

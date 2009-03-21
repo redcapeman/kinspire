@@ -2,11 +2,12 @@
 class MigrateController extends AppController {
 	
 	var $name = 'Migrate';
-	var $uses = array('Export');
+	var $uses = array('Export', 'Ticket');
 	
 	function export () {
-		$this->layout = 'xml';
+		$this->layout = 'json';
 		$projects = $this->Export->find('all');
+		$tickets = $this->Ticket->find('all');
 		
 		foreach ($projects as $project) {
 			$data['Project'][$project['Export']['id']] = $project['Export'];
@@ -16,10 +17,6 @@ class MigrateController extends AppController {
 			// structure milestones
 			foreach($project['Milestone'] as $mile) {
 				$data['Milestone'][$mile['id']] = $mile;
-			}
-			// structure tickets
-			foreach($project['Ticket'] as $ticket) {
-				$data['Ticket'][$ticket['id']] = $ticket;
 			}
 			// structure timeclock
 			foreach($project['Timeclock'] as $timeclock) {
@@ -33,23 +30,18 @@ class MigrateController extends AppController {
 			foreach($project['Elements'] as $element) {
 				$data['Elements'][$element['id']] = $element;
 			}
-			/*
-			// structure elements
-			foreach($project['TicketComment'] as $ticket_comment) {
-				$data['TicketComment'][$ticket_comment['id']] = $ticket_comment;
-			}
-			// structure elements
-			foreach($project['TicketChange'] as $ticket_change) {
-				$data['TicketChange'][$ticket_change['id']] = $ticket_change;
-			}
-			*/
 			// structure elements
 			foreach($project['Elements'] as $element) {
 				$data['Elements'][$element['id']] = $element;
-			}
-			
+			}			
 		}
-		$this->set(compact('data'));
+		foreach ($tickets as $ticket) {
+			echo '<pre>';
+			print_r($ticket);
+			die;
+		}
+		$json = json_encode($data);
+		$this->set('data', $json);
 	}
 }
 ?>
