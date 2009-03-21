@@ -11,6 +11,36 @@
 	<?php echo $this->element('yboxbottom'); ?>
 	
 	<?php if ($session->read('Auth.User.id')) : ?>
+		<?php if (isset($userEvents)):?>
+				<? foreach($userEvents as $event):?>
+						<? 
+						$i = 0;
+						$count = count($event['Event']);
+						?>
+				<?php echo $this->element('yboxsmalltop'); ?>
+				<div class="leftnav">
+					<h3 class="pagetitle">Upcoming Events</h3></li>
+				</div>
+				<?php echo $this->element('yboxbottom'); ?>	
+				<?php echo $this->element('cboxsmalltop'); ?>	
+				<div class="leftnav">
+					<ul>
+						<?php for ($i = 0; $i <= $count - 1; $i++) { 
+							?>
+							<li><?php if($event['Event'][$i]['alert_date'] == date('Y-m-j')):?>
+					 			<? echo $html->link($event['Event'][$i]['name'], array('plugin' => 'calendar', 'controller' => 'events', 'action' => 'view', $event['Event'][$i]['id'] )); ?><br />
+				 			</li>
+				 			<li><small><?php echo date('jS F, Y h:i a', strtotime($event['Event'][$i]['event_date']));?></small></li>
+				 			<?php endif;?>
+				 			<?}?>
+				<? endforeach;?>
+					</ul>
+				<?php echo $this->element('cboxbottom'); ?>
+				</div>
+			<?php endif;?>
+	<?php endif;?>
+	
+	<?php if ($session->read('Auth.User.id')) : ?>
 		<?php if (isset($UserProjects)) : ?>
 			<?php echo $this->element('yboxsmalltop'); ?>
 				<div align="center">

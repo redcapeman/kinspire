@@ -60,6 +60,7 @@ class User extends AppModel {
 			)
 	);
 	
+	var $hasAndBelongsToMany = array('Event');
 	
   	function afterSave($created) {
 
