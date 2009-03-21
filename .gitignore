@@ -1,5 +1,5 @@
 .gitignore
 config/database.php
 *.tmp*
-
+/tmp/
 /webroot/img/icons/
