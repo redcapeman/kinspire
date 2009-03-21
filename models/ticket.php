@@ -11,9 +11,7 @@ class Ticket extends AppModel {
 			),
 			'Reporter' => array('className' => 'User',
 								'foreignKey' => 'reporter_id'
-			)	
-	);
-	var $hasOne = array(
+			),
 			'Owner' => array('className' => 'User',
 								'conditions' => 'Project.owner_id = Owner.id',
 								'foreignKey' => ''
