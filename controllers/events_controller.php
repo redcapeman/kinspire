@@ -12,7 +12,7 @@
  * @subpackage		kinspire.plugins.calendar.controllers
  * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
  */
-class EventsController extends CalendarAppController {
+class EventsController extends AppController {
 	var $name = 'Events';
 	//var $uses = array('Event.User');
 	
@@ -39,8 +39,8 @@ class EventsController extends CalendarAppController {
  
 		$month_list = array('january', 'febuary', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december');
 		$day_list = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
-		$base_url = $this->webroot . 'events/calendar'; // NOT not used in the current helper version but used in the data array
-		$view_base_url = $this->webroot. 'calendar/events';
+		$base_url = $this->webroot . 'events/index'; // NOT not used in the current helper version but used in the data array
+		$view_base_url = $this->webroot. 'events';
  
 		$data = null;
  
@@ -123,7 +123,7 @@ class EventsController extends CalendarAppController {
 		}
      
 		if (!empty($this->data)) {
-       		if ($this->CalendarEvent->save($this->data)) {
+       		if ($this->Event->save($this->data)) {
                $this->Session->setFlash(__('The Calendar Event has been saved', true));
                $this->redirect(array('action'=>'index'));
        	} else {

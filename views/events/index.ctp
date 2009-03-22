@@ -1,7 +1,5 @@
 <?php 
- 
 	echo $calendar->calendar($year, $month, $data, $base_url);
- 
 ?>
 <div id="toolbar">
 	<ul>

@@ -1,4 +1,4 @@
-<?php echo $form->create('Event',array('url'=>'/calendar/events/add'));?>
+<?php echo $form->create('Event');?>
 <?php
 	echo $this->element('cboxtop');
     	echo $form->input('name', array('class' => 'form', 'label' => null));

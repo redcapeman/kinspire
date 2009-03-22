@@ -1,4 +1,4 @@
-<?php echo $form->create('Event',array('url'=>'/calendar/events/add'));?>
+<?php echo $form->create('Event');?>
 <?php
 		echo $form->input('id', array('type' => 'hidden'));
 	echo $this->element('cboxtop');

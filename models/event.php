@@ -12,10 +12,9 @@
  * @subpackage		kinspire.plugins.calendar.models
  * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
  */
-//retrived User model information
-ClassRegistry::init('User');
-class Event extends CalendarAppModel{
+class Event extends AppModel{
 	var $name = 'Event';
+	
 	var $hasAndBelongsToMany = array('User' => array(
 					'dependent' => true)
 	);	

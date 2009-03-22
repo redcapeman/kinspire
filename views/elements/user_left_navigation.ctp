@@ -28,7 +28,7 @@
 						<?php for ($i = 0; $i <= $count - 1; $i++) { 
 							?>
 							<li><?php if($event['Event'][$i]['alert_date'] == date('Y-m-j')):?>
-					 			<? echo $html->link($event['Event'][$i]['name'], array('plugin' => 'calendar', 'controller' => 'events', 'action' => 'view', $event['Event'][$i]['id'] )); ?><br />
+					 			<? echo $html->link($event['Event'][$i]['name'], array('controller' => 'events', 'action' => 'view', $event['Event'][$i]['id'] )); ?><br />
 				 			</li>
 				 			<li><small><?php echo date('jS F, Y h:i a', strtotime($event['Event'][$i]['event_date']));?></small></li>
 				 			<?php endif;?>
