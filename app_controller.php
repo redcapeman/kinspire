@@ -24,12 +24,6 @@ class AppController extends Controller {
 		
 		// if the user is logged in and see if they have open timeclocks and projects
 		if ($this->Auth->user()) {
-			if (!empty($this->params['admin']) && $this->Auth->user('group_id') == 1) {
-                // Request is for an admin method and using admin routing.
-                $this->scaffold = 'admin';
-                // Set the layout to admin for various different options and menus
-                $this->layout = 'admin';
-	        }
 			$OpenTimeclocks = ClassRegistry::init('Timeclock');
 			$OpenTimeclocks = $OpenTimeclocks->openTimeclocks($this->Auth->user('id'));
 			$this->set('OpenTimeclocks', $OpenTimeclocks);
