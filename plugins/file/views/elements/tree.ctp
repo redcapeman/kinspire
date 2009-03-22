@@ -1,4 +1,4 @@
-<?php echo $this->element('cboxtop'); ?>
+<?php echo $this->element('box/top', array('type'=>'body')); ?>
 <?php
 extract ($data);
 	echo $UploadFolder['name'];
@@ -9,5 +9,5 @@ extract ($data);
 	echo '&nbsp;|&nbsp;';
 	echo $html->link(__('files', true), array('action' => 'files', $UploadFolder['id']));
 ?>
-<?php echo $this->element('cboxbottom'); ?>
+<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 

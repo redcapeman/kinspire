@@ -8,7 +8,7 @@
 				<h3>[ <?php echo $html->link(__('Clock Out', true), array('controller'=> 'timeclocks', 'action'=>'out', 'plugin'=>null)); ?> ]</h3>
 			<?php endif; ?>
 		</div>
-	<?php echo $this->element('yboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	
 	<?php if ($session->read('Auth.User.id')) : ?>
 		<?php if (isset($userEvents)):?>
@@ -21,7 +21,7 @@
 				<div class="leftnav">
 					<h3 class="pagetitle">Upcoming Events</h3></li>
 				</div>
-				<?php echo $this->element('yboxbottom'); ?>	
+				<?php echo $this->element('box/bottom', array('type'=>'title')); ?>	
 				<?php echo $this->element('cboxsmalltop'); ?>	
 				<div class="leftnav">
 					<ul>
@@ -35,7 +35,7 @@
 				 			<?}?>
 				<? endforeach;?>
 					</ul>
-				<?php echo $this->element('cboxbottom'); ?>
+				<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 				</div>
 			<?php endif;?>
 	<?php endif;?>
@@ -46,7 +46,7 @@
 				<div align="center">
 					<h3 class="pagetitle">Projects</h3>
 				</div>
-			<?php echo $this->element('yboxbottom'); ?>
+			<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 			
 			<?php echo $this->element('cboxsmalltop'); ?>
 				<div class="leftnav">
@@ -64,7 +64,7 @@
 						<?php endforeach; ?>
 					</ul>
 				</div>
-			<?php echo $this->element('cboxbottom'); ?>
+			<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 		<?php endif; ?>
 	<?php endif; ?>
 </div>

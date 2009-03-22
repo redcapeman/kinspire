@@ -1,58 +1,58 @@
 <div class="right">
 	<?php if ($user['Group']['name']): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Group
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $user['Group']['name']; ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 </div>
 
 <div class="nullbox">
 <?php if ($user['User']['id']): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Id
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $user['User']['id']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($user['User']['name']): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Name
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $user['User']['name']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($user['User']['username']): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Username
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $user['User']['username']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($user['User']['created']): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Created
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $user['User']['created']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($user['User']['updated']): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Updated
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $user['User']['updated']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 </div>

@@ -46,13 +46,13 @@
         $matches = preg_match($pattern, $item);     
         echo str_repeat( ' ', $matches*3 );
 
-         echo $this->element('cboxtop');  
+         echo $this->element('box/top', array('type'=>'body'));  
          
 echo $acoRecord['Aco']['model'].' : '.$acoRecord['Aco']['alias'];
-        //echo $this->element('cboxbottom');
+        //echo $this->element('box/bottom', array('type'=>'body'));
         $inflect = new Inflector();
         if ( $inflect->pluralize( $acoRecord['Aco']['model'] ) != $acoRecord['Aco']['alias'] ) {
-        	//echo $this->element('cboxtop');
+        	//echo $this->element('box/top', array('type'=>'body'));
             echo $form->radio(  'Group.SecurityAccess.'.$aco_id,
                                 array(  'allow' => '&nbsp;Allow',
                                         'deny' => '&nbsp;Deny' ),
@@ -63,7 +63,7 @@ echo $acoRecord['Aco']['model'].' : '.$acoRecord['Aco']['alias'];
                                  
         }
 		  
-        echo $this->element('cboxbottom');
+        echo $this->element('box/bottom', array('type'=>'body'));
         
     }
             echo '<br />';

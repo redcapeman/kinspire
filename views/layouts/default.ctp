@@ -11,41 +11,16 @@
 		echo $html->css('kinspire.default.css');
 		echo $scripts_for_layout;
 	?>
-	<script>
-	function backButtonOverride()
-	{
-	  // Work around a Safari bug
-	  // that sometimes produces a blank page
-	  setTimeout("backButtonOverrideBody()", 1);
-	
-	}
-	
-	function backButtonOverrideBody()
-	{
-	  // Works if we backed up to get here
-	  try {
-	    history.forward();
-	  } catch (e) {
-	    // OK to ignore
-	  }
-	  // Every quarter-second, try again. The only
-	  // guaranteed method for Opera, Firefox,
-	  // and Safari, which don't always call
-	  // onLoad but *do* resume any timers when
-	  // returning to a page
-	  setTimeout("backButtonOverrideBody()", 250);
-	}
-	</script>
 </head>
-<body onLoad="backButtonOverride()">
+<body>
 
 <div id="wrapper">
 
 <!-- banner -->
 
-<?php echo $this->element('cboxtop'); ?>
+<?php echo $this->element('box/top', array('type'=>'body')); ?>
 	<?php echo $html->image('logo-transp.gif'); ?>
-<?php echo $this->element('cboxbottom'); ?>
+<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <div class="reset"></div>
 
 <?php if ($session->read('Auth.User.id')) : ?>
@@ -60,7 +35,7 @@
 <div class="divider"></div>
 
 <?php if($session->check('Message.flash')): ?>
-	<?php echo $this->element('cboxtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'body')); ?>
 		<div align="center"><h4><font color="red">
 			<?php
 				if ($session->check('Message.flash')) {
@@ -68,7 +43,7 @@
 				}
 			?>
 		</font></h4></div>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 
@@ -76,9 +51,9 @@
 	<?php echo $this->element('user_left_navigation'); ?>
 	<div id="content_wrapper">
 		<?php if(isset($this->pageTitle)): ?>
-			<?php echo $this->element('yboxtop'); ?>
+			<?php echo $this->element('box/top', array('type'=>'title')); ?>
 				<?php echo $this->pageTitle; ?>
-			<?php echo $this->element('yboxbottom'); ?>
+			<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 		<?php endif; ?>
 		<?php echo $content_for_layout;?>
 	</div>
@@ -90,13 +65,13 @@
 <div class="divider reset"></div>
 
 <div id="footer" class="cbox">
-	<div class="cboxtop"><div class="cboxtopinner"></div></div>
-	<div class="cboxinner">
+	<div class="bodyboxtop"><div class="bodyboxtopinner"></div></div>
+	<div class="bodyboxinner">
 		<div align="center">kInspire Copyright &copy; 2009 <a href="mailto:travis.rowland@gmail.com" target="blank">Exquisite Software LLC</a> | 
 		Design and Code Copyright &copy; 2009 <a href="mailto:travis.rowland@gmail.com" target="blank">Exquisite Software LLC</a><br>
 		<?php echo $html->image('apache.gif'); ?> <?php echo $html->image('cake.gif'); ?> <?php echo $html->image('mysql.gif'); ?> <?php echo $html->image('php.gif'); ?></div>
-	</div><div class="cboxbottom">
-	<div class="cboxbottominner"></div></div>
+	</div><div class="bodyboxbottom">
+	<div class="bodyboxbottominner"></div></div>
 </div>
 
 

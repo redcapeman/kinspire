@@ -1,10 +1,10 @@
 <?php echo $form->create('Upload', array('action' => 'add', 'type' => 'file')); ?>
 <?php
-    echo $this->element('cboxtop');
+    echo $this->element('box/top', array('type'=>'body'));
     echo $form->label('Browse File to Attach');
     echo $form->file('File');
     echo $form->input('ticket_comment_id', array('type' => 'hidden', 'value' => $id));
-    echo $this->element('cboxbottom');
+    echo $this->element('box/bottom', array('type'=>'body'));
 ?>
 <?php 
 	echo $form->submit('Upload');
@@ -26,7 +26,7 @@ if(empty($files)){
 <?php
 	} else {
 ?>
-<?php echo $this->element('cboxtop'); ?><table cellpadding="0" cellspacing="0">
+<?php echo $this->element('box/top', array('type'=>'body')); ?><table cellpadding="0" cellspacing="0">
 	<tr>
 	<th><?php echo __('Id', true); ?></th>
 	<th><?php echo __('Name', true); ?></th>
@@ -56,4 +56,4 @@ if(empty($files)){
 	</tr>
 <?php endforeach; } ?>
 	</table>
-<?php echo $this->element('cboxbottom'); ?>  
+<?php echo $this->element('box/bottom', array('type'=>'body')); ?>  

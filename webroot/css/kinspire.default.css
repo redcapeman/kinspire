@@ -153,42 +153,20 @@ div.hidden
 	float:left;
 }
 
+.boxwrapper {
+	margin-top: 5px;
+}
+
 .boxsmallwrapper {
 	width: 200px;
 	margin-top: 5px;
 	margin-right: 5px;
 }
 
-.boxmediumleftwrapper {
+.boxmediumwrapper {
 	width: 266px;
 	margin-top: 5px;
 	margin-right: 5px;
-	float: left;
-}
-
-.boxmediumrightwrapper {
-	width: 266px;
-	margin-top: 5px;
-	float: left;
-}
-
-.boxsmallcontent {
-}
-
-.boxsmallrightwrapper {
-	width: 200px;
-	margin-top: 5px;
-	margin-left: 5px;
-}
-
-.boxsmallcontent {
-}
-
-.boxwrapper {
-	margin-top: 5px;
-}
-
-.boxfillcontent {
 }
 
 /* ------- FOOTER ----------- */
@@ -213,21 +191,21 @@ div.hidden
 	overflow: hidden; /* IE HACK */
 }
 
-/*           CREAM BOX            */
+/*           BODY BOX            */
 
-.cbox {
+.bodybox {
 	background: url(images/boxcreambody.gif) repeat-y top left;	
 	overflow: hidden; /* IE HACK */
 }
 
-.cboxinner {
+.bodyboxinner {
 	background: url(images/boxcreambody.gif) repeat-y top right;
 	margin: 0px 0px 0px 4px;
 	overflow: auto; /* IE HACK */
 
 }
 
-.cboxtop {
+.bodyboxtop {
 	background: url(images/boxcreamtop.gif) no-repeat top left;
 	height: 4px;
 	margin: 0px;
@@ -235,7 +213,7 @@ div.hidden
 	overflow: hidden; /* IE HACK */
 }
 
-.cboxtopinner {
+.bodyboxtopinner {
 	background: url(images/boxcreamtop.gif) no-repeat top right;
 	height: 4px;
 	margin: 0px 0px 0px 4px;
@@ -243,7 +221,7 @@ div.hidden
 	overflow: hidden; /* IE6 HACK */
 }
 
-.cboxbottom {
+.bodyboxbottom {
 	background: url(images/boxcreambottom.gif) no-repeat bottom left;
 	height: 5px;
 	margin: 0px;
@@ -251,28 +229,28 @@ div.hidden
 	overflow: hidden; /* IE HACK */
 }
 
-.cboxbottominner {
+.bodyboxbottominner {
 	background: url(images/boxcreambottom.gif) no-repeat top right;
 	height: 5px;
 	margin: 0px 0px 0px 4px;
 	overflow: hidden; /* IE6 HACK */
 }
 
-/*           YELLOW BOX            */
+/*           TITLE BOX            */
 
-.ybox {
+.titlebox {
 	background: url(images/boxyellowbody.gif) repeat-y top left;	
 	overflow: hidden; /* IE HACK */
 }
 
-.yboxinner {
+.titleboxinner {
 	background: url(images/boxyellowbody.gif) repeat-y top right;
 	margin: 0px 0px 0px 6px;
 	overflow: hidden; /* IE HACK */
 
 }
 
-.yboxtop {
+.titleboxtop {
 	background: url(images/boxyellowtop.gif) no-repeat top left;
 	height: 4px;
 	margin: 0px;
@@ -280,7 +258,7 @@ div.hidden
 	overflow: hidden; /* IE HACK */
 }
 
-.yboxtopinner {
+.titleboxtopinner {
 	background: url(images/boxyellowtop.gif) no-repeat top right;
 	height: 4px;
 	margin: 0px 0px 0px 4px;
@@ -288,7 +266,7 @@ div.hidden
 	overflow: hidden; /* IE6 HACK */
 }
 
-.yboxbottom {
+.titleboxbottom {
 	background: url(images/boxyellowbottom.gif) no-repeat bottom left;
 	height: 5px;
 	margin: 0px;
@@ -296,7 +274,7 @@ div.hidden
 	overflow: hidden; /* IE HACK */
 }
 
-.yboxbottominner {
+.titleboxbottominner {
 	background: url(images/boxyellowbottom.gif) no-repeat top right;
 	height: 5px;
 	margin: 0px 0px 0px 4px;

@@ -1,5 +1,5 @@
 <?php echo $this->element('pagination_links'); ?>
-<?php echo $this->element('cboxtop'); ?>	<table cellpadding="0" cellspacing="0">
+<?php echo $this->element('box/top', array('type'=>'body')); ?>	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $paginator->sort('id');?></th>
 			<th><?php echo $paginator->sort('name');?></th>
@@ -40,7 +40,7 @@
 	</tr>
 <?php endforeach; ?>
 	</table>
-<?php echo $this->element('cboxbottom'); ?>
+<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php echo $this->element('pagination_links'); ?>
 <div id="toolbar">
 	<ul>

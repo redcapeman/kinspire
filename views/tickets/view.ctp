@@ -7,166 +7,166 @@ foreach ($ticket['TicketChange'] as $ticketChange) {
 ?>
 <div class="right">
 	<?php if ($ticket['Project']['name']): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Project
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $ticket['Project']['name']; ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 	<?php if (isset($ticketChange['Type']['name'])): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Type
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $ticketChange['Type']['name']; ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 	<?php if (isset($ticketChange['Element']['name'])): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Element
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $ticketChange['Element']['name']; ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 	<?php if (isset($ticketChange['Severity']['name'])): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Severity
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $ticketChange['Severity']['name']; ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 	<?php if (isset($ticketChange['Priority']['name'])): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Priority
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $ticketChange['Priority']['name']; ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 	<?php if ($ticket['Owner']['id']): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Owner
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $html->link($ticket['Owner']['username'], array('controller'=> 'users', 'action'=>'view', $ticket['Owner']['id'])); ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 	<?php if ($ticket['Reporter']['id']): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Reporter
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $html->link($ticket['Reporter']['name'], array('controller'=> 'users', 'action'=>'view', $ticket['Reporter']['id'])); ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 	<?php if (isset($ticketChange['Version']['name'])): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Version
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $ticketChange['Version']['name']; ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 	<?php if (isset($ticketChange['Milestone']['name'])): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Milestone
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $ticketChange['Milestone']['name']; ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 	<?php if (isset($ticketChange['Status']['name'])): ?>
-		<?php echo $this->element('yboxsmallrighttop'); ?>
+		<?php echo $this->element('box/top', array('type'=>'title','size'=>'small','locale'=>'right')); ?>
 			Status
-		<?php echo $this->element('yboxbottom'); ?>
-		<?php echo $this->element('cboxsmallrighttop'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+		<?php echo $this->element('box/top', array('type'=>'body','size'=>'small','locale'=>'right')); ?>
 			<?php echo $ticketChange['Status']['name']; ?>
-		<?php echo $this->element('cboxbottom'); ?>
+		<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<?php endif; ?>
 </div>
 <div class="nullbox">
 <?php if ($ticket['Ticket']['id']): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Id
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $ticket['Ticket']['id']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($ticket['Ticket']['title']): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Title
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $ticket['Ticket']['title']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if (isset($ticketChange['description'])): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Description
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $ticketChange['description']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if (isset($ticketChange['resolution'])): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Resolution
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $ticketChange['resolution']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($ticket['Ticket']['created']): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Created
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $ticket['Ticket']['created']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if (isset($ticketChange['due'])): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Due
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $ticketChange['due']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($ticket['Ticket']['updated']): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Updated
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $ticket['Ticket']['updated']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if (isset($ticketChange['completed'])): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Completed
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $ticketChange['completed']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($ticket['Ticket']['is_open']): ?>
-	<?php echo $this->element('yboxmediumtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
 		Is Open
-	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxmediumtop'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
 		<?php echo $ticket['Ticket']['is_open']; ?>
-	<?php echo $this->element('cboxbottom'); ?>
+	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($session->read('Auth.User.group_id') == 1) : ?>
@@ -180,9 +180,9 @@ foreach ($ticket['TicketChange'] as $ticketChange) {
 
 <?php if (!empty($ticket['TicketComment'])):?>
 	<br>
-	<?php echo $this->element('yboxtop'); ?>
-	<?php __('Comments');?>	<?php echo $this->element('yboxbottom'); ?>
-	<?php echo $this->element('cboxtop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title')); ?>
+	<?php __('Comments');?>	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body')); ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('User Id'); ?></th>
@@ -212,7 +212,7 @@ foreach ($ticket['TicketChange'] as $ticketChange) {
 		</tr>
 	<?php endforeach; ?>
 	</table>
-<?php echo $this->element('cboxbottom'); ?>
+<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
 <div id="toolbar">
 	<ul>
