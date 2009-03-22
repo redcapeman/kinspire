@@ -9,7 +9,7 @@
  *
  * @copyright		ExqSoft, http://www.exqsoft.com
  * @package			kinpire
- * @subpackage		kinspire.plugins.calendar.controllers
+ * @subpackage		kinspire.controllers
  * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 class EventsController extends AppController {
