@@ -14,4 +14,4 @@
 	 | 	<?php echo $paginator->numbers();?>
 		<?php echo $paginator->next(__('next', true).' >>', array(), null, array('class'=>'disabled'));?>
 	</div>
-</div></p><?php echo $this->element('cboxbottom'); ?>
+</div></p><?php echo $this->element('box/bottom', array('type'=>'body')); ?>

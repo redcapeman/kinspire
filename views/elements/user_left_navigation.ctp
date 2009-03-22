@@ -1,5 +1,5 @@
 <div class="left leftnav">
-	<?php echo $this->element('yboxsmalltop'); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'small')); ?>
 		<div align="center">
 			<h3 class="pagetitle">Welcome <?php echo $session->read('Auth.User.username'); ?></h3>
 			<?php if (!$session->read('Auth.User.id')) {$loginLink = 'login';} else {$loginLink = 'logout';} ?>
@@ -17,12 +17,12 @@
 						$i = 0;
 						$count = count($event['Event']);
 						?>
-				<?php echo $this->element('yboxsmalltop'); ?>
+				<?php echo $this->element('box/top', array('type'=>'title','size'=>'small')); ?>
 				<div class="leftnav">
 					<h3 class="pagetitle">Upcoming Events</h3></li>
 				</div>
 				<?php echo $this->element('box/bottom', array('type'=>'title')); ?>	
-				<?php echo $this->element('cboxsmalltop'); ?>	
+				<?php echo $this->element('box/top', array('type'=>'body','size'=>'small')); ?>
 				<div class="leftnav">
 					<ul>
 						<?php for ($i = 0; $i <= $count - 1; $i++) { 
@@ -42,13 +42,13 @@
 	
 	<?php if ($session->read('Auth.User.id')) : ?>
 		<?php if (isset($UserProjects)) : ?>
-			<?php echo $this->element('yboxsmalltop'); ?>
+			<?php echo $this->element('box/top', array('type'=>'title','size'=>'small')); ?>
 				<div align="center">
 					<h3 class="pagetitle">Projects</h3>
 				</div>
 			<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 			
-			<?php echo $this->element('cboxsmalltop'); ?>
+			<?php echo $this->element('box/top', array('type'=>'body','size'=>'small')); ?>
 				<div class="leftnav">
 					<ul>
 						<?php foreach($UserProjects as $project) : ?>
