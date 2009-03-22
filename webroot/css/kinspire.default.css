@@ -164,7 +164,7 @@ div.hidden
 }
 
 .mediumboxwrapper {
-	width: 266px;
+	width: 200px;
 	margin-top: 5px;
 	margin-right: 5px;
 }
@@ -183,11 +183,6 @@ div.hidden
 	background: url(images/divider.gif) repeat-x;
 	width:950px;
 	height: 10px;
-	overflow: hidden; /* IE HACK */
-}
-
-.nullbox {	
-	width: 537px;
 	overflow: hidden; /* IE HACK */
 }
 
