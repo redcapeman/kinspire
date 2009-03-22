@@ -18,7 +18,7 @@
 						$count = count($event['Event']);
 						?>
 				<?php echo $this->element('box/top', array('type'=>'title','size'=>'small')); ?>
-				<div class="leftnav">
+				<div align="center">
 					<h3 class="pagetitle">Upcoming Events</h3></li>
 				</div>
 				<?php echo $this->element('box/bottom', array('type'=>'title')); ?>	
