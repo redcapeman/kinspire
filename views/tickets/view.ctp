@@ -89,82 +89,82 @@ foreach ($ticket['TicketChange'] as $ticketChange) {
 </div>
 <div class="nullbox">
 <?php if ($ticket['Ticket']['id']): ?>
-	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Id
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
-	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium','locale'=>'left')); ?>
 		<?php echo $ticket['Ticket']['id']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($ticket['Ticket']['title']): ?>
-	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Title
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
-	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium','locale'=>'left')); ?>
 		<?php echo $ticket['Ticket']['title']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if (isset($ticketChange['description'])): ?>
-	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Description
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
-	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium','locale'=>'left')); ?>
 		<?php echo $ticketChange['description']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if (isset($ticketChange['resolution'])): ?>
-	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Resolution
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
-	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium','locale'=>'left')); ?>
 		<?php echo $ticketChange['resolution']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($ticket['Ticket']['created']): ?>
-	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Created
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
-	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium','locale'=>'left')); ?>
 		<?php echo $ticket['Ticket']['created']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if (isset($ticketChange['due'])): ?>
-	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Due
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
-	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium','locale'=>'left')); ?>
 		<?php echo $ticketChange['due']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($ticket['Ticket']['updated']): ?>
-	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Updated
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
-	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium','locale'=>'left')); ?>
 		<?php echo $ticket['Ticket']['updated']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if (isset($ticketChange['completed'])): ?>
-	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Completed
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
-	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium','locale'=>'left')); ?>
 		<?php echo $ticketChange['completed']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
 <?php if ($ticket['Ticket']['is_open']): ?>
-	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Is Open
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
-	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium')); ?>
+	<?php echo $this->element('box/top', array('type'=>'body','size'=>'medium','locale'=>'left')); ?>
 		<?php echo $ticket['Ticket']['is_open']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
