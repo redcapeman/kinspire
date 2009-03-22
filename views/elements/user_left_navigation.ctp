@@ -53,10 +53,10 @@
 					<ul>
 						<?php foreach($UserProjects as $project) : ?>
 							<li><div class="pagetitle"><?php echo $project['Project']['name']; ?></div></li>
-							<li><div class="small"><?php echo $html->link('Open Tickets', array('controller'=> 'projects', 'action'=>'tickets', $project['Project']['id'], 'plugin'=>null)); ?> <?php echo $project['Project']['open_ticket_count']; ?> of <?php echo $html->link($project['Project']['ticket_count'], array('controller'=> 'projects', 'action'=>'tickets', $project['Project']['id'], 'all', 'plugin'=>null)); ?></div></li>
+							<li><div class="small"><?php echo $html->link('Open Tasks', array('controller'=> 'projects', 'action'=>'tasks', $project['Project']['id'], 'plugin'=>null)); ?> <?php echo $project['Project']['open_task_count']; ?> of <?php echo $html->link($project['Project']['task_count'], array('controller'=> 'projects', 'action'=>'tasks', $project['Project']['id'], 'all', 'plugin'=>null)); ?></div></li>
 							<ul>
-								<li><?php echo $html->link(__('My Tickets', true), array('controller'=> 'projects', 'action'=>'tickets', $project['Project']['id'], 'mine', 'plugin'=>null)); ?></li>
-								<li><?php echo $html->link(__('New Ticket', true), array('controller'=> 'tickets', 'action'=>'add', $project['Project']['id'], 'plugin'=>null)); ?></li>
+								<li><?php echo $html->link(__('My Tasks', true), array('controller'=> 'projects', 'action'=>'tasks', $project['Project']['id'], 'mine', 'plugin'=>null)); ?></li>
+								<li><?php echo $html->link(__('New Task', true), array('controller'=> 'tasks', 'action'=>'add', $project['Project']['id'], 'plugin'=>null)); ?></li>
 								<?php if ($session->read('Auth.User.group_id') == 1) : ?>
 									<li><?php echo $html->link(__('New Timeclock', true), array('controller'=> 'timeclocks', 'action'=>'add', $project['Project']['id'], 'plugin'=>null)); ?></li>
 								<?php endif; ?>

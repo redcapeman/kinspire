@@ -3,7 +3,7 @@
     echo $this->element('box/top', array('type'=>'body'));
     echo $form->label('Browse File to Attach');
     echo $form->file('File');
-    echo $form->input('ticket_comment_id', array('type' => 'hidden', 'value' => $id));
+    echo $form->input('task_comment_id', array('type' => 'hidden', 'value' => $id));
     echo $this->element('box/bottom', array('type'=>'body'));
 ?>
 <?php 

@@ -1,182 +1,182 @@
 <?php
-foreach ($ticket['TicketChange'] as $ticketChange) {
-	if ($ticketChange['is_active']) {
+foreach ($task['TaskChange'] as $taskChange) {
+	if ($taskChange['is_active']) {
 		break;
 	}
 }
 ?>
 
-<?php if ($ticket['Ticket']['id']): ?>
+<?php if ($task['Task']['id']): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Id
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticket['Ticket']['id']; ?>
+		<?php echo $task['Task']['id']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if ($ticket['Ticket']['title']): ?>
+<?php if ($task['Task']['title']): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Title
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticket['Ticket']['title']; ?>
+		<?php echo $task['Task']['title']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if (isset($ticketChange['description'])): ?>
+<?php if (isset($taskChange['description'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Description
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['description']; ?>
+		<?php echo $taskChange['description']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if (isset($ticketChange['resolution'])): ?>
+<?php if (isset($taskChange['resolution'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Resolution
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['resolution']; ?>
+		<?php echo $taskChange['resolution']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if ($ticket['Ticket']['created']): ?>
+<?php if ($task['Task']['created']): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Created
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticket['Ticket']['created']; ?>
+		<?php echo $task['Task']['created']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if (isset($ticketChange['due'])): ?>
+<?php if (isset($taskChange['due'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Due
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['due']; ?>
+		<?php echo $taskChange['due']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if ($ticket['Ticket']['updated']): ?>
+<?php if ($task['Task']['updated']): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Updated
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticket['Ticket']['updated']; ?>
+		<?php echo $task['Task']['updated']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if (isset($ticketChange['completed'])): ?>
+<?php if (isset($taskChange['completed'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Completed
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['completed']; ?>
+		<?php echo $taskChange['completed']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if ($ticket['Ticket']['is_open']): ?>
+<?php if ($task['Task']['is_open']): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Is Open
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticket['Ticket']['is_open']; ?>
+		<?php echo $task['Task']['is_open']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 	<div class="reset"></div>
 <?php endif; ?>
-<?php if ($ticket['Project']['name']): ?>
+<?php if ($task['Project']['name']): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Project
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticket['Project']['name']; ?>
+		<?php echo $task['Project']['name']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
-<?php if (isset($ticketChange['Type']['name'])): ?>
+<?php if (isset($taskChange['Type']['name'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Type
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['Type']['name']; ?>
+		<?php echo $taskChange['Type']['name']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
-<?php if (isset($ticketChange['Element']['name'])): ?>
+<?php if (isset($taskChange['Element']['name'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Element
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['Element']['name']; ?>
+		<?php echo $taskChange['Element']['name']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
-<?php if (isset($ticketChange['Severity']['name'])): ?>
+<?php if (isset($taskChange['Severity']['name'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Severity
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['Severity']['name']; ?>
+		<?php echo $taskChange['Severity']['name']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
-<?php if (isset($ticketChange['Priority']['name'])): ?>
+<?php if (isset($taskChange['Priority']['name'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Priority
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['Priority']['name']; ?>
+		<?php echo $taskChange['Priority']['name']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
-<?php if ($ticket['Owner']['id']): ?>
+<?php if ($task['Owner']['id']): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Owner
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $html->link($ticket['Owner']['username'], array('controller'=> 'users', 'action'=>'view', $ticket['Owner']['id'])); ?>
+		<?php echo $html->link($task['Owner']['username'], array('controller'=> 'users', 'action'=>'view', $task['Owner']['id'])); ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
-<?php if ($ticket['Reporter']['id']): ?>
+<?php if ($task['Reporter']['id']): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Reporter
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $html->link($ticket['Reporter']['name'], array('controller'=> 'users', 'action'=>'view', $ticket['Reporter']['id'])); ?>
+		<?php echo $html->link($task['Reporter']['name'], array('controller'=> 'users', 'action'=>'view', $task['Reporter']['id'])); ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
-<?php if (isset($ticketChange['Version']['name'])): ?>
+<?php if (isset($taskChange['Version']['name'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Version
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['Version']['name']; ?>
+		<?php echo $taskChange['Version']['name']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
-<?php if (isset($ticketChange['Milestone']['name'])): ?>
+<?php if (isset($taskChange['Milestone']['name'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Milestone
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['Milestone']['name']; ?>
+		<?php echo $taskChange['Milestone']['name']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
-<?php if (isset($ticketChange['Status']['name'])): ?>
+<?php if (isset($taskChange['Status']['name'])): ?>
 	<?php echo $this->element('box/top', array('type'=>'title','size'=>'medium','locale'=>'left')); ?>
 		Status
 	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
 	<?php echo $this->element('box/top', array('type'=>'body')); ?>
-		<?php echo $ticketChange['Status']['name']; ?>
+		<?php echo $taskChange['Status']['name']; ?>
 	<?php echo $this->element('box/bottom', array('type'=>'body')); ?>
 <?php endif; ?>
 <?php if ($session->read('Auth.User.group_id') == 1) : ?>
 	<div id="toolbar">
 		<ul>
-			<li><div align="center"><?php echo $html->link('Update Ticket', array('controller'=>'ticket_changes', 'action'=>'add', $ticket['Ticket']['id']), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
+			<li><div align="center"><?php echo $html->link('Update Task', array('controller'=>'task_changes', 'action'=>'add', $task['Task']['id']), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 		</ul>
 	</div>
 	<div class="reset"></div>
 <?php endif; ?>
 
-<?php if (!empty($ticket['TicketComment'])):?>
+<?php if (!empty($task['TaskComment'])):?>
 	<br>
 	<?php echo $this->element('box/top', array('type'=>'title')); ?>
 	<?php __('Comments');?>	<?php echo $this->element('box/bottom', array('type'=>'title')); ?>
@@ -192,20 +192,20 @@ foreach ($ticket['TicketChange'] as $ticketChange) {
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($ticket['TicketComment'] as $ticketComment):
+		foreach ($task['TaskComment'] as $taskComment):
 			$class = null;
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $ticketComment['user_id'];?></td>
-			<td><?php echo $ticketComment['title'];?></td>
-			<td><?php echo $ticketComment['body'];?></td>
-			<td><?php echo $ticketComment['created'];?></td>
-			<td><?php echo $ticketComment['upload_count'];?></td>
+			<td><?php echo $taskComment['user_id'];?></td>
+			<td><?php echo $taskComment['title'];?></td>
+			<td><?php echo $taskComment['body'];?></td>
+			<td><?php echo $taskComment['created'];?></td>
+			<td><?php echo $taskComment['upload_count'];?></td>
 			<td>
-			<?php echo $html->link(__('Attachments', true), array('controller' => 'ticket_comments' , 'action' => 'attach', $ticketComment['id']))?>
+			<?php echo $html->link(__('Attachments', true), array('controller' => 'task_comments' , 'action' => 'attach', $taskComment['id']))?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -214,6 +214,6 @@ foreach ($ticket['TicketChange'] as $ticketChange) {
 <?php endif; ?>
 <div id="toolbar">
 	<ul>
-		<li><div align="center"><?php echo $html->link('Add Comment', array('controller'=>'ticket_comments', 'action'=>'add', $ticket['Ticket']['id']), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
+		<li><div align="center"><?php echo $html->link('Add Comment', array('controller'=>'task_comments', 'action'=>'add', $task['Task']['id']), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 	</ul>
 </div>

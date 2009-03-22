@@ -1,4 +1,4 @@
-<?php echo $form->create('Ticket');?>
+<?php echo $form->create('Task');?>
 	<?php
 echo $this->element('box/top', array('type'=>'body'));
 		echo $form->input('title', array('class'=>'form', 'label'=>null));

@@ -12,7 +12,7 @@
 			<li><div align="center"><?php echo $html->link('Priorities', array('controller'=> 'priorities', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 			<li><div align="center"><?php echo $html->link('Severities', array('controller'=> 'severities', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 			<li><div align="center"><?php echo $html->link('Statuses', array('controller'=> 'statuses', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
-			<li><div align="center"><?php echo $html->link('Tickets', array('controller'=> 'tickets', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
+			<li><div align="center"><?php echo $html->link('Tasks', array('controller'=> 'tasks', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 			<li><div align="center"><?php echo $html->link('Timeclocks', array('controller'=> 'timeclocks', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 			<li><div align="center"><?php echo $html->link('Types', array('controller'=> 'types', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 			<li><div align="center"><?php echo $html->link('Users', array('controller'=> 'users', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>

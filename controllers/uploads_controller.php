@@ -32,13 +32,13 @@ class UploadsController extends AppController {
 
             if($this->Upload->save($this->data)) {
 				$this->Session->setFlash(__('Upload successful', true));
-				$this->flash('saved', array('controller'=>'ticket_comments', 'action'=>'attach', $this->data['Upload']['ticket_comment_id']));
+				$this->flash('saved', array('controller'=>'task_comments', 'action'=>'attach', $this->data['Upload']['task_comment_id']));
 			} else {
 				$this->Session->setFlash(__('Error on upload. Please try again.'));	
 			}
     	}
     	
-    	$this->redirect(array('controller' => 'ticket_comments', 'action' => 'attach', $this->data['Upload']['ticket_comment_id']));
+    	$this->redirect(array('controller' => 'task_comments', 'action' => 'attach', $this->data['Upload']['task_comment_id']));
     }
 }
 

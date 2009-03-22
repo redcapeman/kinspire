@@ -1,12 +1,12 @@
 <?php
-class TicketChange extends AppModel {
+class TaskChange extends AppModel {
 
-	var $name = 'TicketChange';
+	var $name = 'TaskChange';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 	var $belongsTo = array(
-			'Ticket' => array('className' => 'Ticket',
-								'foreignKey' => 'ticket_id'
+			'Task' => array('className' => 'Task',
+								'foreignKey' => 'task_id'
 			),
 			'User' => array('className' => 'User',
 								'foreignKey' => 'user_id'

@@ -2,7 +2,7 @@
 class MigrateController extends AppController {
 	
 	var $name = 'Migrate';
-	var $uses = array('Export', 'Ticket');
+	var $uses = array('Export', 'Task');
 	
 	function export ($key) {
 		App::import('File');
@@ -13,17 +13,17 @@ class MigrateController extends AppController {
 				$cond_projects = array(
 					'conditions' => array('Export.client_id' => $this->params['pass']['1'])	
 				);
-				 $cond_tickets = array(
+				 $cond_tasks = array(
 				 	'conditions' => array('Project.client_id' => $this->params['pass']['1'])	
 				 );
 			}
 			else {
 				$cond_projects = array();
-				 $cond_tickets = array();
+				 $cond_tasks = array();
 			}
 			$this->layout = 'json';
 			$projects = $this->Export->find('all', $cond_projects);
-			 $tickets = $this->Ticket->find('all', $cond_tickets);
+			 $tasks = $this->Task->find('all', $cond_tasks);
 			
 			foreach ($projects as $project) {
 				$data['Project'][$project['Export']['id']] = $project['Export'];
@@ -51,18 +51,18 @@ class MigrateController extends AppController {
 				}			
 			}
 			
-			foreach ($tickets as $ticket) {
+			foreach ($tasks as $task) {
 				
-				$data['Ticket'][$ticket['Ticket']['id']] = $ticket['Ticket'];
+				$data['Task'][$task['Task']['id']] = $task['Task'];
 				
 				// structure elements
-				foreach($ticket['TicketComment'] as $ticket_comment) {
-					$data['TicketComment'][$ticket_comment['id']] = $ticket_comment;
+				foreach($task['TaskComment'] as $task_comment) {
+					$data['TaskComment'][$task_comment['id']] = $task_comment;
 				}
 					
 				// structure elements
-				foreach($ticket['TicketChange'] as $ticket_change) {
-					$data['TicketChange'][$ticket_change['id']] = $ticket_change;
+				foreach($task['TaskChange'] as $task_change) {
+					$data['TaskChange'][$task_change['id']] = $task_change;
 				}
 			}
 			

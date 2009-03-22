@@ -34,15 +34,15 @@ class User extends AppModel {
 								'foreignKey' => 'owner_id',
 								'dependent' => false
 			),
-			'Ticket' => array('className' => 'Ticket',
+			'Task' => array('className' => 'Task',
 								'foreignKey' => 'reporter_id',
 								'dependent' => false
 			),
-			'OwnedTickets' => array('className' => 'Ticket',
+			'OwnedTasks' => array('className' => 'Task',
 								'foreignKey' => 'owner_id',
 								'dependent' => false
 			),
-			'TicketComment' => array('className' => 'TicketComment',
+			'TaskComment' => array('className' => 'TaskComment',
 								'foreignKey' => 'user_id',
 								'dependent' => false
 			),

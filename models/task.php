@@ -1,7 +1,7 @@
 <?php
-class Ticket extends AppModel {
+class Task extends AppModel {
 
-	var $name = 'Ticket';
+	var $name = 'Task';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 	var $belongsTo = array(
@@ -17,24 +17,24 @@ class Ticket extends AppModel {
 			)
 	);
 	var $hasMany = array(
-			'TicketChange' => array('className' => 'TicketChange',
-								'foreignKey' => 'ticket_id',
+			'TaskChange' => array('className' => 'TaskChange',
+								'foreignKey' => 'task_id',
 								'dependent' => false
 			),
-			'TicketComment' => array('className' => 'TicketComment',
-								'foreignKey' => 'ticket_id',
+			'TaskComment' => array('className' => 'TaskComment',
+								'foreignKey' => 'task_id',
 								'dependent' => false
 			)		
 	);
 	
 	function updateOpenCount($projectId) {
 		$conditions = array(
-		            'conditions' => array('Ticket.is_open' => 1, 'Ticket.project_id' => $projectId));
+		            'conditions' => array('Task.is_open' => 1, 'Task.project_id' => $projectId));
 	
 		$count = $this->find('count', $conditions);
 		$this->Project->id = $projectId;
 		
-		if ($this->Project->saveField('open_ticket_count', $count)) {
+		if ($this->Project->saveField('open_task_count', $count)) {
 			return true;
 		}
 		

@@ -1,7 +1,7 @@
-<?php echo $form->create('TicketComment');?>
+<?php echo $form->create('TaskComment');?>
 	<?php
 echo $this->element('box/top', array('type'=>'body'));
-		echo $form->input('ticket_id', array('class'=>'form', 'label'=>null));
+		echo $form->input('task_id', array('class'=>'form', 'label'=>null));
 echo $this->element('box/bottom', array('type'=>'body'));
 echo $this->element('box/top', array('type'=>'body'));
 		echo $form->input('user_id', array('class'=>'form', 'label'=>null));
