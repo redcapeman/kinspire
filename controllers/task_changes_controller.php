@@ -58,7 +58,8 @@ class TaskChangesController extends AppController {
 		$elements = $this->TaskChange->Element->find('list', array('conditions' => array('project_id' => array($projectId, 0))));
 		$severities = $this->TaskChange->Severity->find('list');
 		$priorities = $this->TaskChange->Priority->find('list', array('order' => 'order'));
-		$owners = $users = $this->TaskChange->Task->Owner->find('list', array('fields'=>array('username')));
+		$users = $this->TaskChange->Task->Owner->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
+		$owners = $this->TaskChange->Task->Owner->find('list', array('fields'=>array('username')));
 		$versions = $this->TaskChange->Version->find('list', array('conditions' => array('project_id' => array($projectId, 0))));
 		$milestones = $this->TaskChange->Milestone->find('list', array('conditions' => array('project_id' => array($projectId, 0))));
 		$this->set(compact('tasks', 'statuses', 'types', 'elements', 'severities', 'priorities', 'owners', 'users', 'versions', 'milestones'));
