@@ -24,19 +24,14 @@ class AppController extends Controller {
 		
 		// if the user is logged in and see if they have open timeclocks and projects
 		if ($this->Auth->user()) {
-			$OpenTimeclocks = ClassRegistry::init('Timeclock');
-			$OpenTimeclocks = $OpenTimeclocks->openTimeclocks($this->Auth->user('id'));
-			$this->set('OpenTimeclocks', $OpenTimeclocks);
-			$UserProjects = ClassRegistry::init('Project');
-			$UserProjects = $UserProjects->userProjects($this->Auth->user('id'), $this->Auth->user('group_id'));
-			$this->set('UserProjects', $UserProjects);
-			$icons = ClassRegistry::init('Icon');
-			$icons = $icons->find('list');
-			$this->icons = $icons;
-			$this->set(compact('icons'));
-			$userEvents = ClassRegistry::init('User');
-			$userEvents = $userEvents->find('all', array('conditions' => array('User.id' => $this->Auth->user('id'))));
-			$this->set(compact('userEvents'));
+			$left['OpenTimeclocks'] = ClassRegistry::init('Timeclock')->openTimeclocks($this->Auth->user('id'));
+			$left['UserProjects'] = ClassRegistry::init('Project')->userProjects($this->Auth->user('id'), $this->Auth->user('group_id'));
+			$left['userEvents'] = ClassRegistry::init('User')->find('all', array('conditions' => array('User.id' =>$this->Auth->user('id'))));
+			$this->set(compact('left'));
+			
+			// get icons
+			$this->icons = ClassRegistry::init('Icon')->find('list');
+			$this->set('icons', $this->icons);
 			
 			
 			// log the user's actions
