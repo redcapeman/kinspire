@@ -195,7 +195,7 @@ div.hidden
 
 .bodyboxinner {
 	background: url(images/boxcreambody.gif) repeat-y top right;
-	margin: 0px 0px 0px 4px;
+	margin: 0px 0px 0px 6px;
 	overflow: auto; /* IE HACK */
 
 }
@@ -533,6 +533,11 @@ form {
 	padding: 0px;
 	margin: 0px;
 }
+.labels {
+	width: 300px;
+	padding-right: 5px;
+	float: left;
+}
 label {
 	display: block;
 	padding-right: 20px;
@@ -550,7 +555,7 @@ input.form, textarea.form {
 	border-right:1px dotted #999999;
 	display: block;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
-	width: 50%;
+	width: 98%;
 }
 input[type=checkbox] {
 	clear: left;
