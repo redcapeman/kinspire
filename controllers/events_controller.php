@@ -17,11 +17,6 @@ class EventsController extends AppController {
 	//var $uses = array('Event.User');
 	
 	var $helpers = array('Html', 'Form', 'Calendar');
-	
-	//to be remove
-	function beforeFilter() {
-		$this->Auth->allow('*');	
-	}
  
 	/**
 	* the idea is that the calendar helper itself is purely a shell
