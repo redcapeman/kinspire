@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost:3306
--- Generation Time: Mar 11, 2009 at 10:38 PM
--- Server version: 4.1.22
+-- Generation Time: Mar 22, 2009 at 09:41 PM
+-- Server version: 5.0.68
 -- PHP Version: 5.2.6
 -- 
 -- Database: `exqsoft_kinspire`
@@ -25,7 +25,7 @@ CREATE TABLE `acos` (
   `lft` int(10) default NULL,
   `rght` int(10) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=95 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=111 DEFAULT CHARSET=latin1 AUTO_INCREMENT=111 ;
 
 -- --------------------------------------------------------
 
@@ -41,7 +41,7 @@ CREATE TABLE `action_logs` (
   `params` varchar(255) NOT NULL default '',
   `created` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4223 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=167 DEFAULT CHARSET=latin1 AUTO_INCREMENT=167 ;
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,7 @@ CREATE TABLE `aros` (
   `lft` int(10) default NULL,
   `rght` int(10) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,7 @@ CREATE TABLE `aros_acos` (
   `_delete` char(2) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,7 @@ CREATE TABLE `configurations` (
   `value` text NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,37 @@ CREATE TABLE `elements` (
   `project_id` int(11) NOT NULL default '0',
   `owner_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `events`
+-- 
+
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) default NULL,
+  `event_date` datetime default NULL,
+  `alert_date` date default NULL,
+  `notes` text,
+  `created` datetime default NULL,
+  `updated` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `events_users`
+-- 
+
+CREATE TABLE `events_users` (
+  `id` int(11) NOT NULL auto_increment,
+  `event_id` int(11) default NULL,
+  `user_id` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
 
 -- --------------------------------------------------------
 
@@ -118,7 +148,7 @@ CREATE TABLE `groups` (
   `name` varchar(255) NOT NULL default '',
   `parent_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -130,7 +160,7 @@ CREATE TABLE `icons` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=latin1 AUTO_INCREMENT=1001 ;
 
 -- --------------------------------------------------------
 
@@ -149,7 +179,7 @@ CREATE TABLE `milestones` (
   `completed` datetime default NULL,
   `created` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 -- --------------------------------------------------------
 
@@ -163,7 +193,7 @@ CREATE TABLE `priorities` (
   `order` int(11) NOT NULL default '0',
   `icon_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -178,12 +208,12 @@ CREATE TABLE `projects` (
   `client_id` int(11) NOT NULL default '0',
   `owner_id` int(11) NOT NULL default '0',
   `is_active` tinyint(1) NOT NULL default '0',
-  `ticket_count` int(11) NOT NULL default '0',
-  `open_ticket_count` int(11) NOT NULL default '0',
+  `task_count` int(11) NOT NULL default '0',
+  `open_task_count` int(11) NOT NULL default '0',
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 -- --------------------------------------------------------
 
@@ -197,7 +227,7 @@ CREATE TABLE `severities` (
   `order` int(11) NOT NULL default '0',
   `icon_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -211,17 +241,17 @@ CREATE TABLE `statuses` (
   `order` int(11) NOT NULL default '0',
   `icon_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `ticket_changes`
+-- Table structure for table `task_changes`
 -- 
 
-CREATE TABLE `ticket_changes` (
+CREATE TABLE `task_changes` (
   `id` int(11) NOT NULL auto_increment,
-  `ticket_id` int(11) NOT NULL default '0',
+  `task_id` int(11) NOT NULL default '0',
   `user_id` int(11) NOT NULL default '0',
   `type_id` int(11) NOT NULL default '0',
   `element_id` int(11) NOT NULL default '0',
@@ -237,32 +267,32 @@ CREATE TABLE `ticket_changes` (
   `completed` datetime default NULL,
   `created` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=490 DEFAULT CHARSET=latin1 AUTO_INCREMENT=490 ;
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `ticket_comments`
+-- Table structure for table `task_comments`
 -- 
 
-CREATE TABLE `ticket_comments` (
+CREATE TABLE `task_comments` (
   `id` int(11) NOT NULL auto_increment,
-  `ticket_id` int(11) NOT NULL default '0',
+  `task_id` int(11) NOT NULL default '0',
   `user_id` int(11) NOT NULL default '0',
   `title` varchar(255) NOT NULL default '',
   `body` longtext NOT NULL,
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1 AUTO_INCREMENT=55 ;
 
 -- --------------------------------------------------------
 
 -- 
--- Table structure for table `tickets`
+-- Table structure for table `tasks`
 -- 
 
-CREATE TABLE `tickets` (
+CREATE TABLE `tasks` (
   `id` int(11) NOT NULL auto_increment,
   `title` varchar(255) NOT NULL default '',
   `project_id` int(11) NOT NULL default '0',
@@ -272,7 +302,7 @@ CREATE TABLE `tickets` (
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=294 DEFAULT CHARSET=latin1 AUTO_INCREMENT=294 ;
 
 -- --------------------------------------------------------
 
@@ -289,7 +319,7 @@ CREATE TABLE `timeclocks` (
   `clocked_in` datetime default NULL,
   `clocked_out` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=latin1 AUTO_INCREMENT=82 ;
 
 -- --------------------------------------------------------
 
@@ -303,40 +333,7 @@ CREATE TABLE `types` (
   `order` int(11) NOT NULL default '0',
   `icon_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `upload_folders`
--- 
-
-CREATE TABLE `upload_folders` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `parent_id` int(10) default NULL,
-  `lft` int(10) default NULL,
-  `rght` int(10) default NULL,
-  `name` varchar(255) default '',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `uploads`
--- 
-
-CREATE TABLE `uploads` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` varchar(75) NOT NULL default '',
-  `type` varchar(255) NOT NULL default '',
-  `size` int(11) NOT NULL default '0',
-  `data` longblob NOT NULL,
-  `upload_folder_id` int(11) default NULL,
-  `created` datetime default NULL,
-  `updated` datetime default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -353,7 +350,7 @@ CREATE TABLE `users` (
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -370,4 +367,4 @@ CREATE TABLE `versions` (
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
