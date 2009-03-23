@@ -26,7 +26,7 @@ class AppController extends Controller {
 		if ($this->Auth->user()) {
 			$left['OpenTimeclocks'] = ClassRegistry::init('Timeclock')->openTimeclocks($this->Auth->user('id'));
 			$left['UserProjects'] = ClassRegistry::init('Project')->userProjects($this->Auth->user('id'), $this->Auth->user('group_id'));
-			$left['userEvents'] = ClassRegistry::init('User')->find('all', array('conditions' => array('User.id' =>$this->Auth->user('id'))));
+			//$left['userEvents'] = ClassRegistry::init('User')->find('all', array('conditions' => array('User.id' =>$this->Auth->user('id'))));
 			$this->set(compact('left'));
 			
 			// get icons
