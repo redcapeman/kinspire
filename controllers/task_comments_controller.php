@@ -3,16 +3,10 @@ class TaskCommentsController extends AppController {
 
 	var $name = 'TaskComments';
 	var $helpers = array('Html', 'Form');
-	
-	//to be remove, temp allow actions
-	function beforeFilter() {
-		$this->Auth->allow('*');	
-	}
 
 	function add($taskId = null) {
 		if (!$taskId && empty($this->data)) {
-			//$this->flash('noid', 'index');
-			$this->redirect(array('controller' => 'tasks', 'action' => 'index'));
+			$this->flash('noid', 'index');
 		}
 		
 		if (!empty($this->data)) {
