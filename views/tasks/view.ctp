@@ -203,7 +203,6 @@ foreach ($task['TaskChange'] as $taskChange) {
 			<td><?php echo $taskComment['title'];?></td>
 			<td><?php echo $taskComment['body'];?></td>
 			<td><?php echo $taskComment['created'];?></td>
-			<td><?php echo $taskComment['upload_count'];?></td>
 			<td>
 			<?php echo $html->link(__('Attachments', true), array('controller' => 'task_comments' , 'action' => 'attach', $taskComment['id']))?>
 			</td>

@@ -12,7 +12,5 @@ class TaskComment extends AppModel {
 								'foreignKey' => 'user_id'
 			)
 	);
-	
-	var $hasMany = array('Upload');
 }
 ?>

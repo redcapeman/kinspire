@@ -24,15 +24,9 @@ class TaskCommentsController extends AppController {
 			}
 		}
 		$this->data['TaskComment']['task_id'] = $taskId;
-		$this->data['TaskComment']['upload_id'] = $taskId;
 		$tasks = $this->TaskComment->Task->find('list', array('conditions' => array('id' => array($this->data['TaskComment']['task_id']))));
 		$users = $this->TaskComment->User->find('list', array('fields'=>array('username'), 'conditions' => array('id' => array($this->Auth->user('id')))));
 		$this->set(compact('tasks', 'users'));
-	}
-	
-	function attach($id = null) {
-		$files = $this->TaskComment->Upload->find('all', array('conditions' => array('task_comment_id' => $id)));
-		$this->set(compact('files', 'id', 'taskId'));
 	}
 }
 ?>

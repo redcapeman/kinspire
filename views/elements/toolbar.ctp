@@ -17,8 +17,8 @@
 			<li><div align="center"><?php echo $html->link('Types', array('controller'=> 'types', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 			<li><div align="center"><?php echo $html->link('Users', array('controller'=> 'users', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
 			<li><div align="center"><?php echo $html->link('Versions', array('controller'=> 'versions', 'action'=>'index', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
-			<li><div align="center"><?php echo $html->link('Uploads', array('controller'=> 'file', 'action'=>'uploads', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
-			<li><div align="center"><?php echo $html->link('Upload Folders', array('controller'=> 'file', 'action'=>'upload_folders', 'plugin'=>null), array('id'=>'tb-button', 'class'=>'tb-normal')); ?></div></li>
+			<li><div align="center"><a id="tb-button" class="tb-disabled"></a></div></li>
+			<li><div align="center"><a id="tb-button" class="tb-disabled"></a></div></li>
 		<?php else : ?>
 			<li><div align="center"><a id="tb-button" class="tb-disabled"></a></div></li>
 			<li><div align="center"><a id="tb-button" class="tb-disabled"></a></div></li>
