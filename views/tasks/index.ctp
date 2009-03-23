@@ -76,7 +76,7 @@
 		<?php if ($session->read('Auth.User.group_id') == 1) : ?>
 			<td class="actions">
 				<?php echo $html->link(__('Update', true), array('controller'=>'task_changes', 'action'=>'add', $task['Task']['id'])); ?>
-				<?php echo $html->link(__('Edit', true), array('action'=>'edit', $task['Task']['id'])); ?>
+				<?php echo $html->link(__('Edit', true), array('controller'=>'tasks', 'action'=>'edit', $task['Task']['id'])); ?>
 			</td>
 		<?php endif; ?>
 	</tr>
