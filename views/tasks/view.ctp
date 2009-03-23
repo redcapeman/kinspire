@@ -187,8 +187,6 @@ foreach ($task['TaskChange'] as $taskChange) {
 		<th><?php __('Title'); ?></th>
 		<th><?php __('Body'); ?></th>
 		<th><?php __('Created'); ?></th>
-		<th><?php __('Files'); ?></th>
-		<th><?php __('Actions'); ?></th>
 	</tr>
 	<?php
 		$i = 0;
@@ -203,9 +201,6 @@ foreach ($task['TaskChange'] as $taskChange) {
 			<td><?php echo $taskComment['title'];?></td>
 			<td><?php echo $taskComment['body'];?></td>
 			<td><?php echo $taskComment['created'];?></td>
-			<td>
-			<?php echo $html->link(__('Attachments', true), array('controller' => 'task_comments' , 'action' => 'attach', $taskComment['id']))?>
-			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
