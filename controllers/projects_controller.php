@@ -18,12 +18,12 @@ class ProjectsController extends AppController {
 		$this->set('projects', $this->paginate());
 	}
 	
-	function tickets($projectId = null, $ticketStatus = null) {
-		switch ($ticketStatus) {
+	function tasks($projectId = null, $taskStatus = null) {
+		switch ($taskStatus) {
 			case 'all':
 				$this->paginate = array(
 			        'conditions' => array(
-			            'Ticket.project_id' => $projectId
+			            'Task.project_id' => $projectId
 					)
 			    );
 				break;
@@ -32,9 +32,9 @@ class ProjectsController extends AppController {
 			case 'mine':
 				$this->paginate = array(
 			        'conditions' => array(
-			            'Ticket.is_open' => 1,
-			            'Ticket.owner_id' => $this->Auth->user('id'),
-			            'Ticket.project_id' => $projectId
+			            'Task.is_open' => 1,
+			            'Task.owner_id' => $this->Auth->user('id'),
+			            'Task.project_id' => $projectId
 					)
 			    );
 				break;
@@ -42,34 +42,34 @@ class ProjectsController extends AppController {
 			default:
 				$this->paginate = array(
 			        'conditions' => array(
-			            'Ticket.is_open' => 1,
-			            'Ticket.project_id' => $projectId
+			            'Task.is_open' => 1,
+			            'Task.project_id' => $projectId
 					)
 			    );
 				break;
 		}
 		
 		if ($projectId) {
-			$elements = $this->Project->Ticket->TicketChange->Element->find('list');
+			$elements = $this->Project->Task->TaskChange->Element->find('list');
 			
 			// Below you will see some bad code because I can't figure out a beter way to do it at this point in time.
 			/****************************************************************************************************************/
-			$types = $this->Project->Ticket->TicketChange->Type->find('list');
-			$typeIcons = $this->Project->Ticket->TicketChange->Type->find('list', array('fields'=>array('icon_id')));
-			$severities = $this->Project->Ticket->TicketChange->Severity->find('list');
-			$severityIcons = $this->Project->Ticket->TicketChange->Severity->find('list', array('fields'=>array('icon_id')));
-			$priorities = $this->Project->Ticket->TicketChange->Priority->find('list');
-			$priorityIcons = $this->Project->Ticket->TicketChange->Priority->find('list', array('fields'=>array('icon_id')));
-			$statuses = $this->Project->Ticket->TicketChange->Status->find('list');
-			$statusIcons = $this->Project->Ticket->TicketChange->Status->find('list', array('fields'=>array('icon_id')));
+			$types = $this->Project->Task->TaskChange->Type->find('list');
+			$typeIcons = $this->Project->Task->TaskChange->Type->find('list', array('fields'=>array('icon_id')));
+			$severities = $this->Project->Task->TaskChange->Severity->find('list');
+			$severityIcons = $this->Project->Task->TaskChange->Severity->find('list', array('fields'=>array('icon_id')));
+			$priorities = $this->Project->Task->TaskChange->Priority->find('list');
+			$priorityIcons = $this->Project->Task->TaskChange->Priority->find('list', array('fields'=>array('icon_id')));
+			$statuses = $this->Project->Task->TaskChange->Status->find('list');
+			$statusIcons = $this->Project->Task->TaskChange->Status->find('list', array('fields'=>array('icon_id')));
 			/****************************************************************************************************************/
 			
-			$versions = $this->Project->Ticket->TicketChange->Version->find('list');
-			$milestones = $this->Project->Ticket->TicketChange->Milestone->find('list');
-			$owners = $this->Project->Ticket->Owner->find('list', array('fields'=>array('username')));
+			$versions = $this->Project->Task->TaskChange->Version->find('list');
+			$milestones = $this->Project->Task->TaskChange->Milestone->find('list');
+			$owners = $this->Project->Task->Owner->find('list', array('fields'=>array('username')));
 			$this->set(compact('types', 'typeIcons', 'elements', 'severities', 'severityIcons', 'priorities', 'priorityIcons', 'versions', 'milestones', 'statuses', 'statusIcons', 'owners'));
-			$this->set('tickets', $this->paginate('Ticket'));
-			$this->render(null, null, '/tickets/index');
+			$this->set('tasks', $this->paginate('Task'));
+			$this->render(null, null, '/tasks/index');
 		}
 	}
 

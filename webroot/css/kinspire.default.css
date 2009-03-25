@@ -153,42 +153,20 @@ div.hidden
 	float:left;
 }
 
-.boxsmallwrapper {
-	width: 200px;
-	margin-top: 5px;
-	margin-right: 5px;
-}
-
-.boxmediumleftwrapper {
-	width: 266px;
-	margin-top: 5px;
-	margin-right: 5px;
-	float: left;
-}
-
-.boxmediumrightwrapper {
-	width: 266px;
-	margin-top: 5px;
-	float: left;
-}
-
-.boxsmallcontent {
-}
-
-.boxsmallrightwrapper {
-	width: 200px;
-	margin-top: 5px;
-	margin-left: 5px;
-}
-
-.boxsmallcontent {
-}
-
 .boxwrapper {
 	margin-top: 5px;
 }
 
-.boxfillcontent {
+.smallboxwrapper {
+	width: 200px;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+.mediumboxwrapper {
+	width: 200px;
+	margin-top: 5px;
+	margin-right: 5px;
 }
 
 /* ------- FOOTER ----------- */
@@ -208,26 +186,21 @@ div.hidden
 	overflow: hidden; /* IE HACK */
 }
 
-.nullbox {	
-	width: 537px;
-	overflow: hidden; /* IE HACK */
-}
+/*           BODY BOX            */
 
-/*           CREAM BOX            */
-
-.cbox {
+.bodybox {
 	background: url(images/boxcreambody.gif) repeat-y top left;	
 	overflow: hidden; /* IE HACK */
 }
 
-.cboxinner {
+.bodyboxinner {
 	background: url(images/boxcreambody.gif) repeat-y top right;
-	margin: 0px 0px 0px 4px;
+	margin: 0px 0px 0px 6px;
 	overflow: auto; /* IE HACK */
 
 }
 
-.cboxtop {
+.bodyboxtop {
 	background: url(images/boxcreamtop.gif) no-repeat top left;
 	height: 4px;
 	margin: 0px;
@@ -235,7 +208,7 @@ div.hidden
 	overflow: hidden; /* IE HACK */
 }
 
-.cboxtopinner {
+.bodyboxtopinner {
 	background: url(images/boxcreamtop.gif) no-repeat top right;
 	height: 4px;
 	margin: 0px 0px 0px 4px;
@@ -243,7 +216,7 @@ div.hidden
 	overflow: hidden; /* IE6 HACK */
 }
 
-.cboxbottom {
+.bodyboxbottom {
 	background: url(images/boxcreambottom.gif) no-repeat bottom left;
 	height: 5px;
 	margin: 0px;
@@ -251,28 +224,28 @@ div.hidden
 	overflow: hidden; /* IE HACK */
 }
 
-.cboxbottominner {
+.bodyboxbottominner {
 	background: url(images/boxcreambottom.gif) no-repeat top right;
 	height: 5px;
 	margin: 0px 0px 0px 4px;
 	overflow: hidden; /* IE6 HACK */
 }
 
-/*           YELLOW BOX            */
+/*           TITLE BOX            */
 
-.ybox {
+.titlebox {
 	background: url(images/boxyellowbody.gif) repeat-y top left;	
 	overflow: hidden; /* IE HACK */
 }
 
-.yboxinner {
+.titleboxinner {
 	background: url(images/boxyellowbody.gif) repeat-y top right;
 	margin: 0px 0px 0px 6px;
 	overflow: hidden; /* IE HACK */
 
 }
 
-.yboxtop {
+.titleboxtop {
 	background: url(images/boxyellowtop.gif) no-repeat top left;
 	height: 4px;
 	margin: 0px;
@@ -280,7 +253,7 @@ div.hidden
 	overflow: hidden; /* IE HACK */
 }
 
-.yboxtopinner {
+.titleboxtopinner {
 	background: url(images/boxyellowtop.gif) no-repeat top right;
 	height: 4px;
 	margin: 0px 0px 0px 4px;
@@ -288,7 +261,7 @@ div.hidden
 	overflow: hidden; /* IE6 HACK */
 }
 
-.yboxbottom {
+.titleboxbottom {
 	background: url(images/boxyellowbottom.gif) no-repeat bottom left;
 	height: 5px;
 	margin: 0px;
@@ -296,7 +269,7 @@ div.hidden
 	overflow: hidden; /* IE HACK */
 }
 
-.yboxbottominner {
+.titleboxbottominner {
 	background: url(images/boxyellowbottom.gif) no-repeat top right;
 	height: 5px;
 	margin: 0px 0px 0px 4px;
@@ -560,6 +533,11 @@ form {
 	padding: 0px;
 	margin: 0px;
 }
+.labels {
+	width: 300px;
+	padding-right: 5px;
+	float: left;
+}
 label {
 	display: block;
 	padding-right: 20px;
@@ -577,7 +555,7 @@ input.form, textarea.form {
 	border-right:1px dotted #999999;
 	display: block;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
-	width: 50%;
+	width: 98%;
 }
 input[type=checkbox] {
 	clear: left;
@@ -603,4 +581,56 @@ input hidden {
 	border-bottom:none;
 	border-left:none;
 	border-right:none;
+}
+
+/* calendar CSS */
+ 
+table.calendar {
+	width: 99%; 
+	border: 1px solid #cccccc; 
+	border-collapse: collapse; 
+	margin: 5px; 
+	padding: 2px; 
+	background-color: #ffffff;
+}
+table.calendar th {
+	background-color: #eeeeee; 
+	text-transform: none; 
+	color: #444444; 
+	padding: 4px; 
+	text-align: center; 
+	border: 1px solid #eeeeee;
+}
+table.calendar th.cell-prev {
+	text-align: left;
+}
+table.calendar th.cell-next {
+	text-align: right;
+}
+table.calendar th.cell-header {
+	width: 70px; 
+	border-bottom: 1px solid #cccccc;
+}
+table.calendar td.cell-today {
+	background-color: #e2e8f6;
+} /* today in the current month */
+table.calendar td.cell-weekend {
+	background-color: #F3F5EB;
+}
+table.calendar td {
+	border: 1px solid #cccccc;
+} 
+table.calendar td div.cell-number {
+	text-align: right; 
+	font-size: 10px; 
+	color: #444444; 
+	display: block;
+}
+table.calendar td div {
+	display: block; 
+	font-size: 10px; 
+	text-align: left;
+}
+table.calendar thead th {
+	border: 1px solid #cccccc;
 }

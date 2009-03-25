@@ -4,6 +4,8 @@ class AppController extends Controller {
     var $components = array('Acl', 'Auth');
 	var $passed = null;
 	var $icons = null;
+	var $events = null;
+	var $users = null;
 
     function beforeFilter() {
         $this->Configuration = ClassRegistry::init('Configuration');
@@ -22,22 +24,15 @@ class AppController extends Controller {
 		
 		// if the user is logged in and see if they have open timeclocks and projects
 		if ($this->Auth->user()) {
-			if (!empty($this->params['admin']) && $this->Auth->user('group_id') == 1) {
-                // Request is for an admin method and using admin routing.
-                $this->scaffold = 'admin';
-                // Set the layout to admin for various different options and menus
-                $this->layout = 'admin';
-	        }
-			$OpenTimeclocks = ClassRegistry::init('Timeclock');
-			$OpenTimeclocks = $OpenTimeclocks->openTimeclocks($this->Auth->user('id'));
-			$this->set('OpenTimeclocks', $OpenTimeclocks);
-			$UserProjects = ClassRegistry::init('Project');
-			$UserProjects = $UserProjects->userProjects($this->Auth->user('id'), $this->Auth->user('group_id'));
-			$this->set('UserProjects', $UserProjects);
-			$icons = ClassRegistry::init('Icon');
-			$icons = $icons->find('list');
-			$this->icons = $icons;
-			$this->set(compact('icons'));
+			$left['OpenTimeclocks'] = ClassRegistry::init('Timeclock')->openTimeclocks($this->Auth->user('id'));
+			$left['UserProjects'] = ClassRegistry::init('Project')->userProjects($this->Auth->user('id'), $this->Auth->user('group_id'));
+			//$left['userEvents'] = ClassRegistry::init('User')->find('all', array('conditions' => array('User.id' =>$this->Auth->user('id'))));
+			$this->set(compact('left'));
+			
+			// get icons
+			$this->icons = ClassRegistry::init('Icon')->find('list');
+			$this->set('icons', $this->icons);
+			
 			
 			// log the user's actions
 			foreach ($this->params['pass'] as $pass) {

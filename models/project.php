@@ -22,7 +22,7 @@ class Project extends AppModel {
 								'foreignKey' => 'project_id',
 								'dependent' => false
 			),
-			'Ticket' => array('className' => 'Ticket',
+			'Task' => array('className' => 'Task',
 								'foreignKey' => 'project_id',
 								'dependent' => false
 			),
